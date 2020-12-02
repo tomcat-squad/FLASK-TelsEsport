@@ -40,18 +40,90 @@ app.config['MYSQL_PASSWORD']    = ''
 app.config['MYSQL_DATABASE']    = 'tomcat_esport'
 mysql = MySQL(app)
 
-@app.route('/')
-def index():
-    form = Esport_Mobile_Legend()
-    return render_template('user/daftar.html', form=form)
-
+'''
+VIEW ADMIN START
+'''
 @app.route('/admin')
 def index_admin():
+    form = Esport_Mobile_Legend()
     conn = mysql.connection
     cur = conn.cursor()
     cur.execute('SELECT * FROM daftar_ml')
     result = cur.fetchall()
-    return render_template('admin/player.html', daftar=result)
+    return render_template('admin/player.html', daftar=result, form=form)
+
+@app.route('/edit_ML', methods=['POST'])
+def editML():
+    if request.method == 'POST':
+        get_id              = request.form['id']
+        get_Team            = request.form['Team']
+        get_Email           = request.form['Email']
+        get_Whatsapp        = request.form['Whatsapp']
+
+        get_Nama_Kapten     = request.form['NamaKapten']
+        get_IGN_Kapten      = request.form['IGN_Kapten']
+        get_Id_Kapten       = request.form['IdKapten']
+
+        get_Nama_Player_2   = request.form['NamaPlayer2']
+        get_IGN_Player_2    = request.form['IGN_Player2']
+        get_Id_Player_2     = request.form['IdPlayer2']
+            
+        get_Nama_Player_3   = request.form['NamaPlayer3']
+        get_IGN_Player_3    = request.form['IGN_Player3']
+        get_Id_Player_3     = request.form['IdPlayer3']
+
+        get_Nama_Player_4   = request.form['NamaPlayer4']
+        get_IGN_Player_4    = request.form['IGN_Player4']
+        get_Id_Player_4     = request.form['IdPlayer4']
+
+        get_Nama_Player_5   = request.form['NamaPlayer5']
+        get_IGN_Player_5    = request.form['IGN_Player5']
+        get_Id_Player_5     = request.form['IdPlayer5']
+        get_waktu           = datetime.datetime.now()
+        '''
+        Myqsl Configuration
+        '''
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute("UPDATE daftar_ml SET Team=%s, NamaKapten=%s, IGN_Kapten=%s, ID_Kapten=%s,\
+                                        NamaPlayer2=%s, IGN_Player2=%s, ID_Player2=%s,\
+                                        NamaPlayer3=%s, IGN_Player3=%s, ID_Player3=%s,\
+                                        NamaPlayer4=%s, IGN_Player4=%s, ID_Player4=%s,\
+                                        NamaPlayer5=%s, IGN_Player5=%s, ID_Player5=%s,\
+                                        Email=%s, Whatsapp=%s, Waktu=%s\
+                                        WHERE id=%s", 
+                                        (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
+                                        get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,\
+                                        get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,\
+                                        get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,\
+                                        get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,\
+                                        get_Email, get_Whatsapp, get_waktu, get_id))
+        conn.commit()
+        flash('Berhasil Edit', 'Success')
+        return redirect(url_for('index_admin'))
+    else:
+        abort(405)
+
+
+@app.route('/delete_ML/<int:get_id>', methods=['GET'])
+def deleteML(get_id):
+    conn = mysql.connection
+    cur = conn.cursor()
+    cur.execute("DELETE FROM daftar_ml WHERE id=%s" %(get_id))
+    conn.commit()
+    return redirect(url_for('index_admin'))
+
+'''
+VIEW ADMIN END
+'''
+
+'''
+VIEW USER START
+'''
+@app.route('/')
+def index():
+    form = Esport_Mobile_Legend()
+    return render_template('user/daftar.html', form=form)
 
 '''
 MOBILE LEGEND - BACKEND
@@ -123,5 +195,13 @@ def uploadML():
             abort(405)
     else:
         return render_template('user/daftar.html', form=form)
+'''
+VIEW USER END
+'''
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
