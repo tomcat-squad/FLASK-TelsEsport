@@ -1,4 +1,6 @@
-from flask import (Flask, render_template, request, redirect, url_for, flash, abort)
+from flask import (Flask, render_template, request, 
+                    redirect, url_for, flash, abort,
+                    session)
 from flask_mysql_connector import MySQL
 from werkzeug.utils import secure_filename
 from flask_wtf.csrf import CSRFProtect, CSRFError
@@ -10,12 +12,26 @@ csrf = CSRFProtect()
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 csrf.init_app(app)
+
 '''
-CSRF CUSTOM ERROR
+CUSTOM ERROR PAGE
 '''
 @app.errorhandler(CSRFError)
 def handle_csrf_error(e):
     return 'Token Expaired!', 400
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return 'Error 404', 404
+
+@app.errorhandler(405)
+def page_methods_allowed(e):
+    return 'Error 405', 405
+
+@app.errorhandler(403)
+def page_forbiden(e):
+    return 'Error 403', 403
+
 '''
 PROSES UPLOAD GAMBAR
 '''
@@ -45,73 +61,119 @@ VIEW ADMIN START
 '''
 @app.route('/admin')
 def index_admin():
-    form = Esport_Mobile_Legend()
-    conn = mysql.connection
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM daftar_ml')
-    result = cur.fetchall()
-    return render_template('admin/player.html', daftar=result, form=form)
+    get_ip  = request.environ['REMOTE_ADDR']
+    form    = Esport_Mobile_Legend()
+    return render_template('admin/index.html', form=form, get_ip=get_ip)
 
-@app.route('/edit_ML', methods=['POST'])
-def editML():
-    if request.method == 'POST':
-        get_id              = request.form['id']
-        get_Team            = request.form['Team']
-        get_Email           = request.form['Email']
-        get_Whatsapp        = request.form['Whatsapp']
-
-        get_Nama_Kapten     = request.form['NamaKapten']
-        get_IGN_Kapten      = request.form['IGN_Kapten']
-        get_Id_Kapten       = request.form['IdKapten']
-
-        get_Nama_Player_2   = request.form['NamaPlayer2']
-        get_IGN_Player_2    = request.form['IGN_Player2']
-        get_Id_Player_2     = request.form['IdPlayer2']
-            
-        get_Nama_Player_3   = request.form['NamaPlayer3']
-        get_IGN_Player_3    = request.form['IGN_Player3']
-        get_Id_Player_3     = request.form['IdPlayer3']
-
-        get_Nama_Player_4   = request.form['NamaPlayer4']
-        get_IGN_Player_4    = request.form['IGN_Player4']
-        get_Id_Player_4     = request.form['IdPlayer4']
-
-        get_Nama_Player_5   = request.form['NamaPlayer5']
-        get_IGN_Player_5    = request.form['IGN_Player5']
-        get_Id_Player_5     = request.form['IdPlayer5']
-        get_waktu           = datetime.datetime.now()
-        '''
-        Myqsl Configuration
-        '''
-        conn = mysql.connection
-        cur = conn.cursor()
-        cur.execute("UPDATE daftar_ml SET Team=%s, NamaKapten=%s, IGN_Kapten=%s, ID_Kapten=%s,\
-                                        NamaPlayer2=%s, IGN_Player2=%s, ID_Player2=%s,\
-                                        NamaPlayer3=%s, IGN_Player3=%s, ID_Player3=%s,\
-                                        NamaPlayer4=%s, IGN_Player4=%s, ID_Player4=%s,\
-                                        NamaPlayer5=%s, IGN_Player5=%s, ID_Player5=%s,\
-                                        Email=%s, Whatsapp=%s, Waktu=%s\
-                                        WHERE id=%s", 
-                                        (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
-                                        get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,\
-                                        get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,\
-                                        get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,\
-                                        get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,\
-                                        get_Email, get_Whatsapp, get_waktu, get_id))
-        conn.commit()
-        flash('Berhasil Edit', 'Success')
-        return redirect(url_for('index_admin'))
+@app.route('/login_admin', methods=['POST'])
+def login_admin():
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        get_username = request.form['username']
+        get_password = request.form['password']
+        cur = mysql.new_cursor(dictionary=True)
+        cur.execute("SELECT * FROM admin WHERE username=%s AND password=%s", (get_username, get_password))
+        account = cur.fetchone()
+        if account:
+            session['admin'] = True
+            session['username'] = account['username']
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Username Atau Password Salah', 'Failed')
+            return redirect(url_for('index_admin'))
     else:
         abort(405)
 
+@app.route('/logout_admin', methods=['GET'])
+def logout_admin():
+    session.pop('admin', None)
+    session.pop('username', None)
+    flash('Anda Telah Keluar', 'Logout')
+    return redirect(url_for('index_admin'))
+
+@app.route('/dashboard')
+def dashboard():
+    if 'admin' in session:
+        form    = Esport_Mobile_Legend()
+        '''
+        Myqsl Configuration
+        '''
+        conn    = mysql.connection
+        cur     = conn.cursor()
+        cur.execute('SELECT * FROM daftar_ml')
+        result = cur.fetchall()
+        return render_template('admin/BerhasilLogin/player.html', form=form, daftar=result, )
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+
+@app.route('/edit_ML', methods=['POST'])
+def editML():
+    if 'admin' in session:
+        if request.method == 'POST':
+            get_id              = request.form['id']
+            get_Team            = request.form['Team']
+            get_Email           = request.form['Email']
+            get_Whatsapp        = request.form['Whatsapp']
+
+            get_Nama_Kapten     = request.form['NamaKapten']
+            get_IGN_Kapten      = request.form['IGN_Kapten']
+            get_Id_Kapten       = request.form['IdKapten']
+
+            get_Nama_Player_2   = request.form['NamaPlayer2']
+            get_IGN_Player_2    = request.form['IGN_Player2']
+            get_Id_Player_2     = request.form['IdPlayer2']
+                
+            get_Nama_Player_3   = request.form['NamaPlayer3']
+            get_IGN_Player_3    = request.form['IGN_Player3']
+            get_Id_Player_3     = request.form['IdPlayer3']
+
+            get_Nama_Player_4   = request.form['NamaPlayer4']
+            get_IGN_Player_4    = request.form['IGN_Player4']
+            get_Id_Player_4     = request.form['IdPlayer4']
+
+            get_Nama_Player_5   = request.form['NamaPlayer5']
+            get_IGN_Player_5    = request.form['IGN_Player5']
+            get_Id_Player_5     = request.form['IdPlayer5']
+            get_waktu           = datetime.datetime.now()
+            '''
+            Myqsl Configuration
+            '''
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("UPDATE daftar_ml SET Team=%s, NamaKapten=%s, IGN_Kapten=%s, ID_Kapten=%s,\
+                                            NamaPlayer2=%s, IGN_Player2=%s, ID_Player2=%s,\
+                                            NamaPlayer3=%s, IGN_Player3=%s, ID_Player3=%s,\
+                                            NamaPlayer4=%s, IGN_Player4=%s, ID_Player4=%s,\
+                                            NamaPlayer5=%s, IGN_Player5=%s, ID_Player5=%s,\
+                                            Email=%s, Whatsapp=%s, Waktu=%s\
+                                            WHERE id=%s", 
+                                            (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
+                                            get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,\
+                                            get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,\
+                                            get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,\
+                                            get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,\
+                                            get_Email, get_Whatsapp, get_waktu, get_id))
+            conn.commit()
+            flash('Berhasil Edit', 'Success')
+            return redirect(url_for('dashboard'))
+        else:
+            abort(405)
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
 
 @app.route('/delete_ML/<int:get_id>', methods=['GET'])
 def deleteML(get_id):
-    conn = mysql.connection
-    cur = conn.cursor()
-    cur.execute("DELETE FROM daftar_ml WHERE id=%s" %(get_id))
-    conn.commit()
-    return redirect(url_for('index_admin'))
+    if 'admin' in session:
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute("DELETE FROM daftar_ml WHERE id=%s" %(get_id))
+        conn.commit()
+        flash('Berhasil Hapus Team', 'Success')
+        return redirect(url_for('dashboard'))
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
 
 '''
 VIEW ADMIN END
@@ -163,7 +225,7 @@ def uploadML():
             if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
                 try:
                     filename = get_BuktiPembayaran.filename
-                    get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_Team + '.jpg'))
+                    get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_Team + str(get_waktu.strftime("-%f")) + '.jpg'))
                 except:
                     abort(403)
                 '''
@@ -184,7 +246,7 @@ def uploadML():
                                     get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
                                     get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
                                     get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
-                                    get_Email, get_Whatsapp, get_Team + '.jpg', get_waktu))
+                                    get_Email, get_Whatsapp, get_Team + str(get_waktu.strftime("-%f")) + '.jpg', get_waktu))
                 conn.commit()
                 flash('Berhasil Terdaftar', 'Success')
                 return redirect(url_for('index'))
