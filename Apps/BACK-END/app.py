@@ -101,7 +101,26 @@ def dashboard():
         cur     = conn.cursor()
         cur.execute('SELECT * FROM daftar_ml')
         result = cur.fetchall()
-        return render_template('admin/BerhasilLogin/player.html', form=form, daftar=result, )
+        return '''<a href="/admin/MobileLegend">Mobile Legend</a>'''
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+
+'''
+ADMIN MOBILE LEGEND - START
+'''
+@app.route('/admin/MobileLegend')
+def dashboardML():
+    if 'admin' in session:
+        form    = Esport_Mobile_Legend()
+        '''
+        Myqsl Configuration
+        '''
+        conn    = mysql.connection
+        cur     = conn.cursor()
+        cur.execute('SELECT * FROM daftar_ml')
+        result = cur.fetchall()
+        return render_template('admin/BerhasilLogin/MobileLegend.html', form=form, daftar=result, )
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -155,7 +174,7 @@ def editML():
                                             get_Email, get_Whatsapp, get_waktu, get_id))
             conn.commit()
             flash('Berhasil Edit', 'Success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('dashboardML'))
         else:
             abort(405)
     else:
@@ -170,10 +189,13 @@ def deleteML(get_id):
         cur.execute("DELETE FROM daftar_ml WHERE id=%s" %(get_id))
         conn.commit()
         flash('Berhasil Hapus Team', 'Success')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboardML'))
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
+'''
+ADMIN MOBILE LEGEND - END
+'''
 
 '''
 VIEW ADMIN END
@@ -182,14 +204,38 @@ VIEW ADMIN END
 '''
 VIEW USER START
 '''
-@app.route('/')
-def index():
-    form = Esport_Mobile_Legend()
-    return render_template('user/daftar.html', form=form)
 
 '''
-MOBILE LEGEND - BACKEND
+A J A X START
 '''
+@app.route('/get_turnament/<int:turnament>', methods=['GET'])
+def getTurnament(turnament):
+    conn    = mysql.connection
+    cur     = conn.cursor()
+    cur.execute("SELECT * FROM turnament WHERE Status=%s;" %(turnament))
+    result_turnament = cur.fetchall()
+    return render_template('user/ajax.html', ajax_turnament=result_turnament)
+
+@app.route('/')
+def index():
+    conn            = mysql.connection
+    #GET Data Table Turnament
+    cur_turnament   = conn.cursor()
+    cur_turnament.execute("SELECT * FROM turnament WHERE Status=1;")
+    result_turnament = cur_turnament.fetchall()
+    return render_template('user/home.html', turnament=result_turnament)
+'''
+A J A X END
+'''
+
+'''
+USER MOBILE LEGEND - START
+'''
+@app.route('/register_MLBB')
+def register_ML():
+    form = Esport_Mobile_Legend()
+    return render_template('user/register.html', form=form)
+
 @app.route('/upload_ML', methods=['POST'])
 def uploadML():
     form = Esport_Mobile_Legend()
