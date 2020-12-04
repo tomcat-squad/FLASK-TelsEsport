@@ -214,8 +214,30 @@ def getTurnament(turnament):
     cur     = conn.cursor()
     cur.execute("SELECT * FROM turnament WHERE Status=%s;" %(turnament))
     result_turnament = cur.fetchall()
-    return render_template('user/ajax.html', ajax_turnament=result_turnament)
+    return render_template('user/ajax_turnament.html', ajax_turnament=result_turnament)
 
+@app.route('/get_team/MLBB', methods=['GET'])
+def getTeamML():
+    conn = mysql.connection
+    cur  = conn.cursor()
+    cur.execute("SELECT Team,NamaKapten FROM daftar_ml;")
+    result_team_ML = cur.fetchall()
+    return render_template('user/ajax_team.html', ajax_team=result_team_ML)
+
+@app.route('/get_team/PUBG', methods=['GET'])
+def getTeamPubg():
+    conn = mysql.connection
+    cur  = conn.cursor()
+    cur.execute("SELECT Team,NamaKapten FROM daftar_pubg;")
+    result_team_PUBG = cur.fetchall()
+    return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
+'''
+A J A X END
+'''
+
+'''
+INDEX START
+'''
 @app.route('/')
 def index():
     conn            = mysql.connection
@@ -224,9 +246,14 @@ def index():
     cur_turnament.execute("SELECT * FROM turnament WHERE Status=1;")
     result_turnament = cur_turnament.fetchall()
     return render_template('user/home.html', turnament=result_turnament)
-'''
-A J A X END
-'''
+
+@app.route('/team')
+def index_team():
+    conn        = mysql.connection
+    cur_team    = conn.cursor()
+    cur_team.execute("SELECT Team, NamaKapten FROM daftar_ml;")
+    result_team  = cur_team.fetchall()
+    return render_template('user/team.html', team=result_team)
 
 '''
 USER MOBILE LEGEND - START
