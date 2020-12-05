@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0 ;
+    margin: 0 ;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #1D1C1E;
+}
+
+.admin-logo {
+    margin : 50px auto ;
+    margin-top: 60px ;
+    width: 250px ;
+    color : #FFFFFF;
+    display: grid ;
+    grid-template-areas: "gambar judul" "gambar bawah";
+    
+}
+
+.admin-logo img {
+    grid-area: gambar ;
+    width: 50px ;
+    height: 50px ;
+}
+
+.admin-logo h2 {
+    grid-area: judul ;
+    margin-top : -5px ;
+}
+
+.admin-logo p {
+    grid-area: bawah ;
+}
+
+
+.box-login {
+    position: absolute ;
+    top: 50% ;
+    left: 50% ;
+    transform: translate(-50% , -50% );
+    width: 400px ;
+    background-color: #0F0F0F ;
+    border: 1px solid #2A292A ;
+    border-radius : 10px ;
+}
+
+.box-login p {
+    text-align : center ;
+    margin-top: -20px ;
+    margin-bottom: 20px ;
+    color : #FFFFFF;
+    font-size: 13px ;
+}
+
+.box-login h3 {
+    text-align : center ;
+    margin-top: 20px ;
+    color : #FFFFFF;
+    font-size: 25px ;
+}
+
+form {
+text-align: center ;
+margin: 20px ;
+display: flex ;
+flex-direction: column ;
+}
+
+.box-login form p {
+    text-align: left ;
+    margin: 10px 0 ;
+    color : #FFFFFF;
+    margin-left: 25px ;
+    text-transform: capitalize ;
+
+}
+
+.user {
+    background-color: #2A292A ;
+    margin: 10px auto ;
+    width: 300px ;
+    padding: 4px ;
+    color: #FFFFFF;
+    border-radius: 5px ;
+}
+
+.password {
+    background-color: #2A292A ;
+    margin: 10px auto ;
+    width: 300px ;
+    padding: 4px ;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    border-radius: 5px ;
+}
+
+.tombol {
+    margin: 10px auto ;
+    width: 310px ;
+    padding:  2px ;
+    text-transform: uppercase ;
+    color: #FFFFFF;
+    background-color: #5600E7 ;
+    cursor: pointer;
+    border: none ;
+}
+
+.garis-admin {
+    width: 200px ;
+    margin: 20px auto ;
+    border: 0.3px solid #FFFFFF ;
+}
+
+
+
