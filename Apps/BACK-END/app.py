@@ -36,7 +36,7 @@ def page_forbiden(e):
 PROSES UPLOAD GAMBAR
 '''
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
-UPLOAD_FOLDER_BUKTI = 'assets/static/bukti_transfer'
+UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
 app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 
