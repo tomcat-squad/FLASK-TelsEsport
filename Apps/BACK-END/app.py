@@ -359,7 +359,7 @@ def uploadML():
         else:
             abort(405)
     else:
-        return render_template('user/daftar.html', form=form)
+        return render_template('user/register.html', form=form)
 '''
 VIEW USER END
 '''
