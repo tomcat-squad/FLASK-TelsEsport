@@ -68,6 +68,30 @@ def index_admin():
 @app.route('/login_admin', methods=['POST'])
 def login_admin():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        '''
+        Logger & Blokir Ip START
+        '''
+        #Get IP & Waktu
+        get_ip  = request.environ['REMOTE_ADDR']
+        get_waktu = datetime.datetime.now()
+        logger = open('static/logger_admin.txt', 'a')
+        logger.write(f'{get_ip}\n')
+        logger.close()
+
+        #Baca File Logger
+        logger = open('static/logger_admin.txt', 'r')
+        logger_read = logger.readlines()
+        logger.close()
+
+        #Blacklist Ip Di Htaccess
+        if len(logger_read) == 5:
+            htaccess = open('static/.htaccess', 'a')
+            htaccess.write(f'deny from {logger_read[0]}allow from all\n')
+            htaccess.close()
+            os.remove('static/logger_admin.txt')
+        '''
+        Logger & Blokir Ip END
+        '''
         get_username = request.form['username']
         get_password = request.form['password']
         cur = mysql.new_cursor(dictionary=True)
@@ -76,6 +100,7 @@ def login_admin():
         if account:
             session['admin'] = True
             session['username'] = account['username']
+            os.remove('static/logger_admin.txt')
             return redirect(url_for('dashboard'))
         else:
             flash('Username Atau Password Salah', 'Failed')
