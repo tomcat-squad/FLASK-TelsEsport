@@ -222,7 +222,10 @@ def getTeamML():
     cur  = conn.cursor()
     cur.execute("SELECT Team,NamaKapten FROM daftar_ml;")
     result_team_ML = cur.fetchall()
-    return render_template('user/ajax_team.html', ajax_team=result_team_ML)
+    if len(result_team_ML) > 0:
+        return render_template('user/ajax_team.html', ajax_team=result_team_ML)
+    else:
+        return 'Cooming Soon'
 
 @app.route('/get_team/PUBG', methods=['GET'])
 def getTeamPubg():
@@ -230,7 +233,10 @@ def getTeamPubg():
     cur  = conn.cursor()
     cur.execute("SELECT Team,NamaKapten FROM daftar_pubg;")
     result_team_PUBG = cur.fetchall()
-    return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
+    if len(result_team_PUBG) > 0:
+        return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
+    else:
+        return 'Cooming Soon'
 '''
 A J A X END
 '''
@@ -249,11 +255,10 @@ def index():
 
 @app.route('/team')
 def index_team():
-    conn        = mysql.connection
-    cur_team    = conn.cursor()
-    cur_team.execute("SELECT Team, NamaKapten FROM daftar_ml;")
-    result_team  = cur_team.fetchall()
-    return render_template('user/team.html', team=result_team)
+    return render_template('user/team.html')
+'''
+INDEX END
+'''
 
 '''
 USER MOBILE LEGEND - START
