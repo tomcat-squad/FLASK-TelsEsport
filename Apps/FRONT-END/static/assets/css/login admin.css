@@ -12,7 +12,7 @@ body {
 
 .admin-logo {
     margin : 50px auto ;
-    margin-top: 60px ;
+    margin-bottom: 250px;
     width: 250px ;
     color : #FFFFFF;
     display: grid ;
@@ -35,10 +35,8 @@ body {
     grid-area: bawah ;
 }
 
-
 .box-login {
     position: absolute ;
-    top: 50% ;
     left: 50% ;
     transform: translate(-50% , -50% );
     width: 400px ;
@@ -63,15 +61,15 @@ body {
 }
 
 form {
-text-align: center ;
-margin: 20px ;
-display: flex ;
-flex-direction: column ;
+    text-align: center ;
+    margin: 20px ;
+    display: flex ;
+    flex-direction: column ;
 }
 
-.box-login form p {
+.box-login form label {
     text-align: left ;
-    margin: 10px 0 ;
+    margin: 7px 0 ;
     color : #FFFFFF;
     margin-left: 25px ;
     text-transform: capitalize ;
@@ -80,32 +78,35 @@ flex-direction: column ;
 
 .user {
     background-color: #2A292A ;
-    margin: 10px auto ;
+    margin: auto ;
     width: 300px ;
     padding: 4px ;
     color: #FFFFFF;
     border-radius: 5px ;
+    margin-bottom: 10px;
 }
 
 .password {
     background-color: #2A292A ;
-    margin: 10px auto ;
+    margin: auto ;
     width: 300px ;
     padding: 4px ;
     color: #FFFFFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
     border-radius: 5px ;
+    margin-bottom: 15px;
 }
 
 .tombol {
     margin: 10px auto ;
     width: 310px ;
-    padding:  2px ;
+    padding:  5px ;
     text-transform: uppercase ;
     color: #FFFFFF;
     background-color: #5600E7 ;
     cursor: pointer;
     border: none ;
+    border-radius: 5px;
 }
 
 .garis-admin {
