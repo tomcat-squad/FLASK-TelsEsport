@@ -18,19 +18,33 @@ CUSTOM ERROR PAGE
 '''
 @app.errorhandler(CSRFError)
 def handle_csrf_error(e):
-    return 'Token Expaired!', 400
+    code_error = '400'
+    pesan_error = 'TOKEN EXPAIRED, REFRESH PAGE'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 400
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return 'Error 404', 404
+    code_error = '404'
+    pesan_error = 'PAGE NOT FOUND'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 404
 
 @app.errorhandler(405)
 def page_methods_allowed(e):
-    return 'Error 405', 405
+    code_error = '405'
+    pesan_error = 'METHOD NOT ALLOWED'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 405
 
 @app.errorhandler(403)
 def page_forbiden(e):
-    return 'Error 403', 403
+    code_error = '403'
+    pesan_error = 'FORBIDEN :)'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 403
+
+@app.errorhandler(500)
+def page_server_error(e):
+    code_error = '500'
+    pesan_error = 'SERVER ERROR :('
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 500
 
 '''
 PROSES UPLOAD GAMBAR
