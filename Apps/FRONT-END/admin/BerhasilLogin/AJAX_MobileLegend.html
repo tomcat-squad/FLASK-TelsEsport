@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <title>Tels Esport</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="">
+            <h1 class="text-center">Daftar Team Mobile Legend</h1>
+            {% with message = get_flashed_messages(category_filter=["Success","Failed"])%}
+            {% if message %}
+            {%for message in message %}
+            <p class="text-center">{{message}}</p>
+            {% endfor %}
+            {%endif%}
+            {% endwith %}
+            <table class="table table-responsive table table-bordered text-center">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Team</th>
+
+                    <th>Nama Kapten</th>
+                    <th>IGN Kapten</th>
+                    <th>ID Kapten</th>
+
+                    <th>Nama Player 2</th>
+                    <th>IGN Player 2</th>
+                    <th>ID Player 2</th>
+
+                    <th>Nama Player 3</th>
+                    <th>IGN Player 3</th>
+                    <th>ID Player 3</th>
+
+                    <th>Nama Player 4</th>
+                    <th>IGN Player 4</th>
+                    <th>ID Player 4</th>
+
+                    <th>Nama Player 5</th>
+                    <th>IGN Player 5</th>
+                    <th>ID Player 5</th>
+
+                    <th>Email</th>
+                    <th>Whatsapp</th>
+                    <th>Bukti Transfer</th>
+                    <th>Waktu</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in daftar %}
+                  <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td>{{row[6]}}</td>
+                    <td>{{row[7]}}</td>
+                    <td>{{row[8]}}</td>
+                    <td>{{row[9]}}</td>
+                    <td>{{row[10]}}</td>
+                    <td>{{row[11]}}</td>
+                    <td>{{row[12]}}</td>
+                    <td>{{row[13]}}</td>
+                    <td>{{row[14]}}</td>
+                    <td>{{row[15]}}</td>
+                    <td>{{row[16]}}</td>
+                    <td>{{row[17]}}</td>
+                    <td>{{row[18]}}</td>
+                    <td>
+                      <a href="../static/assets/bukti_transfer/{{row[19]}}">
+                        <img src="../static/assets/bukti_transfer/{{row[19]}}" alt="Bukti Transfer" width="150" height="150">
+                      </a>
+                    </td>
+                    <td>{{row[20]}}</td>
+                    <td>
+                      <a href="/edit_ML/{{row.0}}" class="btn btn-primary btn-xs fa fa-pencil-square-o" data-toggle="modal" data-target="#modaledit{{row.0}}">Edit</a>
+                      <a href="/delete_ML/{{row.0}}" class="btn btn-danger btn-xs fa fa-trash" onclick="return confirm('Apakah Yakin Mau Hapus Materi?')">Delete</a>              
+                    </td>
+                  </tr>
+                  <div id="modaledit{{row.0}}" class="modal fade text-dark" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Edit Team</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body text-dark">
+                              <form action="{{url_for('editML')}}" method="POST">
+                                {{ form.csrf_token }}
+                                <input type="hidden" name="id" value="{{row.0}}">
+                                <div class="form-group">
+                                    <label for="Team">Nama Team</label>
+                                    <input type="text" class="form-control" name="Team" id="namaTeam" value="{{row.1}}" placeholder="{{row.1}}" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="Email">Email</label>
+                                        <input type="email" class="form-control" name="Email" id="email" value="{{row.17}}" placeholder="{{row.17}}" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="Whatsapp">Whatsapp</label>
+                                        <input type="number" class="form-control" name="Whatsapp" id="whatsapp" value="{{row.18}}" placeholder="{{row.18}}" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="Kapten">Nama Kapten</label>
+                                        <input type="text" class="form-control" name="NamaKapten" value="{{row.2}}" placeholder="{{row.2}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IGN_Kapten">IGN_Kapten</label>
+                                        <input type="text" class="form-control" name="IGN_Kapten" value="{{row.3}}" placeholder="{{row.3}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IdKapten">ID Kapten</label>
+                                        <input type="number" class="form-control" name="IdKapten" value="{{row.4}}" placeholder="{{row.4}}" required>
+                                    </div>
+                                </div>
+                
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="NamaPlayer2">Nama Player 2</label>
+                                        <input type="text" class="form-control" name="NamaPlayer2" value="{{row.5}}" placeholder="{{row.5}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IGN_Player2">IGN_Player 2</label>
+                                        <input type="text" class="form-control" name="IGN_Player2" value="{{row.6}}" placeholder="{{row.6}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ID Player 2">ID Player 2</label>
+                                        <input type="number" class="form-control" name="IdPlayer2" value="{{row.7}}" placeholder="{{row.7}}" required>
+                                    </div>
+                                </div>
+                
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="NamaPlayer3">Nama Player 3</label>
+                                        <input type="text" class="form-control" name="NamaPlayer3" value="{{row.8}}" placeholder="{{row.8}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IGN_Player3">IGN_Player 3</label>
+                                        <input type="text" class="form-control" name="IGN_Player3" value="{{row.9}}" placeholder="{{row.9}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ID Player 3">ID Player 3</label>
+                                        <input type="number" class="form-control" name="IdPlayer3" value="{{row.10}}" placeholder="{{row.10}}" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="NamaPlayer4">Nama Player 4</label>
+                                        <input type="text" class="form-control" name="NamaPlayer4" value="{{row.11}}" placeholder="{{row.11}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IGN_Player4">IGN_Player 4</label>
+                                        <input type="text" class="form-control" name="IGN_Player4" value="{{row.12}}" placeholder="{{row.12}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ID Player 4">ID Player 4</label>
+                                        <input type="number" class="form-control" name="IdPlayer4" value="{{row.13}}" placeholder="{{row.13}}" required>
+                                    </div>
+                                </div>
+                
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="NamaPlayer5">Nama Player 5</label>
+                                        <input type="text" class="form-control" name="NamaPlayer5" value="{{row.14}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="IGN_Player5">IGN_Player 5</label>
+                                        <input type="text" class="form-control" name="IGN_Player5" value="{{row.15}}" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ID Player 5">ID Player 5</label>
+                                        <input type="number" class="form-control" name="IdPlayer5" value="{{row.16}}" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn text-white form-group col-md-12" style="background-color: #9fcab0;">Sumbit</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                  {%endfor%}
+                </tbody>
+              </table>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
