@@ -18,25 +18,39 @@ CUSTOM ERROR PAGE
 '''
 @app.errorhandler(CSRFError)
 def handle_csrf_error(e):
-    return 'Token Expaired!', 400
+    code_error = '400'
+    pesan_error = 'TOKEN EXPAIRED, REFRESH PAGE'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 400
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return 'Error 404', 404
+    code_error = '404'
+    pesan_error = 'PAGE NOT FOUND'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 404
 
 @app.errorhandler(405)
 def page_methods_allowed(e):
-    return 'Error 405', 405
+    code_error = '405'
+    pesan_error = 'METHOD NOT ALLOWED'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 405
 
 @app.errorhandler(403)
 def page_forbiden(e):
-    return 'Error 403', 403
+    code_error = '403'
+    pesan_error = 'FORBIDEN :)'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 403
+
+@app.errorhandler(500)
+def page_server_error(e):
+    code_error = '500'
+    pesan_error = 'SERVER ERROR :('
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 500
 
 '''
 PROSES UPLOAD GAMBAR
 '''
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
-UPLOAD_FOLDER_BUKTI = 'assets/static/bukti_transfer'
+UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
 app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 
@@ -101,7 +115,7 @@ def login_admin():
             session['admin'] = True
             session['username'] = account['username']
             os.remove('static/logger_admin.txt')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index_dashboard'))
         else:
             flash('Username Atau Password Salah', 'Failed')
             return redirect(url_for('index_admin'))
@@ -116,17 +130,9 @@ def logout_admin():
     return redirect(url_for('index_admin'))
 
 @app.route('/dashboard')
-def dashboard():
+def index_dashboard():
     if 'admin' in session:
-        form    = Esport_Mobile_Legend()
-        '''
-        Myqsl Configuration
-        '''
-        conn    = mysql.connection
-        cur     = conn.cursor()
-        cur.execute('SELECT * FROM daftar_ml')
-        result = cur.fetchall()
-        return '''<a href="/admin/MobileLegend">Mobile Legend</a>'''
+        return render_template('admin/BerhasilLogin/dashboard.html')
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -134,7 +140,7 @@ def dashboard():
 '''
 ADMIN MOBILE LEGEND - START
 '''
-@app.route('/admin/MobileLegend')
+@app.route('/MobileLegend')
 def dashboardML():
     if 'admin' in session:
         form    = Esport_Mobile_Legend()
@@ -145,7 +151,7 @@ def dashboardML():
         cur     = conn.cursor()
         cur.execute('SELECT * FROM daftar_ml')
         result = cur.fetchall()
-        return render_template('admin/BerhasilLogin/MobileLegend.html', form=form, daftar=result, )
+        return render_template('admin/BerhasilLogin/dashboard_MobileLegend.html', form=form, daftar=result, )
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -262,6 +268,7 @@ def getTeamPubg():
         return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
     else:
         return 'Cooming Soon'
+
 '''
 A J A X END
 '''
