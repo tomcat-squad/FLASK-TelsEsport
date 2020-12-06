@@ -151,7 +151,7 @@ def dashboardML():
         cur     = conn.cursor()
         cur.execute('SELECT * FROM daftar_ml')
         result = cur.fetchall()
-        return render_template('admin/BerhasilLogin/Dashboard_MobileLegend.html', form=form, daftar=result, )
+        return render_template('admin/BerhasilLogin/dashboard_MobileLegend.html', form=form, daftar=result, )
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
