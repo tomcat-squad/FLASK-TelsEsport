@@ -115,7 +115,7 @@ def login_admin():
             session['admin'] = True
             session['username'] = account['username']
             os.remove('static/logger_admin.txt')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index_dashboard'))
         else:
             flash('Username Atau Password Salah', 'Failed')
             return redirect(url_for('index_admin'))
@@ -130,17 +130,9 @@ def logout_admin():
     return redirect(url_for('index_admin'))
 
 @app.route('/dashboard')
-def dashboard():
+def index_dashboard():
     if 'admin' in session:
-        form    = Esport_Mobile_Legend()
-        '''
-        Myqsl Configuration
-        '''
-        conn    = mysql.connection
-        cur     = conn.cursor()
-        cur.execute('SELECT * FROM daftar_ml')
-        result = cur.fetchall()
-        return '''<a href="/admin/MobileLegend">Mobile Legend</a>'''
+        return render_template('admin/BerhasilLogin/dashboard.html')
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -148,7 +140,7 @@ def dashboard():
 '''
 ADMIN MOBILE LEGEND - START
 '''
-@app.route('/admin/MobileLegend')
+@app.route('/MobileLegend')
 def dashboardML():
     if 'admin' in session:
         form    = Esport_Mobile_Legend()
@@ -159,7 +151,7 @@ def dashboardML():
         cur     = conn.cursor()
         cur.execute('SELECT * FROM daftar_ml')
         result = cur.fetchall()
-        return render_template('admin/BerhasilLogin/MobileLegend.html', form=form, daftar=result, )
+        return render_template('admin/BerhasilLogin/Dashboard_MobileLegend.html', form=form, daftar=result, )
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -276,6 +268,7 @@ def getTeamPubg():
         return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
     else:
         return 'Cooming Soon'
+
 '''
 A J A X END
 '''
