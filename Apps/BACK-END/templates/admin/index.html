@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../static/assets/css/login admin.css" />
-        <title>login</title>
+        <title>Tels Esport - Admin</title>
     </head>
     <body>
         <div class="admin-logo">
@@ -12,21 +12,27 @@
             <h2>TELS E-SPORT</h2>
             <p>ADMIN LOGIN PAGE</p>
         </div>
-
         <div class="box-login">
-            <h3>sign in</h3>
+            <h3>Sing In</h3>
             <div class="garis-admin"></div>
             <form action="{{url_for('login_admin')}}" method="POST">
-                {{ form.csrf_token }} {% with message = get_flashed_messages(category_filter=["Success","Failed","Logout"])%} {% if message %} {%for message in message %}
+                {{ form.csrf_token }} 
+                {% with message = get_flashed_messages(category_filter=["Success","Failed","Logout"])%} 
+                {% if message %} 
+                {%for message in message %}
                 <p>{{message}}</p>
-                {% endfor %} {%endif%} {% endwith %} {{get_ip}}
-                <p>username</p>
-                <input type="text" class="user" name="username" placeholder="tomcatsquad" />
-                <p>password</p>
-                <input type="password" class="password" placeholder="password" name="password" />
+                {% endfor %} 
+                {%endif%} 
+                {% endwith %}
+                <label for="Username">Username</label>
+                <input type="text" class="user" placeholder="tomcatsquad" name="username" />
+
+                <label for="Password">Password</label>
+                <input type="password" class="password" placeholder="**********" name="password" />
+
                 <button type="sumbit" class="tombol" value="login">LOGIN</button>
             </form>
-            <p style="color: #919191;">{{get_ip}}</p>
+            <p style="color: #8b8b8b; font-size: 8pt;">{{get_ip}}</p>
         </div>
     </body>
 </html>
