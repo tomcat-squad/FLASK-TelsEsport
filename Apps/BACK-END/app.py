@@ -54,6 +54,10 @@ UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
 ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
 app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 
+UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail'
+ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
+app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
+
 '''
 ALLOWED EXTENSION
 '''
@@ -140,7 +144,7 @@ def index_dashboard():
 '''
 ADMIN MOBILE LEGEND - START
 '''
-@app.route('/MobileLegend')
+@app.route('/dashboard_MobileLegend')
 def dashboardML():
     if 'admin' in session:
         form    = Esport_Mobile_Legend()
@@ -226,6 +230,115 @@ def deleteML(get_id):
         return redirect(url_for('index_admin'))
 '''
 ADMIN MOBILE LEGEND - END
+'''
+
+'''
+ADMIN BUAT TURNAMENT - START
+'''
+@app.route('/dashboard_Turnament')
+def dashboardTurnament():
+    if 'admin' in session:
+        form = Esport_Mobile_Legend()
+        conn    = mysql.connection
+        cur     = conn.cursor()
+        cur.execute("SELECT * FROM turnament;")
+        result_turnament = cur.fetchall()
+        return render_template('admin/BerhasilLogin/dashboard_turnament.html', turnament=result_turnament, form=form)
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+
+@app.route('/uploadTurnament', methods=['POST'])
+def uploadTurnament():
+    if 'admin' in session:
+        if request.method == 'POST':
+            get_thumbnail   = request.files['thumbnail']
+            get_judul       = request.form['judul']
+            get_genre       = request.form['genre']
+            get_biaya       = request.form['biaya']
+            get_slot        = request.form['slot']
+            get_hadiah      = request.form['hadiah']
+            get_tanggal     = request.form['waktu']
+            date_time       = datetime.datetime.now()
+            get_status      = 1
+            if get_thumbnail and allowed_file(get_thumbnail.filename):
+                try:
+                    filename = get_thumbnail.filename
+                    get_thumbnail.save(os.path.join(app.config['UPLOAD_FOLDER_THUMBNAIL'], get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg'))
+                except:
+                    abort(403)
+            '''
+            Myqsl Configuration
+            '''
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("INSERT INTO turnament (Thumbnail, Judul, Genre, Biaya, Slot, \
+                                                Hadiah, Waktu, Status) \
+                                                VALUES (%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                                (get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg', get_judul, 
+                                                get_genre, get_biaya, get_slot, get_hadiah, get_tanggal, get_status))
+            conn.commit()
+            flash('Berhasil Buat Turnament', 'Success')
+            return redirect(url_for('dashboardTurnament'))
+        else:
+            abort(405)
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+        
+@app.route('/edit_Turnament', methods=['POST'])
+def editTurnament():
+    if 'admin' in session:
+        if request.method == 'POST':
+            get_id          = request.form['id']
+            get_thumbnail   = request.files['thumbnail']
+            get_judul       = request.form['judul']
+            get_genre       = request.form['genre']
+            get_biaya       = request.form['biaya']
+            get_slot        = request.form['slot']
+            get_hadiah      = request.form['hadiah']
+            get_tanggal     = request.form['waktu']
+            get_status      = request.form['status']
+            date_time       = datetime.datetime.now()
+            if get_thumbnail and allowed_file(get_thumbnail.filename):
+                try:
+                    filename = get_thumbnail.filename
+                    get_thumbnail.save(os.path.join(app.config['UPLOAD_FOLDER_THUMBNAIL'], get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg'))
+                except:
+                    abort(403)
+            '''
+            Myqsl Configuration
+            '''
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("UPDATE turnament SET Thumbnail=%s, Judul=%s, Genre=%s, Biaya=%s, Slot=%s, \
+                                                Hadiah=%s, Waktu=%s, Status=%s WHERE id=%s",
+                                                (get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg', get_judul, get_genre, \
+                                                get_biaya, get_slot, get_hadiah, get_tanggal, get_status, get_id))
+            conn.commit()
+            flash('Berhasil Edit', 'Success')
+            return redirect(url_for('dashboardTurnament'))  
+        else:
+            abort(405)                             
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+
+@app.route('/delete_Turnament/<int:get_id>', methods=['GET'])
+def deleteTurnament(get_id):
+    if 'admin' in session:
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute("DELETE FROM turnament WHERE id=%s" %(get_id))
+        conn.commit()
+        flash('Berhasil Hapus Team', 'Success')
+        return redirect(url_for('dashboardTurnament'))
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))   
+        
+'''
+ADMIN BUAT TURNAMENT - END
 '''
 
 '''
