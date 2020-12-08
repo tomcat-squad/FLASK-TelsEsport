@@ -95,7 +95,7 @@ footer {
 
 .section-bawah-footer {
     margin: 10px auto ;
-    max-width: 600px ;
+    width: 600px ;
     display: flex ;
     flex-direction: column ;
     text-align: center ;
@@ -152,7 +152,7 @@ footer {
 @media only screen and (max-width : 600px ){
     .section-atas-footer {
         margin: 12px auto ;
-        width: 400px ;
+        width: 300px ;
         justify-content: space-around ;
     }
 
@@ -162,15 +162,23 @@ footer {
 
     .sosmed-footer {
         display: flex ;
-        justify-content: space-around ;
+        justify-content: center ;
+        /* justify-content: space-around ; */
         flex-direction: row ;
         width: 300px ;
         margin: 20px auto ;
     }
 
     .sosmed-footer img {
-        height: 50px ;
-        width: 50px ;
+        height: 30px ;
+        width: 30px ;
+        margin : 0 10px ;
+    }
+
+    .section-bawah-footer {
+        margin: auto ;
+        width: 300px ;
+        margin-bottom: 20px ;
     }
 
 }
