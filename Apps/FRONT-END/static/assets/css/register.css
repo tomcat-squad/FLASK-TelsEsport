@@ -16,8 +16,10 @@ body {
 
 .tombol-balik {
     background-color: #e70000;
-    width: 90px;
+    width: 100px;
     margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 12pt;
 }
 
 .tombol-balik img {
@@ -239,7 +241,7 @@ body {
     }
 
     .form-login-register {
-        width: 330px;
+        width: 390px;
         overflow-x: hidden;
     }
 
