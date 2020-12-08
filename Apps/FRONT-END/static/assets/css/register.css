@@ -1,310 +1,317 @@
 * {
-    margin: 0 ;
-    padding: 0 ;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #1D1C1E ;
+    background-color: #1d1c1e;
 }
 
 .hero-register {
     background-image: url("../img/hero\ register.svg");
-    background-size: cover no-repeat ;
-    width: 100% ;
-    height: 300px ;
+    background-size: cover no-repeat;
+    height: 300px;
+    position: relative;
 }
 
 .tombol-balik {
-    background-color: #E70000 ;
-    width: 90px ;
-    margin-bottom: 10px ;
+    background-color: #e70000;
+    width: 90px;
+    margin-bottom: 10px;
 }
 
 .tombol-balik img {
-    width: 15px ;
-    height: 15px ;
+    width: 15px;
+    height: 15px;
 }
 
 .tombol-balik a {
-    text-decoration: none ;
-    color: #FFFFFF ;
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .hero-register h1 {
-    position: absolute ;
-    width: 300px ;
-    color: #FFFFFF ;
-    top: 30% ;
-    left: 40% ;
-    right: 40% ;
-    text-align: center ;
+    display: block;
+    position: absolute;
+    width: 300px;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .form-login-register {
-    margin: 30px auto ;
-    width: 1000px ;
-   font-weight: bold ;
+    margin: 30px auto;
+    width: 1000px;
+    font-weight: bold;
 }
 
 .form-login-register form {
-display: grid ;
-grid-template-areas: "sec-0 sec-0 sec-0" "sec-1 sec-1 sec-1" "sec-2 sec-3 sec-4" "sec-5 sec-5 sec-5";
-/* margin: 10px  auto ; */
+    display: grid;
+    grid-template-areas: "sec-0 sec-0 sec-0" "sec-1 sec-1 sec-1" "sec-2 sec-3 sec-4" "sec-5 sec-5 sec-5";
+    /* margin: 10px  auto ; */
 }
-
 
 .form-login-register form p {
-    color: #FFFFFF ;
-    text-transform: capitalize ;
-    font-size: 14px ;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 14px;
+    margin: 6px 0;
+    font-weight: lighter;
 }
 
-.form-login-register form input[type = "text"]{
-    background-color: #0f0f0f ;
-    border: 1px solid #404040 ;
-    color : #FFFFFF ;
-    border-radius: 5px ;
-    padding: 3px ;
+.form-login-register form input[type="text"] {
+    background-color: #0f0f0f;
+    border: 1px solid #404040;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 3px;
 }
 
-.form-login-register form input[type = "button"]{
-    margin-top: 15px ;
+.form-login-register form input[type="number"] {
+    background-color: #0f0f0f;
+    border: 1px solid #404040;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.form-login-register form input[type="button"] {
+    margin-top: 15px;
 }
 
 .login-sec-0 {
-    display: flex ;
-    flex-direction: column ;
-    grid-template : sec-0 ;
-    width: 930px ;
+    display: flex;
+    flex-direction: column;
+    grid-template: sec-0;
+    width: 930px;
 }
 
 .login-sec-0 input:nth-child(2) {
-    box-sizing: border-box ;
+    box-sizing: border-box;
 }
 
 .login-sec-1 {
-display: grid ;
-grid-template-areas: "judul1 judul2" "email wa";
-grid-area : sec-1;
-margin-top: 10px ;
+    display: grid;
+    grid-template-areas: "judul1 judul2" "email wa";
+    grid-area: sec-1;
+    margin-top: 10px;
 }
 
-.login-sec-1 input[type = "email"]{
-    grid-area: email ;
-    width: 450px ;
-    margin-bottom: 10px ;
-    background-color: #0f0f0f ;
-    border: 1px solid #404040 ;
-    color : #FFFFFF ;
-    border-radius: 5px ;
-    padding: 3px ;
+.login-sec-1 input[type="email"] {
+    grid-area: email;
+    width: 450px;
+    margin-bottom: 10px;
+    background-color: #0f0f0f;
+    border: 1px solid #404040;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 3px;
 }
 
-.login-sec-1 input:nth-child(4){
-    grid-area: wa ;
-    width: 450px ;
-    margin-left: -50px ;
-    margin-bottom: 10px ;
-
+.login-sec-1 input:nth-child(4) {
+    grid-area: wa;
+    width: 450px;
+    margin-left: -50px;
+    margin-bottom: 10px;
 }
 
 .login-sec-1 p:nth-child(1) {
-    grid-area: judul1 ;
-    margin-bottom: 10px ;
+    grid-area: judul1;
+    margin-bottom: 10px;
 }
 
-.login-sec-1 p:nth-child(3) {
-    grid-area: judul2 ;
-    margin-left: -50px ;
-    margin-bottom: 10px ;
+.login-sec-1 label:nth-child(3) {
+    grid-area: judul2;
+    margin-left: -50px;
+    margin-bottom: 10px;
 }
 
 .login-sec-2 {
-    grid-area : sec-2 ;
+    grid-area: sec-2;
 }
 
 .login-sec-3 {
-    grid-area : sec-3;
-    margin-left: -625px ;
+    grid-area: sec-3;
+    margin-left: -625px;
 }
 
 .login-sec-4 {
-    grid-area : sec-4;
-    margin-left: -310px ;
+    grid-area: sec-4;
+    margin-left: -310px;
 }
 
 .login-sec-5 {
-    grid-area : sec-5;
-    display: flex ;
-    flex-direction: column ;
-    width: 930px ;
-    margin-top : 10px ;
+    grid-area: sec-5;
+    display: flex;
+    flex-direction: column;
+    width: 930px;
+    margin-top: 10px;
 }
 
-.login-sec-5 input[type = "button"]{
-    background-color: #5600E7 ;
-    color : #FFFFFF ;
-    border: 1px solid #404040 ;
-    border-radius: 5px ;
-    cursor: pointer ;
+.login-sec-5 button {
+    background-color: #5600e7;
+    color: #ffffff;
+    border: 1px solid #404040;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.login-sec-5 input[type = "file"]{
-    color : #FFFFFF ;
-    margin: 10px auto ;
+.login-sec-5 input[type="file"] {
+    color: #ffffff;
+    margin: 10px auto;
 }
 
-@media only screen and (max-width : 800px ){
-    .hero-register h1 {
+@media only screen and (max-width: 800px) {
+    /* .hero-register h1 {
         top: 30% ;
         left: 30% ;
         right: 30% ;
-    }
+    } */
 
     .form-login-register {
-        width: 650px ;
+        width: 650px;
     }
 
     .form-login-register form {
-        margin: 10px auto ;
-        width: 630px ;
+        margin: 10px auto;
+        width: 630px;
     }
 
     .login-sec-0 {
-        width: 626px ;
+        width: 626px;
     }
 
-    .login-sec-1 input[type = "email"]{
-        width: 280px ;
+    .login-sec-1 input[type="email"] {
+        width: 280px;
     }
-    
-    .login-sec-1 input:nth-child(4){
-        grid-area: wa ;
-        width: 280px ;
-        margin-left: 40px ;
-        margin-bottom: 10px ;
-    
+
+    .login-sec-1 input:nth-child(4) {
+        grid-area: wa;
+        width: 280px;
+        margin-left: 40px;
+        margin-bottom: 10px;
     }
-    
+
     .login-sec-1 p:nth-child(3) {
-        margin-left: 40px ;
-        margin-bottom: 10px ;
+        margin-left: 40px;
+        margin-bottom: 10px;
     }
 
     .login-sec-2 input {
-        width: 150px ;
+        width: 150px;
     }
 
     .login-sec-3 {
-        margin-left: -390px ;
+        margin-left: -390px;
     }
 
     .login-sec-3 input {
-        width: 150px ;
+        width: 150px;
     }
 
     .login-sec-4 {
-        margin-left: -160px ;
+        margin-left: -160px;
     }
 
     .login-sec-4 input {
-        width: 150px ;
+        width: 150px;
     }
 
     .login-sec-5 {
-        width: 630px ;
+        width: 630px;
     }
 }
 
-@media only screen and (max-width : 600px ){
+@media only screen and (max-width: 600px) {
+    * {
+        overflow-x: hidden;
+    }
 
-    body {
-        /* overflow-x: hidden ; */
+    .hero-register {
+        margin-top: -13px;
     }
 
     .hero-register img {
-        height: 150px ;
-        max-width: 350px ;
-    }
-    
-    .hero-register h1 {
-        top: 30% ;
-        left: 20% ;
-        right: 30% ;
+        height: 150px;
+        width: 330px;
     }
 
     .form-login-register {
-        width: 350px ;
+        width: 330px;
+        overflow-x: hidden;
     }
 
     .form-login-register form {
-        grid-template-areas: "sec-0 sec-0 sec-0" "sec-1 sec-1 sec-1" "sec-2 sec-3 sec-4"   "sec-5 sec-5 sec-5" ;
-        margin: auto ;
+        grid-template-areas: "sec-0 sec-0 sec-0" "sec-1 sec-1 sec-1" "sec-2 sec-3 sec-4" "sec-5 sec-5 sec-5";
+        margin: 10px auto;
+        width: 330px;
+        overflow-x: scroll;
+        padding-left: 50px;
+        position: relative;
+        right: 0;
     }
 
     .login-sec-0 {
-        display: flex ;
-        flex-direction: row ;
-    }
-
-    .login-sec-0 input[type = "text"]{
-        margin-left: 40px ;
-        height : 32px ;
-        width: 258px ;
-        padding: 3px ;
-
+        display: flex;
+        flex-direction: row;
     }
 
     .login-sec-1 {
         grid-template-areas: "judul1 email" "judul2 wa";
     }
 
-    .login-sec-1 input[type = "email"]{
-        width: 250px ;
-        margin-left: -190px ;
-    }
-    
-    .login-sec-1 input:nth-child(4){
-        grid-area: wa ;
-        width: 250px ;
-        margin-left: -190px ;
-        margin-bottom: 10px ;
-    
-    }
-    
-    .login-sec-1 p:nth-child(3) {
-        margin-left:  0px ;
-        margin-bottom: 10px ;
+    .login-sec-2 {
+        /* margin-left: -10px ; */
     }
 
     .login-sec-3 {
-        margin-left: -500px ;
-    }
-
-    .login-sec-2 input {
-        width: 115px ;
-    }
-
-    .login-sec-2 {
-        margin-left: -10px ;
-    }
-
-    
-    .login-sec-3 input {
-        width: 115px ;
-    }
-
-    
-    .login-sec-4 input {
-        width: 115px ;
+        margin-left: -40 0px;
     }
 
     .login-sec-4 {
-        margin-left : -360px ;    
+        margin-left: -200px;
     }
 
     .login-sec-5 {
-        width: 320px ;
+        /* margin: auto 10px  ; */
+        margin-left: -10px;
     }
 
+    .login-sec-0 input[type="text"] {
+        margin-left: 13px;
+        height: 32px;
+        width: 308px;
+        padding: 3px;
+    }
+
+    .login-sec-1 input[type="email"] {
+        width: 300px;
+        margin-left: -190px;
+    }
+
+    .login-sec-1 input:nth-child(4) {
+        grid-area: wa;
+        width: 300px;
+        margin-left: -190px;
+        margin-bottom: 10px;
+    }
+
+    .login-sec-1 p:nth-child(3) {
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    .login-sec-2 input {
+        width: 140px;
+    }
+
+    .login-sec-3 input {
+        width: 140px;
+    }
+
+    .login-sec-4 input {
+        width: 140px;
+    }
 }
