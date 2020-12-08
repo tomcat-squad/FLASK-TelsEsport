@@ -157,7 +157,7 @@ nav ul li a {
         position: absolute ;
         top : 0 ; 
         flex-direction: column ;
-        height : 100vh ;
+        height : 200px ;
         justify-content:space-evenly  ;
         align-items: center ;
         background-color: #171619 ;

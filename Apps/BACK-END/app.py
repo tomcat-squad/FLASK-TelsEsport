@@ -472,7 +472,7 @@ def uploadML():
                                     get_Email, get_Whatsapp, get_Team + str(get_waktu.strftime("-%f")) + '.jpg', get_waktu))
                 conn.commit()
                 flash('Berhasil Terdaftar', 'Success')
-                return redirect(url_for('index'))
+                return redirect(url_for('register_ML'))
             else:
                 flash('Upload Gagal!', 'Failed')
                 return redirect(url_for('index'))
