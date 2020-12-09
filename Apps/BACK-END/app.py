@@ -153,7 +153,7 @@ def dashboardML():
         '''
         conn    = mysql.connection
         cur     = conn.cursor()
-        cur.execute('SELECT * FROM daftar_ml')
+        cur.execute("SELECT * FROM daftar_ml INNER JOIN bukti_pembayaran ON daftar_ml.Team=bukti_pembayaran.Team;")
         result = cur.fetchall()
         return render_template('admin/BerhasilLogin/dashboard_MobileLegend.html', form=form, daftar=result, )
     else:
@@ -443,43 +443,69 @@ def uploadML():
             get_Id_Player_5     = request.form['IdPlayer5']
 
             get_waktu           = datetime.datetime.now()
-            get_BuktiPembayaran = request.files['bukti-tf']
-
-            if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
-                try:
-                    filename = get_BuktiPembayaran.filename
-                    get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_Team + str(get_waktu.strftime("-%f")) + '.jpg'))
-                except:
-                    abort(403)
-                '''
-                Myqsl Configuration
-                '''
-                conn = mysql.connection
-                cur = conn.cursor()
-                cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
-                                                    NamaPlayer2, IGN_Player2, ID_Player2,\
-                                                    NamaPlayer3, IGN_Player3, ID_Player3,\
-                                                    NamaPlayer4, IGN_Player4, ID_Player4,\
-                                                    NamaPlayer5, IGN_Player5, ID_Player5,\
-                                                    Email, Whatsapp, BuktiPembayaran, Waktu)\
-                            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
-                                    %s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
-                                    (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
-                                    get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
-                                    get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
-                                    get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
-                                    get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
-                                    get_Email, get_Whatsapp, get_Team + str(get_waktu.strftime("-%f")) + '.jpg', get_waktu))
-                conn.commit()
-                flash('Berhasil Terdaftar', 'Success')
-                return redirect(url_for('register_ML'))
-            else:
-                flash('Upload Gagal!', 'Failed')
-                return redirect(url_for('index'))
+            '''
+            Myqsl Configuration
+            '''
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
+                                                NamaPlayer2, IGN_Player2, ID_Player2,\
+                                                NamaPlayer3, IGN_Player3, ID_Player3,\
+                                                NamaPlayer4, IGN_Player4, ID_Player4,\
+                                                NamaPlayer5, IGN_Player5, ID_Player5,\
+                                                Email, Whatsapp, Waktu)\
+                        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
+                                %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
+                                get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
+                                get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
+                                get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
+                                get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
+                                get_Email, get_Whatsapp, get_waktu))
+            conn.commit()
+            #Create Session
+            session['team'] = get_Team
+            return redirect(url_for('indexPembayaran'))
         else:
             abort(405)
     else:
         return render_template('user/register.html', form=form)
+
+#========================
+# Upload Bukti Pembayaran
+#========================
+@app.route('/pembayaran')
+def indexPembayaran():
+    form = Esport_Mobile_Legend()
+    return render_template('user/payment.html', form=form)
+
+@app.route('/upload_bukti', methods=['POST'])
+def uploadBukti():
+    if request.method == 'POST':
+        get_team = session['team']
+        get_BuktiPembayaran = request.files['bukti-tf']
+        get_waktu = datetime.datetime.now()
+        if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
+            try:
+                filename = get_BuktiPembayaran.filename
+                get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_team  + str(get_waktu.strftime("-%S-%d-%B")) +'.jpg'))
+            except:
+                abort(403)
+            '''
+            Myqsl Configuration
+            '''
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto) VALUES (%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%S-%d-%B")) + '.jpg'))
+            conn.commit()
+            session.pop('team', None)
+            flash('Berhasil Terdaftar', 'Success')
+            return redirect(url_for('register_ML'))
+        else:
+            flash('Upload Gagal!', 'Failed')
+            return redirect(url_for('register_ML'))
+    else:
+        abort(405)
 '''
 VIEW USER END
 '''

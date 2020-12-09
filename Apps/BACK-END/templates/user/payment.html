@@ -1,0 +1,38 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    
+    <div class="container">
+      <h2>Payment Method</h2>
+      <img src="https://i.pinimg.com/originals/61/c9/8a/61c98a1dffc2e04424d592564cef941f.png" width="200" height="200" alt="">
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ovo">Pilih Pembayaran</button>
+      <div id="ovo" class="collapse">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX8cMA7SNaj43Twop4sd2pA5ZE20TBpLfjMQ&usqp=CAU" width="200" height="200" alt="">
+      <form action="{{url_for('uploadBukti')}}" enctype="multipart/form-data" method="POST">
+        {{ form.csrf_token }}
+        <input type="file" name="bukti-tf">
+        <button type="submit">Upload</button>
+    </form>
+      </div>
+      <img src="https://i2.wp.com/kopitekno.com/wp-content/uploads/2020/02/logo-gopay-573x382.jpg" width="200" height="200" alt="">
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gopay">Pilih Pembayaran</button>
+      <div id="gopay" class="collapse">
+        <img src="https://www.hostingceria.com/wp-content/uploads/2019/04/gopay-qrcode.jpg" width="200" height="200" alt="">
+        <form action="{{url_for('uploadBukti')}}" enctype="multipart/form-data" method="POST">
+          {{ form.csrf_token }}
+          <input type="file" name="bukti-tf">
+          <button type="submit">Upload</button>
+      </form>
+        </div>
+    </div>
+    
+    </body>
+    </html>
+    
