@@ -151,11 +151,16 @@ def dashboardML():
         '''
         Myqsl Configuration
         '''
+        #INNER JOIN 2 Table
         conn    = mysql.connection
         cur     = conn.cursor()
-        cur.execute("SELECT * FROM daftar_ml INNER JOIN bukti_pembayaran ON daftar_ml.Team=bukti_pembayaran.Team;")
-        result = cur.fetchall()
-        return render_template('admin/BerhasilLogin/dashboard_MobileLegend.html', form=form, daftar=result, )
+        cur.execute("SELECT * FROM daftar_ml INNER JOIN bukti_pembayaran ON daftar_ml.Team=bukti_pembayaran.Team WHERE Genre='MLBB';")
+        result_online = cur.fetchall()
+        #SELECT ALL 1 TABLE
+        cur_cod = conn.cursor()
+        cur_cod.execute("SELECT * FROM daftar_ml;")
+        result_cod = cur_cod.fetchall()
+        return render_template('admin/BerhasilLogin/dashboard_MobileLegend.html', form=form, daftar_online=result_online, daftar_cod=result_cod)
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
@@ -165,7 +170,6 @@ def editML():
     if 'admin' in session:
         if request.method == 'POST':
             get_id              = request.form['id']
-            get_Team            = request.form['Team']
             get_Email           = request.form['Email']
             get_Whatsapp        = request.form['Whatsapp']
 
@@ -194,14 +198,14 @@ def editML():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("UPDATE daftar_ml SET Team=%s, NamaKapten=%s, IGN_Kapten=%s, ID_Kapten=%s,\
+            cur.execute("UPDATE daftar_ml SET NamaKapten=%s, IGN_Kapten=%s, ID_Kapten=%s,\
                                             NamaPlayer2=%s, IGN_Player2=%s, ID_Player2=%s,\
                                             NamaPlayer3=%s, IGN_Player3=%s, ID_Player3=%s,\
                                             NamaPlayer4=%s, IGN_Player4=%s, ID_Player4=%s,\
                                             NamaPlayer5=%s, IGN_Player5=%s, ID_Player5=%s,\
                                             Email=%s, Whatsapp=%s, Waktu=%s\
                                             WHERE id=%s", 
-                                            (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
+                                            (get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
                                             get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,\
                                             get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,\
                                             get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,\
@@ -464,7 +468,9 @@ def uploadML():
                                 get_Email, get_Whatsapp, get_waktu))
             conn.commit()
             #Create Session
+            session['success'] = True
             session['team'] = get_Team
+            session['genre'] = 'MLBB'
             return redirect(url_for('indexPembayaran'))
         else:
             abort(405)
@@ -476,13 +482,17 @@ def uploadML():
 #========================
 @app.route('/pembayaran')
 def indexPembayaran():
-    form = Esport_Mobile_Legend()
-    return render_template('user/payment.html', form=form)
+    if 'success' in session:
+        form = Esport_Mobile_Legend()
+        return render_template('user/payment.html', form=form)
+    else:
+        abort(403)
 
 @app.route('/upload_bukti', methods=['POST'])
 def uploadBukti():
     if request.method == 'POST':
         get_team = session['team']
+        get_genre = session['genre']
         get_BuktiPembayaran = request.files['bukti-tf']
         get_waktu = datetime.datetime.now()
         if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
@@ -496,9 +506,11 @@ def uploadBukti():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto) VALUES (%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%S-%d-%B")) + '.jpg'))
+            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%S-%d-%B")) + '.jpg', get_genre))
             conn.commit()
+            session.pop('success', None)
             session.pop('team', None)
+            session.pop('genre', None)
             flash('Berhasil Terdaftar', 'Success')
             return redirect(url_for('register_ML'))
         else:
