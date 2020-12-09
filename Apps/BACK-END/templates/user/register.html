@@ -11,7 +11,7 @@
 
             <form action="{{url_for('uploadML')}}" enctype="multipart/form-data" method="POST">
                 {{ form.csrf_token }} {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
-                <p class="text-center">{{message}}</p>
+                <script>alert('{{message}}')</script>
                 {% endfor %} {%endif%} {% endwith %}
                 <div class="login-sec-0">
                     <p>nama team</p>
