@@ -141,9 +141,9 @@ def index_dashboard():
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
 
-'''
-ADMIN MOBILE LEGEND - START
-'''
+#==============================
+# DASHBOARD MOBILE LEGEND START
+#==============================
 @app.route('/dashboard_MobileLegend')
 def dashboardML():
     if 'admin' in session:
@@ -232,13 +232,13 @@ def deleteML(get_id):
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
-'''
-ADMIN MOBILE LEGEND - END
-'''
+#==============================
+# DASHBOARD MOBILE LEGEND END
+#==============================
 
-'''
-ADMIN BUAT TURNAMENT - START
-'''
+#===========================
+# DASHBOARD TURNAMENT START
+#===========================
 @app.route('/dashboard_Turnament')
 def dashboardTurnament():
     if 'admin' in session:
@@ -341,9 +341,9 @@ def deleteTurnament(get_id):
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))   
         
-'''
-ADMIN BUAT TURNAMENT - END
-'''
+#===========================
+# DASHBOARD TURNAMENT END
+#===========================
 
 '''
 VIEW ADMIN END
@@ -353,9 +353,9 @@ VIEW ADMIN END
 VIEW USER START
 '''
 
-'''
-A J A X START
-'''
+#===================
+#URL FOR AJAX START
+#===================
 @app.route('/get_turnament/<int:turnament>', methods=['GET'])
 def getTurnament(turnament):
     conn    = mysql.connection
@@ -385,14 +385,13 @@ def getTeamPubg():
         return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
     else:
         return 'Cooming Soon'
+#===================
+#URL FOR AJAX END
+#===================
 
-'''
-A J A X END
-'''
-
-'''
-INDEX START
-'''
+#===================
+#SECTION HOME START
+#===================
 @app.route('/')
 def index():
     conn            = mysql.connection
@@ -405,13 +404,13 @@ def index():
 @app.route('/team')
 def index_team():
     return render_template('user/team.html')
-'''
-INDEX END
-'''
+#===================
+#SECTION HOME END
+#===================
 
-'''
-USER MOBILE LEGEND - START
-'''
+#===================
+#MOBILE LEGEND START
+#===================
 @app.route('/register_MLBB')
 def register_ML():
     form = Esport_Mobile_Legend()
@@ -476,6 +475,9 @@ def uploadML():
             abort(405)
     else:
         return render_template('user/register.html', form=form)
+#===================
+#MOBILE LEGEND END
+#===================
 
 #========================
 # Upload Bukti Pembayaran
@@ -486,7 +488,7 @@ def indexPembayaran():
         form = Esport_Mobile_Legend()
         return render_template('user/payment.html', form=form)
     else:
-        abort(403)
+        return redirect(url_for('index'))
 
 @app.route('/upload_bukti', methods=['POST'])
 def uploadBukti():
