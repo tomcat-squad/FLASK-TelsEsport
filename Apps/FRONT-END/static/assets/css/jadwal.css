@@ -1,0 +1,266 @@
+* {
+    padding: 0 ;
+    margin: 0 ;
+}
+
+body {
+    background-color: #1D1C1E ;
+}
+
+.hero {
+    background-image: url("../img/cover\ jadwal.svg");
+    background-size: cover ;
+    background-repeat: no-repeat;
+    height: 300px ;
+    width: 100% ;
+    display: block ;
+    margin-top: -17px ;
+    color: #FFFFFF ;
+}
+
+.hero h1 {
+    position: absolute ;
+    margin-top: 200px ;
+    margin-left: 20px ;
+    font-size: 50px ;
+}
+
+.hero p {
+    position: absolute ;
+    margin-top: 270px ;
+    margin-left: 20px ;
+}
+
+.hero p img {
+    width: 20px ;
+    height: 20px ;
+    margin: auto 5px ;
+    margin-bottom: -5px ;
+}
+
+.container {
+    width: 800px ;
+    margin: 30px auto ;
+    display: grid ;
+    grid-template-areas: "button-balik button-balik" "button-pilihan tabel"  ;
+}
+
+.tombol-balik {
+    background-color: #e70000;
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 12pt;
+    height: 30px ;
+    grid-area: button-balik ;
+}
+
+.tombol-balik a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.button-selection {
+    grid-area: button-pilihan ;
+    display: flex ;
+    flex-direction: column ;
+    width: 120px ;
+}
+
+.mobile-legend {
+    background-color: black ;
+    color: white ;
+    position: relative ;
+}
+
+.mobile-legend img {
+    position:  relative ;
+    background-color: #0F0F0F ;
+    width: 100px ;
+    height: 70px ;
+    margin: 10px ;
+    cursor: pointer;
+}
+
+/* pubg */
+
+.pubg {
+    background-color: black ;
+    color: white ;
+    position: relative ;
+}
+
+.pubg img {
+    position:  relative ;
+    background-color: #0F0F0F ;
+    width: 100px ;
+    height: 70px ;
+    margin: 10px ;
+    cursor: pointer;
+}
+
+/* pb */
+
+.pb {
+    background-color: black ;
+    color: white ;
+    position: relative ;
+}
+
+.pb img {
+    position:  relative ;
+    background-color: #0F0F0F ;
+    width: 100px ;
+    height: 70px ;
+    margin: 10px ;
+    cursor: pointer;
+}
+
+.table-sec {
+    grid-area : tabel ;
+    background-color: black ;
+    width: 630px ;
+    height: 300px ;
+    overflow-x : hidden;
+}
+
+.tabel-hilang {
+    display: none ;
+}
+
+/* ml */
+
+.ml-tabel {
+    color: white ;
+}
+
+.ml-tabel table {
+    margin: 10px auto ;
+    width: 590px ;
+    border-collapse: collapse ;
+}
+
+.ml-tabel tr th {
+    font-weight: bold ;
+    padding : 10px ;
+    border: 0.1px solid white ;
+    background-color: #5600E7;
+}
+
+
+.ml-tabel tr td {
+    padding : 10px ;
+    border: 1px solid white ;
+    border-collapse: collapse ;
+}
+
+/* pubg */
+
+.pubg-tabel {
+    color: white ;
+}
+
+.pubg-tabel table {
+    margin: 10px auto ;
+    width: 590px ;
+    border-collapse: collapse ;
+}
+
+.pubg-tabel tr th {
+    font-weight: bold ;
+    padding : 10px ;
+    border: 0.1px solid white ;
+    background-color: #5600E7;
+}
+
+
+.pubg-tabel tr td {
+    padding : 10px ;
+    border: 1px solid white ;
+    border-collapse: collapse ;
+}
+
+/* pb tabel */
+
+.pb-tabel {
+    color: white ;
+}
+
+.pb-tabel table {
+    margin: 10px auto ;
+    width: 590px ;
+    border-collapse: collapse ;
+}
+
+.pb-tabel tr th {
+    font-weight: bold ;
+    padding : 10px ;
+    border: 0.1px solid white ;
+    background-color: #5600E7;
+}
+
+.pb-tabel tr td {
+    padding : 10px ;
+    border: 1px solid white ;
+    border-collapse: collapse ;
+}
+
+@media only screen and (max-width : 800px ){
+    .container {
+        width: 600px ;
+    }
+
+    .table-sec {
+        width: 440px ;
+        margin: 10px ;
+        margin-top: 0px ;
+    }
+
+    .table-sec table {
+        width: 400px ;
+    }
+
+    .hero h1 {
+        margin-top: 130px;
+        font-size: 30px ;
+    }
+
+    .hero p {
+        margin-top: 180px ;
+    }
+
+}
+
+@media only screen and (max-width : 600px ){
+    .container {
+        margin-top: -50px ;
+        width: 350px ;
+        grid-template-areas: "button-balik" "button-pilihan" "tabel";
+    }
+
+    .button-selection {
+        flex-direction: row ;
+        width: 350px ;
+    }
+
+    .table-sec {
+        width: 330px ;
+        margin: 10px ;
+        margin-top: 20px ;
+    }
+
+    .table-sec table {
+        width: 300px ;
+        margin: auto ;
+    }
+
+    .hero h1 {
+        margin-top: 140px;
+        font-size: 20px ;
+    }
+
+    .hero p {
+        margin-top: 180px ;
+    }
+
+}
