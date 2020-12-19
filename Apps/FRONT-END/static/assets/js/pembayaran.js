@@ -6,6 +6,7 @@ const isiOnline = document.querySelector('.method-pembayaran');
 const isioffline = document.querySelector('.isi-offline');
 const offlineJudul = document.querySelector('.cod h3');
 const offlinefull = document.querySelector('.container-utama .cod');
+const mapcod = document.querySelector('.cod2');
 
 onlinePortal.addEventListener('click',function(){
     tombolKembali.classList.remove('tombol-hilang');
@@ -22,6 +23,7 @@ onlinePortal.addEventListener('click',function(){
     ovo.classList.remove('online-hilang');
     ovopayment.classList.remove('online-hilang');
     isiOnline.style.display = "flex" ;
+    mapcod.classList.add('online-hilang');
 })
 
 tombolKembali.addEventListener('click',function(){
@@ -38,7 +40,7 @@ tombolKembali.addEventListener('click',function(){
     ovo.classList.add('online-hilang');
     gopaypayment.classList.add('online-hilang');
     danapayment.classList.add('online-hilang');
-    
+    mapcod.classList.add('online-hilang');
 })
 
 offlinePortal.addEventListener('click',function(){
@@ -55,6 +57,7 @@ offlinePortal.addEventListener('click',function(){
     ovo.classList.add('online-hilang');
     gopaypayment.classList.add('online-hilang');
     danapayment.classList.add('online-hilang');
+    mapcod.classList.remove('online-hilang');
 })
 
 const ovopayment = document.querySelector('.pembayaran-ovo');

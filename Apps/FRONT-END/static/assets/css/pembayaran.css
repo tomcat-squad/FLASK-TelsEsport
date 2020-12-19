@@ -33,12 +33,14 @@ body {
     grid-template-areas: "tombol judul " "online offline" ;
     column-gap: -100px ;
     color: #ffffff ;
+    /* position: relative ; */
 }
 
 .container-utama h1:nth-child(2){
     grid-area: judul;
     font-size: 35px ;
-    margin-left : -300px  ;
+    margin-left: -250px ;
+    margin-bottom: -80px ;
 }
 
 .online-hilang {
@@ -118,8 +120,6 @@ body {
     flex-direction: column ;
 }
 
-
-
 .method-pembayaran h3 {
     font-size: 15px ;
     order: 1 ;
@@ -183,6 +183,7 @@ body {
 .pembayaran-ovo img {
     width: 200px ;
     height: 200px ;
+    margin: 10px auto ;
 }
 
 .pembayaran-ovo button {
@@ -192,6 +193,7 @@ body {
     background-color: #5600E7 ;
     color : #ffffff ;
     border: none ;
+    cursor: pointer;
 }
 
 .pembayaran-gopay {
@@ -207,6 +209,7 @@ body {
 .pembayaran-gopay img {
     width: 200px ;
     height: 200px ;
+    margin: 10px auto ;
 }
 
 .pembayaran-gopay button {
@@ -216,6 +219,7 @@ body {
     background-color: #5600E7 ;
     color : #ffffff ;
     border: none ;
+    cursor: pointer;
 }
 
 .pembayaran-dana form input:nth-child(1){
@@ -235,6 +239,7 @@ body {
 .pembayaran-dana img {
     width: 200px ;
     height: 200px ;
+    margin: 10px auto ;
 }
 
 .pembayaran-dana button {
@@ -244,6 +249,7 @@ body {
     background-color: #5600E7 ;
     color : #ffffff ;
     border: none ;
+    cursor: pointer;
 }
 
 .isi-offline {
@@ -259,7 +265,99 @@ body {
 .isi-offline p {
     font-size: 14px ;
     margin: 10px ;
-    text-align: left ;
+    text-align: center ;
+}
+
+.cod2 {
+    margin-top: 30px ;
+}
+
+.cod2 h1 {
+    margin: 10px ;
+    font-size: 20px ;
+}
+
+.cod2 iframe {
+    margin: 20px auto ;
+    width: 300px ;
+    height: 300px ;
+}
+
+@media only screen and (max-width : 800px ){
+
+    .container-utama {
+        display: grid ;
+        grid-template-areas: "tombol" "judul" "online" "offline";
+        width: 600px ;
+        margin: auto ;
+    }
+
+    .container-utama h1:nth-child(2) {
+        margin: auto ;
+        /* margin-left : 100px ; */
+        margin-top: 20px ;
+        margin-bottom: -50px ;
+    }
+
+    .tombol-balik {
+        margin-top : 20px ;
+        margin-left: 20px ;
+        height: 25px ;
+    }
+
+    .online {
+        width: 280px ;
+        margin: auto ;
+    }
+
+    .cod {
+        width: 280px ;
+        margin: auto ;
+        margin-top : -70px  ;
+    }
+
+    .method-pembayaran {
+        margin-top: 30px ;
+    }
+
+    .pembayaran-ovo {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .pembayaran-gopay {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .pembayaran-dana  {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .cod2 h1 {
+        margin-top: 30px ;
+    }
 }
 
 
+@media only screen and (max-width : 600px ){
+    .container-utama {
+        display: grid ;
+        grid-template-areas: "tombol" "judul" "online" "offline";
+        width: 350px ;
+        margin: auto ;
+    }
+
+    .container-utama h1:nth-child(2) {
+        margin: auto ;
+        /* margin-left : 100px ; */
+        margin-top: 20px ;
+        margin-bottom: -100px ;
+        font-size: 20px ;
+    }
+
+}
