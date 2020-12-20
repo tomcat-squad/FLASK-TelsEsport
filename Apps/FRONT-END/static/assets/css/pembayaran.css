@@ -1,0 +1,363 @@
+* {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+body {
+    background-color: #1D1C1E ;
+}
+
+.tombol-balik {
+    background-color: #e70000;
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 12pt;
+    height: 30px ;
+}
+
+.tombol-balik a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.tombol-hilang {
+    display: none ;
+}
+
+
+.container-utama {
+    width: 1000px ;
+    margin: 20px auto ;
+    display: grid ;
+    grid-template-areas: "tombol judul " "online offline" ;
+    column-gap: -100px ;
+    color: #ffffff ;
+    /* position: relative ; */
+}
+
+.container-utama h1:nth-child(2){
+    grid-area: judul;
+    font-size: 35px ;
+    margin-left: -250px ;
+    margin-bottom: -80px ;
+}
+
+.online-hilang {
+    display: none ;
+}
+
+.online {
+    grid-area: online;
+    display: flex ;
+    position: relative ;
+    width: 400px ;
+    height: 500px ;
+    flex-direction: column ;
+    /* border : 1px black s ; */
+    text-align: center ;
+    margin: 20px ;
+    border-radius: 20px ;
+    /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
+}
+
+
+.online img {
+    cursor: pointer;
+    width: 300px ;
+    height: 300px ;
+    margin: auto ;
+}
+
+.online h3 {
+    position: absolute ;
+    z-index: 3 ;
+    margin-top: 300px ;
+    font-size: 20px ;
+    left: 0 ;
+    right: 0 ;
+    color: #010101 ;
+}
+
+.offline-hilang {
+    display: none ;
+}
+
+.cod {
+    grid-area: offline ;
+    display: flex ;
+    position: relative ;
+    width: 400px ;
+    flex-direction: column ;
+    /* border : 1px black solid ; */
+    text-align: center ;
+    margin: 20px ;
+    cursor: pointer;
+    height: 500px ;
+    opacity: 1 ;
+    border-radius: 20px ;
+    /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
+}
+
+.cod img {
+    width: 300px ;
+    height: 300px ;
+    margin: auto ;
+}
+
+.cod h3 {
+    position: absolute ;
+    z-index: 3 ;
+    margin-top: 300px ;
+    font-size: 20px ;
+    left: 0 ;
+    right: 0 ;
+    color: #010101 ;
+}
+
+.pembayaran {
+    display: flex ;
+    flex-direction: column ;
+}
+
+.method-pembayaran h3 {
+    font-size: 15px ;
+    order: 1 ;
+    margin-top: 20px ;
+    margin-bottom: 30px ;
+    z-index: 999 ;
+    position: absolute ;
+    color: #ffffff ;
+}
+
+.pembayaran img {
+    margin: 10px auto ;
+    border-radius: 10px ;
+}
+
+.ovo img {
+    width: 110px ;
+    height: 100px;
+    margin-top: 80px ;
+}
+
+.gopay img {
+    width: 110px ;
+    height: 100px;
+}
+
+.dana img {
+    width: 110px ;
+    height: 100px;
+}
+
+.pembayaran-ovo {
+    margin: 30px auto ;
+}
+
+.pembayaran-ovo form {
+    display: flex ;
+    flex-direction: column ;
+}
+
+.pembayaran-ovo form input:nth-child(1){
+    margin: 20px auto ;
+    width: 50% ;
+}
+
+.pembayaran-ovo {
+    margin: 30px auto ;
+}
+
+.pembayaran-ovo form {
+    display: flex ;
+    flex-direction: column ;
+}
+
+.pembayaran-gopay form input:nth-child(1){
+    margin: 20px auto ;
+    width: 50% ;
+}
+
+
+.pembayaran-ovo img {
+    width: 200px ;
+    height: 200px ;
+    margin: 10px auto ;
+}
+
+.pembayaran-ovo button {
+    width: 300px ;
+    margin: auto ;
+    border-radius: 5px ;
+    background-color: #5600E7 ;
+    color : #ffffff ;
+    border: none ;
+    cursor: pointer;
+}
+
+.pembayaran-gopay {
+    margin: 30px auto ;
+}
+
+.pembayaran-gopay form {
+    display: flex ;
+    flex-direction: column ;
+}
+
+
+.pembayaran-gopay img {
+    width: 200px ;
+    height: 200px ;
+    margin: 10px auto ;
+}
+
+.pembayaran-gopay button {
+    width: 300px ;
+    margin: auto ;
+    border-radius: 5px ;
+    background-color: #5600E7 ;
+    color : #ffffff ;
+    border: none ;
+    cursor: pointer;
+}
+
+.pembayaran-dana form input:nth-child(1){
+    margin: 20px auto ;
+    width: 50% ;
+}
+
+.pembayaran-dana {
+    margin: 30px auto ;
+}
+
+.pembayaran-dana form {
+    display: flex ;
+    flex-direction: column ;
+}
+
+.pembayaran-dana img {
+    width: 200px ;
+    height: 200px ;
+    margin: 10px auto ;
+}
+
+.pembayaran-dana button {
+    width: 300px ;
+    margin: auto ;
+    border-radius: 5px ;
+    background-color: #5600E7 ;
+    color : #ffffff ;
+    border: none ;
+    cursor: pointer;
+}
+
+.isi-offline {
+    margin: 30px ;
+}
+
+.isi-offline h1 {
+    margin: 10px ;
+    text-align: center ;
+    font-size: 25px ;
+}
+
+.isi-offline p {
+    font-size: 14px ;
+    margin: 10px ;
+    text-align: center ;
+}
+
+.cod2 {
+    margin-top: 30px ;
+}
+
+.cod2 h1 {
+    margin: 10px ;
+    font-size: 20px ;
+}
+
+.cod2 iframe {
+    margin: 20px auto ;
+    width: 300px ;
+    height: 300px ;
+}
+
+@media only screen and (max-width : 800px ){
+
+    .container-utama {
+        display: grid ;
+        grid-template-areas: "tombol" "judul" "online" "offline";
+        width: 600px ;
+        margin: auto ;
+    }
+
+    .container-utama h1:nth-child(2) {
+        margin: auto ;
+        /* margin-left : 100px ; */
+        margin-top: 20px ;
+        margin-bottom: -50px ;
+    }
+
+    .tombol-balik {
+        margin-top : 20px ;
+        margin-left: 20px ;
+        height: 25px ;
+    }
+
+    .online {
+        width: 280px ;
+        margin: auto ;
+    }
+
+    .cod {
+        width: 280px ;
+        margin: auto ;
+        margin-top : -70px  ;
+    }
+
+    .method-pembayaran {
+        margin-top: 30px ;
+    }
+
+    .pembayaran-ovo {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .pembayaran-gopay {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .pembayaran-dana  {
+        margin-top: 50px ;
+        margin: auto ;
+        width: 280px ;
+    }
+
+    .cod2 h1 {
+        margin-top: 30px ;
+    }
+}
+
+
+@media only screen and (max-width : 600px ){
+    .container-utama {
+        display: grid ;
+        grid-template-areas: "tombol" "judul" "online" "offline";
+        width: 350px ;
+        margin: auto ;
+    }
+
+    .container-utama h1:nth-child(2) {
+        margin: auto ;
+        /* margin-left : 100px ; */
+        margin-top: 20px ;
+        margin-bottom: -100px ;
+        font-size: 20px ;
+    }
+
+}
