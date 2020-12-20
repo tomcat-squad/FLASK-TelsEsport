@@ -486,7 +486,7 @@ def uploadML():
 def indexPembayaran():
     if 'success' in session:
         form = Esport_Mobile_Legend()
-        return render_template('user/payment.html', form=form)
+        return render_template('user/pembayaran.html', form=form)
     else:
         return redirect(url_for('index'))
 
@@ -500,7 +500,7 @@ def uploadBukti():
         if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
             try:
                 filename = get_BuktiPembayaran.filename
-                get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_team  + str(get_waktu.strftime("-%S-%d-%B")) +'.jpg'))
+                get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_team  + str(get_waktu.strftime("-%f-%d-%B")) +'.jpg'))
             except:
                 abort(403)
             '''
@@ -508,7 +508,7 @@ def uploadBukti():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%S-%d-%B")) + '.jpg', get_genre))
+            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
             conn.commit()
             session.pop('success', None)
             session.pop('team', None)
