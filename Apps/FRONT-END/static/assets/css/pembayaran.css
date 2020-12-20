@@ -38,7 +38,7 @@ body {
 
 .container-utama h1:nth-child(2){
     grid-area: judul;
-    font-size: 35px ;
+    font-size: 25pt ;
     margin-left: -250px ;
     margin-bottom: -80px ;
 }
@@ -73,7 +73,7 @@ body {
     position: absolute ;
     z-index: 3 ;
     margin-top: 300px ;
-    font-size: 20px ;
+    font-size: 15pt ;
     left: 0 ;
     right: 0 ;
     color: #010101 ;
@@ -109,7 +109,7 @@ body {
     position: absolute ;
     z-index: 3 ;
     margin-top: 300px ;
-    font-size: 20px ;
+    font-size: 15pt ;
     left: 0 ;
     right: 0 ;
     color: #010101 ;
@@ -121,7 +121,7 @@ body {
 }
 
 .method-pembayaran h3 {
-    font-size: 15px ;
+    font-size: 15pt ;
     order: 1 ;
     margin-top: 20px ;
     margin-bottom: 30px ;
@@ -194,6 +194,7 @@ body {
     color : #ffffff ;
     border: none ;
     cursor: pointer;
+    height: 25px;
 }
 
 .pembayaran-gopay {
@@ -220,6 +221,7 @@ body {
     color : #ffffff ;
     border: none ;
     cursor: pointer;
+    height: 25px;
 }
 
 .pembayaran-dana form input:nth-child(1){
@@ -250,6 +252,7 @@ body {
     color : #ffffff ;
     border: none ;
     cursor: pointer;
+    height: 25px;
 }
 
 .isi-offline {
@@ -257,15 +260,15 @@ body {
 }
 
 .isi-offline h1 {
-    margin: 10px ;
-    text-align: center ;
-    font-size: 25px ;
+    margin: 10px auto;
+    margin-bottom: 25px;
+    font-size: 15pt ;
 }
 
 .isi-offline p {
-    font-size: 14px ;
+    font-size: 10pt ;
     margin: 10px ;
-    text-align: center ;
+    text-align: left ;
 }
 
 .cod2 {
@@ -357,7 +360,7 @@ body {
         /* margin-left : 100px ; */
         margin-top: 20px ;
         margin-bottom: -100px ;
-        font-size: 20px ;
+        font-size: 20pt ;
     }
 
 }
