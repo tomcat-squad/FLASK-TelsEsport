@@ -12,8 +12,8 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 15px;
-    height: 25px ;
+    font-size: 12pt;
+    height: 30px ;
 }
 
 .tombol-balik a {
@@ -38,8 +38,8 @@ body {
 
 .container-utama h1:nth-child(2){
     grid-area: judul;
-    font-size: 30px ;
-    margin-left: -200px ;
+    font-size: 25pt ;
+    margin-left: -250px ;
     margin-bottom: -80px ;
 }
 
@@ -73,7 +73,7 @@ body {
     position: absolute ;
     z-index: 3 ;
     margin-top: 300px ;
-    font-size: 20px ;
+    font-size: 15pt ;
     left: 0 ;
     right: 0 ;
     color: #010101 ;
@@ -109,7 +109,7 @@ body {
     position: absolute ;
     z-index: 3 ;
     margin-top: 300px ;
-    font-size: 20px ;
+    font-size: 15pt ;
     left: 0 ;
     right: 0 ;
     color: #010101 ;
@@ -121,7 +121,7 @@ body {
 }
 
 .method-pembayaran h3 {
-    font-size: 20px ;
+    font-size: 15pt ;
     order: 1 ;
     margin-top: 20px ;
     margin-bottom: 30px ;
@@ -262,11 +262,11 @@ body {
 .isi-offline h1 {
     margin: 10px auto;
     margin-bottom: 25px;
-    font-size: 20px ;
+    font-size: 15pt ;
 }
 
 .isi-offline p {
-    font-size: 15px ;
+    font-size: 10pt ;
     margin: 10px ;
     text-align: left ;
 }
@@ -360,7 +360,7 @@ body {
         /* margin-left : 100px ; */
         margin-top: 20px ;
         margin-bottom: -100px ;
-        font-size: 20px ;
+        font-size: 20pt ;
     }
 
 }

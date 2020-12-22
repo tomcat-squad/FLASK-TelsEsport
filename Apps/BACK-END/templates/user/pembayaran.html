@@ -76,7 +76,8 @@
                 <p>Via Ovo</p>
                 <p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
                 <img src="../static/assets/img/barcode ovo.jpeg">
-                <form action= "#">
+                <form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
                     <input type="file" name="bukti-tf">
                     <button>Upload</button>
                 </form>
@@ -86,7 +87,8 @@
                 <p>Via Gopay</p>
                 <p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
                 <img src="">
-                <form action= "#">
+                <form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
                     <input type="file" name="bukti-tf">
                     <button>Upload</button>
                 </form>
@@ -96,7 +98,8 @@
                 <p>Via Dana</p>
                 <p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
                 <img src="">
-                <form action= "#">
+                <form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">
+                    {{ form.csrf_token }}
                     <input type="file" name="bukti-tf">
                     <button>Upload</button>
                 </form>
