@@ -146,6 +146,10 @@ footer {
         text-transform: uppercase ;
         color: #FFFFFF ;
     }
+
+    .kategori-footer,.menu-footer,.support-footer {
+        display: none ;
+    }
     
 }
 

@@ -22,11 +22,6 @@ body {
     font-size: 12pt;
 }
 
-.tombol-balik img {
-    width: 15px;
-    height: 15px;
-}
-
 .tombol-balik a {
     text-decoration: none;
     color: #ffffff;
