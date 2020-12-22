@@ -240,7 +240,17 @@ body {
 
     .button-selection {
         flex-direction: row ;
-        width: 350px ;
+        width: 330px ;
+        margin: auto ;
+    }
+
+    .button-selection img {
+        width: 85px ;
+    }
+
+    .tombol-balik {
+        display: block ;
+        margin-left : 20px ;
     }
 
     .table-sec {
