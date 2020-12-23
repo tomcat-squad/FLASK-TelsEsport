@@ -361,7 +361,7 @@ body {
         margin: auto ;
         /* margin-left : 100px ; */
         margin-top: 20px ;
-        margin-bottom: -100px ;
+        margin-bottom: -30px ;
         font-size: 20px ;
     }
 
@@ -371,7 +371,7 @@ body {
         width: 300px ;
         height: 300px ;
         margin-bottom: 30px ;
-        margin-top: 70px ;
+        margin-top: 40px ;
     }
 
     .cod img {

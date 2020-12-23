@@ -27,7 +27,6 @@ onlinePortal.addEventListener('click',function(){
     isiOnline.style.display = "flex" ;
     mapcod.classList.add('online-hilang');
     onlineContainer.style.marginBottom = "180px" ;
-    onlineContainer.style.marginTop = "10px" ;
     footer.style.marginTop = "160px" ;
 })
 
@@ -47,7 +46,7 @@ tombolKembali.addEventListener('click',function(){
     danapayment.classList.add('online-hilang');
     mapcod.classList.add('online-hilang');
     onlineContainer.style.marginBottom = "30px" ;
-    onlineContainer.style.marginTop = "70px" ;
+    onlineContainer.style.marginTop = "20px" ;
     footer.style.marginTop = "30px" ;
 })
 
@@ -110,4 +109,12 @@ dana.addEventListener('click',function(){
 
 
 // }
- 
+
+if (document.documentElement.clientWidth < 600) {
+    tombolKembali.addEventListener('click', function(){
+        onlineContainer.style.marginTop = "40px" ;
+    });
+    onlinePortal.addEventListener('click', function(){
+        onlineContainer.style.marginTop = "-40px" ;
+    })
+} 
