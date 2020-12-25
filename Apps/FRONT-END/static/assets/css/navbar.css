@@ -34,9 +34,9 @@ nav {
 }
 
 .judul img {
-    margin-top: 5px ;
-    width: 55px ;
-    height: 55px ;
+    margin-top: 15px ;
+    width: 40px ;
+    height: 40px ;
     order: 1 ;
 }
 
@@ -108,7 +108,7 @@ nav ul li a {
 
 .toggle input:checked ~ span:nth-child(2){
     background-color: #FFFFFF ;
-    transform: rotate(50deg) translate(-1px, -1px) ;
+    transform: rotate(50deg) translate( -2px, 2px) ;
 }
 
 .toggle input:checked ~ span:nth-child(3){
@@ -118,12 +118,8 @@ nav ul li a {
 
 .toggle input:checked ~ span:nth-child(4){
     background-color: #FFFFFF ;
-    transform: rotate(-50deg) translate(-1px, 0);
+    transform: rotate(-50deg) translate( -5px, -1px);
 }
-
-
-
-
 
 /* media breakpoint */
 
@@ -139,13 +135,13 @@ nav ul li a {
 @media only screen and (max-width : 600px ){
 
     .judul h1 {
-        font-size: 16px ;
+        font-size: 13px ;
     }
 
     .judul img {
-        width: 45px ;
-        height: 45px ;
-        margin-top: 10px ;
+        width: 30px ;
+        height: 30px ;
+        margin-top: 18px ;
     }
 
     .toggle {

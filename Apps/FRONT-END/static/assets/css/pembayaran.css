@@ -57,7 +57,6 @@ body {
     /* border : 1px black s ; */
     text-align: center ;
     margin: 20px ;
-    border-radius: 20px ;
     /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
 }
 
@@ -67,6 +66,7 @@ body {
     width: 260px ;
     height: 260px ;
     margin: auto ;
+    border-radius: 8px ;
 }
 
 .online h3 {
@@ -76,8 +76,6 @@ body {
     font-size: 20px ;
     left: 0 ;
     right: 0 ;
-    color: #010101 ;
-    display: none ;
 }
 
 .offline-hilang {
@@ -96,7 +94,6 @@ body {
     cursor: pointer;
     height: 500px ;
     opacity: 1 ;
-    border-radius: 20px ;
     /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
 }
 
@@ -104,18 +101,9 @@ body {
     width: 260px ;
     height: 260px ;
     margin: auto ;
+    border-radius: 8px ;
 }
 
-.cod h3 {
-    position: absolute ;
-    z-index: 3 ;
-    margin-top: 300px ;
-    font-size: 20px ;
-    left: 0 ;
-    right: 0 ;
-    color: #010101 ;
-    display: none ;
-}
 
 .pembayaran {
     display: flex ;
@@ -288,6 +276,10 @@ body {
     height: 300px ;
 }
 
+footer {
+    margin-top: -50px ;
+}
+
 @media only screen and (max-width : 800px ){
 
     .container-utama {
@@ -365,6 +357,22 @@ body {
         font-size: 20px ;
     }
 
+    .method-pembayaran {
+        flex-direction: row ;
+        justify-content: space-between ;
+    }
+
+    .method-pembayaran img {
+        margin-top: 100px ;
+        width: 90px ;
+        height: 90px ;
+    }
+
+    .method-pembayaran h3 {
+        font-size: 16px ;
+        font-weight: lighter ;
+    }
+
     .online {
         left: 0 ;
         right: 0 ;
@@ -380,13 +388,13 @@ body {
     }
 
     .cod {
-        height: 300px ;
-        width: 300px ;
+        height: 260px ;
+        width: 260px ;
         position: relative;
-        margin: 5px auto ;
+        margin: auto ;
         left: 0 ;
         right: 0 ;
-    
+        margin-top: 30px ;
     }
 
     .cod h3 {
@@ -405,8 +413,18 @@ body {
         margin-top: 20px ;
     }
 
+    .isi-offline {
+        width: 300px ;
+        margin-left: -30px ;
+        cursor: none ;
+    }
+
+    .isi-offline h1 {
+        text-align: center ;
+    }
+
     footer {
-        margin-top: 30px ;
+        margin-top: 60px ;
     }
 
 }
