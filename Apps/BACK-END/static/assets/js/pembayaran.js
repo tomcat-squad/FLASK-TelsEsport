@@ -7,6 +7,8 @@ const isioffline = document.querySelector('.isi-offline');
 const offlineJudul = document.querySelector('.cod h3');
 const offlinefull = document.querySelector('.container-utama .cod');
 const mapcod = document.querySelector('.cod2');
+const onlineContainer = document.querySelector('.online');
+const footer = document.querySelector('footer');
 
 onlinePortal.addEventListener('click',function(){
     tombolKembali.classList.remove('tombol-hilang');
@@ -24,6 +26,8 @@ onlinePortal.addEventListener('click',function(){
     ovopayment.classList.remove('online-hilang');
     isiOnline.style.display = "flex" ;
     mapcod.classList.add('online-hilang');
+    onlineContainer.style.marginBottom = "180px" ;
+    footer.style.marginTop = "160px" ;
 })
 
 tombolKembali.addEventListener('click',function(){
@@ -41,6 +45,9 @@ tombolKembali.addEventListener('click',function(){
     gopaypayment.classList.add('online-hilang');
     danapayment.classList.add('online-hilang');
     mapcod.classList.add('online-hilang');
+    onlineContainer.style.marginBottom = "30px" ;
+    onlineContainer.style.marginTop = "20px" ;
+    footer.style.marginTop = "30px" ;
 })
 
 offlinePortal.addEventListener('click',function(){
@@ -58,6 +65,8 @@ offlinePortal.addEventListener('click',function(){
     gopaypayment.classList.add('online-hilang');
     danapayment.classList.add('online-hilang');
     mapcod.classList.remove('online-hilang');
+    onlineContainer.style.marginBottom = "140px" ;
+    onlineContainer.style.marginTop = "20px" ;
 })
 
 const ovopayment = document.querySelector('.pembayaran-ovo');
@@ -100,4 +109,12 @@ dana.addEventListener('click',function(){
 
 
 // }
- 
+
+if (document.documentElement.clientWidth < 600) {
+    tombolKembali.addEventListener('click', function(){
+        onlineContainer.style.marginTop = "40px" ;
+    });
+    onlinePortal.addEventListener('click', function(){
+        onlineContainer.style.marginTop = "-40px" ;
+    })
+} 

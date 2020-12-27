@@ -401,6 +401,29 @@ def index():
     result_turnament = cur_turnament.fetchall()
     return render_template('user/home.html', turnament=result_turnament)
 
+@app.route('/jadwal')
+def index_jadwal():
+    conn            = mysql.connection
+    #GET Data Table Jadwal MLBB
+    cur_jadwal_MLBB   = conn.cursor()
+    cur_jadwal_MLBB.execute("SELECT * FROM turnament_jadwal WHERE Genre='MLBB';")
+    result_jadwal_MLBB = cur_jadwal_MLBB.fetchall()
+
+    #GET Data Table Jadwal PUBG
+    cur_jadwal_PUBG   = conn.cursor()
+    cur_jadwal_PUBG.execute("SELECT * FROM turnament_jadwal WHERE Genre='PUBG';")
+    result_jadwal_PUBG = cur_jadwal_PUBG.fetchall()
+
+    #GET Data Table Jadwal PB
+    cur_jadwal_PB   = conn.cursor()
+    cur_jadwal_PB.execute("SELECT * FROM turnament_jadwal WHERE Genre='PB';")
+    result_jadwal_PB = cur_jadwal_PB.fetchall()
+
+    return render_template('user/jadwal.html', 
+    jadwal_mlbb=result_jadwal_MLBB,
+    jadwal_pubg=result_jadwal_PUBG,
+    jadwal_pb=result_jadwal_PB)
+
 @app.route('/team')
 def index_team():
     return render_template('user/team.html')
