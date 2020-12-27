@@ -1,0 +1,121 @@
+* {
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.splide__slide img {
+    height: 280px ;
+    width: 100% ;
+}
+
+.container {
+    width: 1100px ;
+    margin: 20px auto ;
+}
+
+.container-sub {
+    display: grid ;
+    grid-template-areas: "tombol-pilihan kategori" "daftar kategori" ;
+    width: 1100px ;
+}
+
+.tombol-atas {
+    grid-area: tombol-pilihan ;
+    display: flex ;
+    width: 700px ;
+    /* justify-content: space-between ; */
+    margin: 20px 0 ;
+}
+
+.tombol-atas p:nth-child(1){
+    width : 350px ;
+    border: 1px black solid ;
+    text-align: center ;
+    height: 30px ;
+}
+
+.tombol-atas p:nth-child(2){
+    width: 350px ;
+    border: 1px black solid ;
+    text-align: center ;
+    height: 30px ;
+}
+
+.kategori {
+    grid-area: kategori ;
+    margin: 20px auto ;
+    width : 300px ;
+    display: grid ;
+    grid-template-areas: "judul judul" "pb bubg" "ml ml";
+}
+
+.kategori p {
+    grid-area: judul ;
+    margin-bottom: 20px ;
+}
+
+.kategori img {
+    background-color: black ;
+}
+
+.kategori img:nth-child(2){
+    grid-area: pb ;
+}
+
+.kategori img:nth-child(3){
+    grid-area: pubg ;
+    margin-top: -190px ;
+}
+
+.kategori img:nth-child(4){
+    grid-area: ml ;
+    background-color: blue ;
+    margin-top: 20px ;
+}
+
+/* utilitis */
+
+.pembatas-1 {
+    display: none ;
+}
+
+.pembatas-2 {
+    display: none ;
+}
+
+.daftar-tabel {
+    grid-area: daftar ;
+    border: 1px solid black ;
+    margin-top: -100px ;
+    width : 700px ;
+}
+
+/*.daftar-tabel div:nth-child(1) ,*/.daftar-tabel div:nth-child(2),.daftar-tabel div:nth-child(3){
+    /* display: none ; */
+}
+
+.ml {
+    width: 650px ;
+    margin: 10px auto ;
+    text-align: center ;
+}
+
+.aktif-ml {
+    
+}
+
+.ml-kelar {
+    color: black ;
+}
+
+.pubg {
+    width: 650px ;
+    margin: 10px auto ;
+    text-align: center ;
+}
+
+.pb {
+    width: 650px ;
+    margin: 10px auto ;
+    text-align: center ;
+}
