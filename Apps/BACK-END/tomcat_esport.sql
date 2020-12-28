@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2020 pada 12.19
+-- Waktu pembuatan: 27 Des 2020 pada 13.49
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.21
 
@@ -49,17 +49,21 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 CREATE TABLE `bukti_pembayaran` (
   `id` int(11) NOT NULL,
   `Team` varchar(100) NOT NULL,
-  `Foto` varchar(255) NOT NULL
+  `Foto` varchar(255) NOT NULL,
+  `Genre` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `bukti_pembayaran`
 --
 
-INSERT INTO `bukti_pembayaran` (`id`, `Team`, `Foto`) VALUES
-(1, 'Rex Regum Qeon', 'Rex Regum Qeon-56-09-December.jpg'),
-(2, 'Evos Esport', 'Evos Esport-45-09-December.jpg'),
-(3, 'Alter Ego', 'Alter Ego-57-09-December.jpg');
+INSERT INTO `bukti_pembayaran` (`id`, `Team`, `Foto`, `Genre`) VALUES
+(1, 'Alter Ego', 'Alter Ego-02-09-December.jpg', 'MLBB'),
+(2, 'Evos Legend', 'Evos Legend-13-09-December.jpg', 'MLBB'),
+(3, 'Onic Esport', 'Onic Esport-52-20-December.jpg', 'MLBB'),
+(4, 'Saints Indo', 'Saints Indo-49-20-December.jpg', 'MLBB'),
+(5, 'Elite 8', 'Elite 8-564333-20-December.jpg', 'MLBB'),
+(6, 'Team Tels', 'Team Tels-503639-20-December.jpg', 'MLBB');
 
 -- --------------------------------------------------------
 
@@ -95,10 +99,12 @@ CREATE TABLE `daftar_ml` (
 --
 
 INSERT INTO `daftar_ml` (`id`, `Team`, `NamaKapten`, `IGN_Kapten`, `ID_Kapten`, `NamaPlayer2`, `IGN_Player2`, `ID_Player2`, `NamaPlayer3`, `IGN_Player3`, `ID_Player3`, `NamaPlayer4`, `IGN_Player4`, `ID_Player4`, `NamaPlayer5`, `IGN_Player5`, `ID_Player5`, `Email`, `Whatsapp`, `Waktu`) VALUES
-(1, 'Rex Regum Qeon', 'asd', 'asd', 213, 'asd', 'asd', 213, 'asd', 'asd', 213, 'asd', 'asd', 213, 'asd', 'asd', 213, 'asdasd@gmail.com', '123213', '2020-12-09 10:41:35'),
-(2, 'Evos Esport', 'Eko Julyano', 'ouraa', 1, 'Yurino', 'donkey', 2, 'Ikhsan', 'lemon', 3, 'Firdaus', 'luminare', 4, 'Jonathan Liandi', 'joo', 5, 'evos@gmail.com', '081381662912', '2020-12-09 10:50:28'),
-(3, 'Alter Ego', 'Muhammad Julian ', 'Udil', 1, 'Ahmad Abdurrahman ', 'Ahmad ', 2, 'Eldin Rahadian Putra ', 'Celiboy', 3, 'Julian Murphy ', 'LeoMurphy ', 4, 'Ilyas Rahmanda ', 'Caesius ', 5, 'delwyn@alterego.com', '0821231233', '2020-12-09 11:08:46'),
-(4, 'Onic Esport', 'Muhammad Julian ', 'Udil', 1, 'Ahmad Abdurrahman ', 'Ahmad ', 2, 'Eldin Rahadian Putra ', 'Celiboy', 3, 'Julian Murphy ', 'LeoMurphy ', 4, 'Ilyas Rahmanda ', 'Caesius ', 5, 'delwyn@alterego.com', '0821231233', '2020-12-09 11:08:46');
+(1, 'Alter Ego', 'Ahmad Abdurrahman ', 'Ahmad ', 1, 'Julian Murphy ', 'LeoMurphy ', 2, 'Eldin Rahadian Putra ', 'Celiboy', 3, 'William W ', 'YAM? ', 4, 'Rafly Alvareza Sudrajat ', 'PAI ', 5, 'alterego@gmail.com', '081381662912', '2020-12-09 15:53:48'),
+(2, 'Evos Legend', 'Gustian ', 'R E K T ', 1, 'Fahmi Adam Alamsyah ', 'Rexxy ', 2, 'Muhammad Ridwan ', 'Wannn ', 3, 'Raihan Delvino Ardy ', 'Bajan ', 4, 'Sebastian Arthur ', 'Pendragon ', 5, 'evos@evos.com', '08463678923', '2020-12-09 15:24:48'),
+(3, 'Onic Esport', 'Gustian', 'R E K T ', 1, 'Fahmi Adam Alamsyah ', 'Rexxy ', 2, 'Muhammad Ridwan ', 'Wannn ', 3, 'Raihan Delvino Ardy ', 'Bajan ', 4, 'Sebastian Arthur ', 'Pendragon ', 5, 'evos@evos.com', '08463678923', '2020-12-20 16:43:00'),
+(5, 'Saints Indo', 'asd', 'asd', 1, 'asd', 'asd', 2, 'asd', 'asd', 3, 'asd', 'asd', 4, 'asd', 'asd', 5, 'asdasd@gmail.com', '123123', '2020-12-20 16:43:40'),
+(6, 'Elite 8', 'asdag', 'klm', 1, 'aga', 'km ni', 2, 'ag', 'nnoij[', 3, 'asde', 'mopmpo', 4, 'hgaw', 'unbuonf', 5, 'asd@google.com', '081381662912', '2020-12-20 16:45:54'),
+(7, 'Team Tels', 'Sasd', 'Hsjsj', 1, 'AssBsjs', 'Bdhs', 2, 'Nsnns', 'Hsjd', 3, 'Hshsh', 'Hsjs', 4, 'Jsjs', 'Bsbs', 5, 'tels@google.com', '08124567845', '2020-12-20 16:50:54');
 
 -- --------------------------------------------------------
 
@@ -148,15 +154,31 @@ CREATE TABLE `turnament_jadwal` (
   `id` int(11) NOT NULL,
   `Team` varchar(100) NOT NULL,
   `Jam` time NOT NULL,
-  `Tanggal` date NOT NULL
+  `Tanggal` date NOT NULL,
+  `Genre` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `turnament_jadwal`
 --
 
-INSERT INTO `turnament_jadwal` (`id`, `Team`, `Jam`, `Tanggal`) VALUES
-(1, 'Bigetron VS Evos Esport', '11:32:48', '2020-12-05');
+INSERT INTO `turnament_jadwal` (`id`, `Team`, `Jam`, `Tanggal`, `Genre`) VALUES
+(1, 'BTR VS Evos Esport', '11:30:00', '2020-12-05', 'MLBB'),
+(2, 'BTR VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(3, 'Onic VS PB', '11:30:00', '2020-12-05', 'PB'),
+(4, 'Elit 8 VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(5, 'BTR VS Evos Esport', '11:30:00', '2020-12-05', 'MLBB'),
+(6, 'BTR VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(7, 'Onic VS PB', '11:30:00', '2020-12-05', 'PB'),
+(8, 'Elit 8 VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(9, 'BTR VS Evos Esport', '11:30:00', '2020-12-05', 'MLBB'),
+(10, 'BTR VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(11, 'Onic VS PB', '11:30:00', '2020-12-05', 'PB'),
+(12, 'Elit 8 VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(13, 'BTR VS Evos Esport', '11:30:00', '2020-12-05', 'MLBB'),
+(14, 'BTR VS PUBG', '11:30:00', '2020-12-05', 'PUBG'),
+(15, 'Onic VS PB', '11:30:00', '2020-12-05', 'PB'),
+(16, 'Elit 8 VS PUBG', '11:30:00', '2020-12-05', 'PUBG');
 
 --
 -- Indexes for dumped tables
@@ -212,13 +234,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `bukti_pembayaran`
 --
 ALTER TABLE `bukti_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_ml`
 --
 ALTER TABLE `daftar_ml`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_pubg`
@@ -236,7 +258,7 @@ ALTER TABLE `turnament`
 -- AUTO_INCREMENT untuk tabel `turnament_jadwal`
 --
 ALTER TABLE `turnament_jadwal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
