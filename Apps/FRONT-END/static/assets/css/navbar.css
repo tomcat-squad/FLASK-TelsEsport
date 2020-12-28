@@ -71,14 +71,15 @@ nav ul li a {
 .toggle {
     display : none ;
     flex-direction: column ;
-    height: 20px ;
+    height: 21px ;
     justify-content: space-between ;
     position: relative ;
+    /* border: 1px white solid ; */
 }
 
 .toggle span {
     display: block ;
-    width: 28px ;
+    width: 26px ;
     height: 3px ;
     background-color: #FFFFFF  ;
     border-radius: 3px ;
@@ -98,6 +99,7 @@ nav ul li a {
 
 /* animasi hamburger */
 
+
 .toggle span:nth-child(2) {
     transform-origin: 0 0 ;
 }
@@ -108,7 +110,7 @@ nav ul li a {
 
 .toggle input:checked ~ span:nth-child(2){
     background-color: #FFFFFF ;
-    transform: rotate(50deg) translate( -2px, 2px) ;
+    transform: rotate(45deg) translate( 3px, -3px) ;
 }
 
 .toggle input:checked ~ span:nth-child(3){
@@ -118,7 +120,7 @@ nav ul li a {
 
 .toggle input:checked ~ span:nth-child(4){
     background-color: #FFFFFF ;
-    transform: rotate(-50deg) translate( -5px, -1px);
+    transform: rotate(-45deg) translate( 3px, 3px);
 }
 
 /* media breakpoint */
