@@ -133,7 +133,7 @@ def logout_admin():
     flash('Anda Telah Keluar', 'Logout')
     return redirect(url_for('index_admin'))
 
-@app.route('/dashboard')
+@app.route('/admin/dashboard')
 def index_dashboard():
     if 'admin' in session:
         return render_template('admin/BerhasilLogin/dashboard.html')
@@ -144,7 +144,7 @@ def index_dashboard():
 #==============================
 # DASHBOARD MOBILE LEGEND START
 #==============================
-@app.route('/dashboard_MobileLegend')
+@app.route('/admin/dashboard_MobileLegend')
 def dashboardML():
     if 'admin' in session:
         form    = Esport_Mobile_Legend()
@@ -239,7 +239,7 @@ def deleteML(get_id):
 #===========================
 # DASHBOARD TURNAMENT START
 #===========================
-@app.route('/dashboard_Turnament')
+@app.route('/admin/dashboard_Turnament')
 def dashboardTurnament():
     if 'admin' in session:
         form = Esport_Mobile_Legend()
@@ -343,6 +343,41 @@ def deleteTurnament(get_id):
         
 #===========================
 # DASHBOARD TURNAMENT END
+#===========================
+
+#===========================
+# DASHBOARD JADWAL START
+#===========================
+@app.route('/admin/Jadwal')
+def dashboardJadwal():
+    if 'admin' in session:
+        conn = mysql.connection
+
+        #GET Data Table Jadwal MLBB
+        cur_jadwal_MLBB   = conn.cursor()
+        cur_jadwal_MLBB.execute("SELECT * FROM turnament_jadwal WHERE Genre='MLBB';")
+        result_jadwal_MLBB = cur_jadwal_MLBB.fetchall()
+
+        #GET Data Table Jadwal PUBG
+        cur_jadwal_PUBG   = conn.cursor()
+        cur_jadwal_PUBG.execute("SELECT * FROM turnament_jadwal WHERE Genre='PUBG';")
+        result_jadwal_PUBG = cur_jadwal_PUBG.fetchall()
+
+        #GET Data Table Jadwal PB
+        cur_jadwal_PB   = conn.cursor()
+        cur_jadwal_PB.execute("SELECT * FROM turnament_jadwal WHERE Genre='PB';")
+        result_jadwal_PB = cur_jadwal_PB.fetchall()
+
+        return render_template('/admin/BerhasilLogin/dashboard_jadwal.html',
+        jadwal_mlbb=result_jadwal_MLBB,
+        jadwal_pubg=result_jadwal_PUBG,
+        jadwal_pb=result_jadwal_PB)
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))  
+
+#===========================
+# DASHBOARD JADWAL END
 #===========================
 
 '''
