@@ -1,10 +1,10 @@
 * {
-    margin: 0 ;
-    padding: 0 ;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: #1D1C1E ;
+    background-color: #1d1c1e;
 }
 
 .tombol-balik {
@@ -13,7 +13,7 @@ body {
     margin-bottom: 10px;
     border-radius: 3px;
     font-size: 15px;
-    height: 25px ;
+    height: 25px;
 }
 
 .tombol-balik a {
@@ -22,412 +22,405 @@ body {
 }
 
 .tombol-hilang {
-    display: none ;
+    display: none;
 }
 
-
 .container-utama {
-    width: 1000px ;
-    margin: 20px auto ;
-    display: grid ;
-    grid-template-areas: "tombol judul " "online offline" ;
-    column-gap: -100px ;
-    color: #ffffff ;
+    width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-areas: "tombol judul " "online offline";
+    column-gap: -100px;
+    color: #ffffff;
     /* position: relative ; */
 }
 
-.container-utama h1:nth-child(2){
+.container-utama h1:nth-child(2) {
     grid-area: judul;
-    font-size: 30px ;
-    margin-left: -200px ;
-    margin-bottom: -80px ;
+    font-size: 30px;
+    margin-left: -200px;
+    margin-bottom: -80px;
 }
 
 .online-hilang {
-    display: none ;
+    display: none;
 }
 
 .online {
     grid-area: online;
-    display: flex ;
-    position: relative ;
-    width: 400px ;
-    height: 500px ;
-    flex-direction: column ;
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 500px;
+    flex-direction: column;
     /* border : 1px black s ; */
-    text-align: center ;
-    margin: 20px ;
+    text-align: center;
+    margin: 20px;
     /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
 }
 
-
 .online img {
     cursor: pointer;
-    width: 260px ;
-    height: 260px ;
-    margin: auto ;
-    border-radius: 8px ;
-    box-shadow: 0 0 5px gray ;
+    width: 260px;
+    height: 260px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
 }
 
 .online h3 {
-    position: absolute ;
-    z-index: 3 ;
-    margin-top: 300px ;
-    font-size: 20px ;
-    left: 0 ;
-    right: 0 ;
+    position: absolute;
+    z-index: 3;
+    margin-top: 300px;
+    font-size: 20px;
+    left: 0;
+    right: 0;
 }
 
 .offline-hilang {
-    display: none ;
+    display: none;
 }
 
 .cod {
-    grid-area: offline ;
-    display: flex ;
-    position: relative ;
-    width: 400px ;
-    flex-direction: column ;
+    grid-area: offline;
+    display: flex;
+    position: relative;
+    width: 400px;
+    flex-direction: column;
     /* border : 1px black solid ; */
-    text-align: center ;
-    margin: 20px ;
+    text-align: center;
+    margin: 20px;
     cursor: pointer;
-    height: 500px ;
-    opacity: 1 ;
+    height: 500px;
+    opacity: 1;
     /* box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 25%); */
 }
 
 .cod img {
-    width: 260px ;
-    height: 260px ;
-    margin: auto ;
-    border-radius: 8px ;
-    box-shadow: 0 0 5px gray ;
+    width: 260px;
+    height: 260px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
 }
 
-
 .pembayaran {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
 .method-pembayaran h3 {
-    font-size: 15px ;
-    font-weight: lighter ;
-    order: 1 ;
-    margin-top: 20px ;
-    margin-bottom: 30px ;
-    z-index: 999 ;
-    position: absolute ;
-    color: #ffffff ;
+    font-size: 15px;
+    font-weight: lighter;
+    order: 1;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    z-index: 999;
+    position: absolute;
+    color: #ffffff;
 }
 
 .pembayaran img {
-    margin: 10px auto ;
-    border-radius: 10px ;
+    margin: 10px auto;
+    border-radius: 10px;
 }
 
 .ovo img {
-    width: 110px ;
+    width: 110px;
     height: 100px;
-    margin-top: 80px ;
+    margin-top: 80px;
 }
 
 .gopay img {
-    width: 110px ;
+    width: 110px;
     height: 100px;
 }
 
 .dana img {
-    width: 110px ;
+    width: 110px;
     height: 100px;
 }
 
 .pembayaran-ovo {
-    margin: 30px auto ;
+    margin: 30px auto;
 }
 
 .pembayaran-ovo form {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
-.pembayaran-ovo form input:nth-child(1){
-    margin: 20px auto ;
-    width: 50% ;
+.pembayaran-ovo form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-ovo {
-    margin: 30px auto ;
+    margin: 30px auto;
 }
 
 .pembayaran-ovo form {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
-.pembayaran-gopay form input:nth-child(1){
-    margin: 20px auto ;
-    width: 50% ;
+.pembayaran-gopay form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
-
 
 .pembayaran-ovo img {
-    width: 200px ;
-    height: 200px ;
-    margin: 10px auto ;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
 }
 
 .pembayaran-ovo button {
-    width: 300px ;
-    margin: auto ;
-    border-radius: 5px ;
-    background-color: #5600E7 ;
-    color : #ffffff ;
-    border: none ;
+    width: 300px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #5600e7;
+    color: #ffffff;
+    border: none;
     cursor: pointer;
     height: 25px;
 }
 
 .pembayaran-gopay {
-    margin: 30px auto ;
+    margin: 30px auto;
 }
 
 .pembayaran-gopay form {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
-
 .pembayaran-gopay img {
-    width: 200px ;
-    height: 200px ;
-    margin: 10px auto ;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
 }
 
 .pembayaran-gopay button {
-    width: 300px ;
-    margin: auto ;
-    border-radius: 5px ;
-    background-color: #5600E7 ;
-    color : #ffffff ;
-    border: none ;
+    width: 300px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #5600e7;
+    color: #ffffff;
+    border: none;
     cursor: pointer;
     height: 25px;
 }
 
-.pembayaran-dana form input:nth-child(1){
-    margin: 20px auto ;
-    width: 50% ;
+.pembayaran-dana form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-dana {
-    margin: 30px auto ;
+    margin: 30px auto;
 }
 
 .pembayaran-dana form {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
 .pembayaran-dana img {
-    width: 200px ;
-    height: 200px ;
-    margin: 10px auto ;
+    width: 200px;
+    height: 200px;
+    margin: 10px auto;
 }
 
 .pembayaran-dana button {
-    width: 300px ;
-    margin: auto ;
-    border-radius: 5px ;
-    background-color: #5600E7 ;
-    color : #ffffff ;
-    border: none ;
+    width: 300px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #5600e7;
+    color: #ffffff;
+    border: none;
     cursor: pointer;
     height: 25px;
 }
 
 .isi-offline {
-    margin: 30px ;
+    margin: 30px;
 }
 
 .isi-offline h1 {
     margin: 10px auto;
     margin-bottom: 25px;
-    font-size: 20px ;
+    font-size: 20px;
 }
 
 .isi-offline p {
-    font-size: 15px ;
-    margin: 10px ;
-    text-align: left ;
+    font-size: 15px;
+    margin: 10px;
+    text-align: left;
 }
 
 .cod2 {
-    margin-top: 30px ;
+    margin-top: 30px;
 }
 
 .cod2 h1 {
-    margin: 10px ;
-    font-size: 20px ;
+    margin: 10px;
+    font-size: 20px;
 }
 
 .cod2 iframe {
-    margin: 20px auto ;
-    width: 300px ;
-    height: 300px ;
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
 }
 
 footer {
-    margin-top: -50px ;
+    margin-top: -50px;
 }
 
-@media only screen and (max-width : 800px ){
-
+@media only screen and (max-width: 800px) {
     .container-utama {
-        display: grid ;
+        display: grid;
         grid-template-areas: "tombol" "judul" "online" "offline";
-        width: 600px ;
-        margin: auto ;
+        width: 600px;
+        margin: auto;
     }
 
     .container-utama h1:nth-child(2) {
-        margin: auto ;
+        margin: auto;
         /* margin-left : 100px ; */
-        margin-top: 20px ;
-        margin-bottom: -50px ;
+        margin-top: 20px;
+        margin-bottom: -50px;
     }
 
     .tombol-balik {
-        margin-top : 20px ;
-        margin-left: 20px ;
-        height: 25px ;
+        margin-top: 20px;
+        margin-left: 20px;
+        height: 25px;
     }
 
     .online {
-        width: 280px ;
-        margin: auto ;
+        width: 280px;
+        margin: auto;
     }
 
     .cod {
-        width: 280px ;
-        margin: auto ;
-        margin-top : -70px  ;
+        width: 280px;
+        margin: auto;
+        margin-top: -70px;
     }
 
     .method-pembayaran {
-        margin-top: 30px ;
+        margin-top: 30px;
     }
 
     .pembayaran-ovo {
-        margin-top: 50px ;
-        margin: auto ;
-        width: 280px ;
+        margin-top: 50px;
+        margin: auto;
+        width: 280px;
     }
 
     .pembayaran-gopay {
-        margin-top: 50px ;
-        margin: auto ;
-        width: 280px ;
+        margin-top: 50px;
+        margin: auto;
+        width: 280px;
     }
 
-    .pembayaran-dana  {
-        margin-top: 50px ;
-        margin: auto ;
-        width: 280px ;
+    .pembayaran-dana {
+        margin-top: 50px;
+        margin: auto;
+        width: 280px;
     }
 
     .cod2 h1 {
-        margin-top: 30px ;
+        margin-top: 30px;
     }
 }
 
-
-@media only screen and (max-width : 600px ){
+@media only screen and (max-width: 600px) {
     .container-utama {
-        display: grid ;
+        display: grid;
         grid-template-areas: "tombol" "judul" "online" "offline";
-        width: 350px ;
-        margin: auto ;
+        width: 350px;
+        margin: auto;
     }
 
     .container-utama h1:nth-child(2) {
-        margin: auto ;
+        margin: auto;
         /* margin-left : 100px ; */
-        margin-top: 20px ;
-        margin-bottom: -30px ;
-        font-size: 20px ;
+        margin-top: 20px;
+        margin-bottom: -30px;
+        font-size: 20px;
     }
 
     .method-pembayaran {
-        flex-direction: row ;
-        justify-content: space-between ;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .method-pembayaran img {
-        margin-top: 100px ;
-        width: 90px ;
-        height: 90px ;
+        margin-top: 100px;
+        width: 90px;
+        height: 90px;
     }
 
     .method-pembayaran h3 {
-        font-size: 16px ;
-        font-weight: lighter ;
+        font-size: 16px;
+        font-weight: lighter;
     }
 
     .online {
-        left: 0 ;
-        right: 0 ;
-        width: 300px ;
-        height: 300px ;
-        margin-bottom: 30px ;
-        margin-top: 40px ;
+        left: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 30px;
+        margin-top: 40px;
     }
 
     .cod img {
-        z-index: 9999 ;
-        position: absolute ;
+        z-index: 9999;
+        position: absolute;
     }
 
     .cod {
-        height: 260px ;
-        width: 260px ;
+        height: 260px;
+        width: 260px;
         position: relative;
-        margin: auto ;
-        left: 0 ;
-        right: 0 ;
-        margin-top: 30px ;
+        margin: auto;
+        left: 0;
+        right: 0;
+        margin-top: 30px;
     }
 
     .cod h3 {
-        display: none ;
+        display: none;
     }
 
-
-    .pembayaran-ovo img ,.pembayaran-gopay img ,.pembayaran-dana img {
+    .pembayaran-ovo img,
+    .pembayaran-gopay img,
+    .pembayaran-dana img {
         position: relative;
-        margin-top: 30px ;
+        margin-top: 30px;
     }
 
     .pembayaran-ovo button {
-        width: 200px ;
-        margin : auto ;
-        margin-top: 20px ;
+        width: 200px;
+        margin: auto;
+        margin-top: 20px;
     }
 
     .isi-offline {
-        width: 300px ;
-        margin-left: -30px ;
-        cursor: none ;
+        width: 300px;
+        margin-left: -30px;
+        cursor: none;
     }
 
     .isi-offline h1 {
-        text-align: center ;
+        text-align: center;
     }
 
     footer {
-        margin-top: 60px ;
+        margin-top: 60px;
     }
-
 }

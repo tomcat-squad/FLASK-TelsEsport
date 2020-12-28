@@ -1,188 +1,194 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif;
-    padding: 0 ;
-    margin: 0 ;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 footer {
-    display: flex ;
-    flex-direction: column ;
-    background-color: #171619 ;
+    display: flex;
+    flex-direction: column;
+    background-color: #171619;
 }
 
 .section-atas-footer {
-    display: flex ;
-    flex-direction: row ;
-    justify-content: space-around ;
-    margin: 10px ;
-    text-align: center ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px;
+    text-align: center;
 }
 
 .footer-brand {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-footer {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
 .kategori-footer {
-    display: flex ;
-    flex-direction: column ;
-} 
+    display: flex;
+    flex-direction: column;
+}
 
 .info-tomcat {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
 .support-footer {
-    display: flex ;
-    flex-direction: column ;
+    display: flex;
+    flex-direction: column;
 }
 
-.menu-footer h1 ,.info-footer h1 ,.kategori-footer h1 ,.support-footer h1 {
-    font-size: 16px ;
-    margin : 10px 0 ;
-    text-transform: uppercase ;
-    text-align: left ;
-    color: #9F9F9F ;
+.menu-footer h1,
+.info-footer h1,
+.kategori-footer h1,
+.support-footer h1 {
+    font-size: 16px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    text-align: left;
+    color: #9f9f9f;
 }
 
-.menu-footer a ,.kategori-footer a {
-    font-size: 13px ;
-    list-style: none ;
-    text-decoration: none ;
-    margin: 6px 0 ;
-    text-align: left ;
-    color: #FFFFFF ;
+.menu-footer a,
+.kategori-footer a {
+    font-size: 13px;
+    list-style: none;
+    text-decoration: none;
+    margin: 6px 0;
+    text-align: left;
+    color: #ffffff;
 }
 
 .info-footer p {
-    margin: 6px 0 ;
-    text-align: left ;
-    font-size: 13px ;
-    color: #FFFFFF ;
+    margin: 6px 0;
+    text-align: left;
+    font-size: 13px;
+    color: #ffffff;
 }
 
 .footer-brand img {
-    width: 60px ;
-    height: 60px ;
-    margin: 10px auto ;
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
 }
 .footer-brand h1 {
-    font-size: 18px ;
-    margin : -1px 0 ;
-    text-transform: uppercase ;
-    color: #FFFFFF ;
+    font-size: 18px;
+    margin: -1px 0;
+    text-transform: uppercase;
+    color: #ffffff;
 }
 
 .footer-brand p {
-    font-size: 14px ;
-    text-transform: uppercase ;
-    color: #FFFFFF ;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
 }
 
 .support-footer img {
-    width: 50px ;
-    height: 50px ;
-    margin: 0 auto ;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
 }
 
 .section-bawah-footer {
-    margin: 10px auto ;
-    width: 600px ;
-    display: flex ;
-    flex-direction: column ;
-    text-align: center ;
+    margin: 10px auto;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .garis-footer {
-    width: 100% ;
+    width: 100%;
     border: 0.2px solid #000000;
-    margin-top: 10px ;
-
+    margin-top: 10px;
 }
 
 .sosmed-footer {
-    display: none ;
+    display: none;
 }
 
 .section-bawah-footer h4 {
-    margin-top: 16px ;
-    font-size: 13px ;
-    color: #FFFFFF ;
-    font-weight: 100 ;
+    margin-top: 16px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 100;
 }
 
-@media only screen and (max-width : 800px ){
+@media only screen and (max-width: 800px) {
     .section-atas-footer {
-        display: flex ;
-        flex-wrap: wrap ;
-        width: 67%  ;
-        margin: 0 auto ;
+        display: flex;
+        flex-wrap: wrap;
+        width: 67%;
+        margin: 0 auto;
         justify-content: space-between;
     }
 
     .footer-brand img {
-        width: 50px ;
-        height: 50px ;
-        margin: 10px auto ;
+        width: 50px;
+        height: 50px;
+        margin: 10px auto;
     }
 
     .footer-brand h1 {
-        font-size: 14px ;
-        margin : -1px 0 ;
-        text-transform: uppercase ;
-        color: #FFFFFF ;
-    }
-    
-    .footer-brand p {
-        font-size: 13px ;
-        text-transform: uppercase ;
-        color: #FFFFFF ;
+        font-size: 14px;
+        margin: -1px 0;
+        text-transform: uppercase;
+        color: #ffffff;
     }
 
-    .kategori-footer,.menu-footer,.support-footer {
-        display: none ;
+    .footer-brand p {
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #ffffff;
     }
-    
+
+    .kategori-footer,
+    .menu-footer,
+    .support-footer {
+        display: none;
+    }
 }
 
-@media only screen and (max-width : 600px ){
+@media only screen and (max-width: 600px) {
     .section-atas-footer {
-        margin: 12px auto ;
-        width: 300px ;
-        justify-content: space-around ;
+        margin: 12px auto;
+        width: 300px;
+        justify-content: space-around;
     }
 
-    .info-footer,.kategori-footer,.menu-footer,.support-footer {
-        display: none ;
+    .info-footer,
+    .kategori-footer,
+    .menu-footer,
+    .support-footer {
+        display: none;
     }
 
     .sosmed-footer {
-        display: flex ;
-        justify-content: center ;
+        display: flex;
+        justify-content: center;
         /* justify-content: space-around ; */
-        flex-direction: row ;
-        width: 300px ;
-        margin: 20px auto ;
+        flex-direction: row;
+        width: 300px;
+        margin: 20px auto;
     }
 
     .sosmed-footer img {
-        height: 30px ;
-        width: 30px ;
-        margin : 0 10px ;
+        height: 30px;
+        width: 30px;
+        margin: 0 10px;
     }
 
     .section-bawah-footer {
-        margin: auto ;
-        width: 300px ;
-        margin-bottom: 20px ;
+        margin: auto;
+        width: 300px;
+        margin-bottom: 20px;
     }
-
 }
