@@ -1,4 +1,18 @@
 {% include 'header.html' %}
 <!--CONTENT-->
-<h1>DASHBOARD ADMIN</h1>
+<div class="container text-center">
+    <h1>DASHBOARD ADMIN</h1>
+    <hr style="margin-bottom: 40px;">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card" style="width: 18rem; border-color: #7541cf;">
+				<img class="card-img-top" style="background-color: #343434; width: 286px;" src="https://i.pinimg.com/originals/5e/d3/e5/5ed3e5f342657fa99dd1869fab1c59f0.png" alt="Thumbnail">
+				<div class="card-body">
+                    <h5 class="card-text">Team Mobile Legend</h5> 
+                    <a href="{{url_for('dashboardML')}}" class="btn btn-info"><i class="fas fa-users"></i> DATA</a>
+				</div>
+			</div>
+        </div>
+	</div>
+</div>
 {% include 'footer.html' %}
