@@ -1,14 +1,14 @@
 #wrapper {
-    overflow-x: hidden;
- }
+  overflow-x: hidden;
+}
 
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -30,15 +30,15 @@
 
 @media (min-width: 768px) {
   #sidebar-wrapper {
-    margin-left: 0;
+      margin-left: 0;
   }
 
   #page-content-wrapper {
-    min-width: 0;
-    width: 100%;
+      min-width: 0;
+      width: 100%;
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
+      margin-left: -15rem;
   }
 }

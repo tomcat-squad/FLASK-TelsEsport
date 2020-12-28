@@ -1,141 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>home</title>
     <!-- stylesheet -->
-    <link rel="stylesheet" href="../static/assets/css/navbar.css">
-    <link rel="stylesheet" href="../static/assets/css/footer.css">
-    <link rel="stylesheet" href="../static/assets/css/home.css">
+    <link rel="stylesheet" href="../static/assets/css/navbar.css" />
+    <link rel="stylesheet" href="../static/assets/css/footer.css" />
+    <link rel="stylesheet" href="../static/assets/css/home.css" />
     <!-- utilies -->
-    <link rel="stylesheet" href="path-to-the-file/splide.min.css">
+    <link rel="stylesheet" href="path-to-the-file/splide.min.css" />
 
     <!-- or the one installed in node_modules directory, -->
-    <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
+    <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css" />
 
     <!-- or the reference on CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
+  </head>
+  <body>
     <nav>
-        <div class="judul">
-            <h1>TELS E-SPORT</h1>
-            <img src="../static/assets/img/logo navbar.svg" alt="#">
-        </div>
-        <ul> 
-            <li><a href="#" class="active">home</a></li>
-            <li><a href="#">jadwal</a></li>
-            <li><a href="#">team</a></li>
-        </ul>
-        <div class="toggle">
-            <input type="checkbox">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+      <div class="judul">
+        <h1>TELS E-SPORT</h1>
+        <img src="../static/assets/img/logo navbar.svg" alt="#" />
+      </div>
+      <ul>
+        <li><a href="#" class="active">home</a></li>
+        <li><a href="#">jadwal</a></li>
+        <li><a href="#">team</a></li>
+        <li><a href="#">bagan</a></li>
+      </ul>
+      <div class="toggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
 
     <div class="container">
-        <div class="slidebar">
+      <div class="slidebar">
         <div id="image-slider" class="splide">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img src="https://dummyimage.com/1044x280/000/fff.png">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://dummyimage.com/1044x280/000/fff.png">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://dummyimage.com/1044x280/000/fff.png">
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://dummyimage.com/1044x280/000/fff.png">
-                    </li> 
-                </ul>
-            </div>
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <img src="https://dummyimage.com/1044x280/000/fff.png" />
+              </li>
+              <li class="splide__slide">
+                <img src="https://dummyimage.com/1044x280/000/fff.png" />
+              </li>
+              <li class="splide__slide">
+                <img src="https://dummyimage.com/1044x280/000/fff.png" />
+              </li>
+              <li class="splide__slide">
+                <img src="https://dummyimage.com/1044x280/000/fff.png" />
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+      <div class="container-sub">
+        <div class="tombol-atas">
+          <p class="tombolaktif">aktif</p>
+          <p class="tombolselesai">selesai</p>
         </div>
-        <div class="container-sub">
-            <div class="tombol-atas">
-                <p class="tombolaktif">aktif</p>
-                <p class="tombolselesai">selesai</p>
+        <div class="daftar-tabel">
+          <div class="ml pembatas-1">
+            <div class="aktif-ml pembatas-2">ini aktif</div>
+            <div class="ml-kelar pembatas-2">
+              <p>ini selesai</p>
             </div>
-            <div class="daftar-tabel">
-                <div class="ml pembatas-1" >
-                    <div class="aktif-ml pembatas-2">ini aktif</div>
-                    <div class="ml-kelar pembatas-2">
-                        <p>ini selesai</p>
-                    </div>
-                </div>
-                <div class="pubg pembatas-1">
-                    <div class="pubg-aktif pembatas-2">pubg ngab</div>
-                    <div class="pubg-kelar pembatas-2">gk ada ngab udh kelar</div>
-                </div>
+          </div>
+          <div class="pubg pembatas-1">
+            <div class="pubg-aktif pembatas-2">pubg ngab</div>
+            <div class="pubg-kelar pembatas-2">gk ada ngab udh kelar</div>
+          </div>
 
-                <div class="pb pembatas-1">
-                    <div class="pb-aktif pembatas-2">
-                        pb aktif ngab 
-                    </div>
-                    <div class="pb-selesai pembatas-2">pb kgk aktif ngab</div>
-                </div>
+          <div class="pb pembatas-1">
+            <div class="pb-aktif pembatas-2">
+              pb aktif ngab
             </div>
-            <div class="kategori">
-                <p>kategori</p>
-                <img  class="logopb" src="../static/assets/img/PB.png">
-                <img class = "logopubg" src="../static/assets/img/PUBG.png">
-                <img class="logoml" src="../static/assets/img/MOBILE LEGEND.png" alt="">
-            </div>
+            <div class="pb-selesai pembatas-2">pb kgk aktif ngab</div>
+          </div>
         </div>
-
+        <div class="kategori">
+          <p>kategori</p>
+          <img class="logopb" src="../static/assets/img/PB.png" />
+          <img class="logopubg" src="../static/assets/img/PUBG.png" />
+          <img class="logoml" src="../static/assets/img/MOBILE LEGEND.png" alt="" />
+        </div>
+      </div>
     </div>
 
     <footer>
-        <div class="section-atas-footer">
-            <div class="footer-brand">
-                <img src="../static/assets/img/logo navbar.svg" alt="#">
-                <h1>TELS E-SPORT</h1>
-                <p>TOURNAMENT BY TOMCAT</p>
-            </div>
-            <div class="menu-footer">
-                <h1>menu</h1>
-                <a href="#">home</a>
-                <a href="#">jadwal</a>
-                <a href="#">team</a>
-            </div>
-            <div class="kategori-footer">
-                <h1>kategori</h1>
-                <a href="#">Mobile Legends: Bang Bang</a>
-                <a href="#">Free Fire</a>
-                <a href="#">PUBG Mobile</a>
-            </div>
-            <div class="info-footer">
-                <h1>info TOMCAT</h1>
-                <p>+62 896-3773-3392</p>
-                <p>tomcatsquad@gmail.com</p>
-            </div>
-            <div class="support-footer">
-                <h1>SUPPORT BY </h1>
-                <img src="../static/assets/img/logo sekolah tercinta.svg" alt="#">
-                <img src="../static/assets/img/xlhum.svg" alt="">
-            </div>
-
-            <div class="sosmed-footer">
-            <a href="#"><img src="../static/assets/img/Instagram.svg" alt="#"></a>
-            <a href="#"><img src="../static/assets/img/Twitter.svg" alt="#"></a>
-            <a href="#"><img src="../static/assets/img/Youtube.svg" alt="#"></a>
-            </div>
-
+      <div class="section-atas-footer">
+        <div class="footer-brand">
+          <img src="../static/assets/img/logo navbar.svg" alt="#" />
+          <h1>TELS E-SPORT</h1>
+          <p>TOURNAMENT BY TOMCAT</p>
         </div>
-        <div class="section-bawah-footer">
-            <div class="garis-footer"></div>
-            <h4>© 2020 - TELS E-SPORT</h4>
+        <div class="menu-footer">
+          <h1>menu</h1>
+          <a href="#">home</a>
+          <a href="#">jadwal</a>
+          <a href="#">team</a>
         </div>
+        <div class="kategori-footer">
+          <h1>kategori</h1>
+          <a href="#">Mobile Legends: Bang Bang</a>
+          <a href="#">Free Fire</a>
+          <a href="#">PUBG Mobile</a>
+        </div>
+        <div class="info-footer">
+          <h1>info TOMCAT</h1>
+          <p>+62 896-3773-3392</p>
+          <p>tomcatsquad@gmail.com</p>
+        </div>
+        <div class="support-footer">
+          <h1>SUPPORT BY</h1>
+          <img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
+          <img src="../static/assets/img/xlhum.svg" alt="" />
+        </div>
+
+        <div class="sosmed-footer">
+          <a href="#"><img src="../static/assets/img/Instagram.svg" alt="#" /></a>
+          <a href="#"><img src="../static/assets/img/Twitter.svg" alt="#" /></a>
+          <a href="#"><img src="../static/assets/img/Youtube.svg" alt="#" /></a>
+        </div>
+      </div>
+      <div class="section-bawah-footer">
+        <div class="garis-footer"></div>
+        <h4>© 2020 - TELS E-SPORT</h4>
+      </div>
     </footer>
 
     <!-- script -->
     <script src="../static/assets/js/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-</body>
+  </body>
 </html>

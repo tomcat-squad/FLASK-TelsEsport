@@ -1,141 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="../static/assets/css/navbar.css" />
-        <link rel="stylesheet" href="../static/assets/css/register.css" />
-        <link rel="stylesheet" href="../static/assets/css/footer.css" />
-        <script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <nav>
-            <div class="judul">
-                <h1>TELS E-SPORT</h1>
-                <img src="../static/assets/img/logo navbar.svg" alt="#" />
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link rel="stylesheet" href="../static/assets/css/navbar.css" />
+      <link rel="stylesheet" href="../static/assets/css/register.css" />
+      <link rel="stylesheet" href="../static/assets/css/footer.css" />
+      <script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <nav>
+         <div class="judul">
+            <h1>TELS E-SPORT</h1>
+            <img src="../static/assets/img/logo navbar.svg" alt="#" />
+         </div>
+         <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">jadwal</a></li>
+            <li><a href="#">team</a></li>
+            <li><a href="#">bagan</a></li>
+         </ul>
+         <div class="toggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+         </div>
+      </nav>
+
+      <div class="hero-register">
+         <h1>Pedaftaran Online Mobile Legends</h1>
+      </div>
+
+      <div class="form-login-register">
+         <div class="tombol-balik">
+            <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+         </div>
+
+         <form action="#" method="POST">
+            <div class="login-sec-0">
+               <p>nama team</p>
+               <input type="text" required placeholder="Rex Regum Qeon" name="Team" />
             </div>
-            <ul>
-                <li><a href="#">home</a></li>
-                <li><a href="#">jadwal</a></li>
-                <li><a href="#">team</a></li>
-            </ul>
-            <div class="toggle">
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-
-        <div class="hero-register">
-            <h1>Pedaftaran Online Mobile Legends</h1>
-        </div>
-
-        <div class="form-login-register">
-            <div class="tombol-balik">
-                <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+            <div class="login-sec-1">
+               <p>email</p>
+               <input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />
+               <p>whatsapp</p>
+               <input type="number" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />
             </div>
 
-            <form action="#" method="POST">
-                <div class="login-sec-0">
-                    <p>nama team</p>
-                    <input type="text" required placeholder="Rex Regum Qeon" name="Team"/>
-                </div>
-                <div class="login-sec-1">
-                    <p>email</p>
-                    <input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email"/>
-                    <p>whatsapp</p>
-                    <input type="number" required placeholder="0813 8166 2082" name="Whatsapp"  min="0"/>
-                </div>
-
-                <div class="login-sec-2">
-                    <p>nama kapten</p>
-                    <input type="text" required placeholder="Ikhsan Lemon" name="NamaKapten"/>
-                    <p>nama player 2</p>
-                    <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer2"/>
-                    <p>nama player 3</p>
-                    <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer3"/>
-                    <p>nama player 4</p>
-                    <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer4"/>
-                    <p>nama player 5</p>
-                    <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer5"/>
-                </div>
-                <div class="login-sec-3">
-                    <p>IGN-kapten</p>
-                    <input type="text" required placeholder="Nickname" name="IGN_Kapten"/>
-                    <p>IGN-player 2</p>
-                    <input type="text" required placeholder="Nickname" name="IGN_Player2"/>
-                    <p>IGN-player 3</p>
-                    <input type="text" required placeholder="Nickname" name="IGN_Player3"/>
-                    <p>IGN-player 4</p>
-                    <input type="text" required placeholder="Nickname" name="IGN_Player4"/>
-                    <p>IGN-player 5</p>
-                    <input type="text" required placeholder="Nickname" name="IGN_Player5"/>
-                </div>
-                <div class="login-sec-4">
-                    <p>ID kapten</p>
-                    <input type="number" required placeholder="37573688" name="IdKapten" min="0"/>
-                    <p>ID player 2</p>
-                    <input type="number" required placeholder="37573688" name="IdPlayer2" min="0"/>
-                    <p>ID player 3</p>
-                    <input type="number" required placeholder="37573688" name="IdPlayer3" min="0"/>
-                    <p>ID player 4</p>
-                    <input type="number" required placeholder="37573688" name="IdPlayer4" min="0"/>
-                    <p>ID player 5</p>
-                    <input type="number" required placeholder="37573688" name="IdPlayer5" min="0"/>
-                </div>
-                <div class="login-sec-5">
-                    <p>Bukti Transfer</p>
-                    <input type="file" name="bukti-tf"/>
-                    <button type="submit">Daftar</button>
-                </div>
-            </form>
-        </div>
-
-        <footer>
-            <div class="section-atas-footer">
-                <div class="footer-brand">
-                    <img src="../static/assets/img/logo navbar.svg" alt="#" />
-                    <h1>TELS E-SPORT</h1>
-                    <p>TOURNAMENT BY TOMCAT</p>
-                </div>
-                <div class="menu-footer">
-                    <h1>menu</h1>
-                    <a href="#">home</a>
-                    <a href="#">jadwal</a>
-                    <a href="#">team</a>
-                </div>
-                <div class="kategori-footer">
-                    <h1>kategori</h1>
-                    <a href="#">Mobile Legends: Bang Bang</a>
-                    <a href="#">Free Fire</a>
-                    <a href="#">PUBG Mobile</a>
-                </div>
-                <div class="info-footer">
-                    <h1>info TOMCAT</h1>
-                    <p>+62 896-3773-3392</p>
-                    <p>tomcatsquad@gmail.com</p>
-                </div>
-                <div class="support-footer">
-                    <h1>SUPPORT BY</h1>
-                    <img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
-                    <img src="../static/assets/img/xlhum.svg" alt="" />
-                </div>
-
-                <div class="sosmed-footer">
-                    <a href="#"><img src="../static/assets/img/Instagram.svg" alt="#" /></a>
-                    <a href="#"><img src="../static/assets/img/Twitter.svg" alt="#" /></a>
-                    <a href="#"><img src="../static/assets/img/Youtube.svg" alt="#" /></a>
-                </div>
+            <div class="login-sec-2">
+               <p>nama kapten</p>
+               <input type="text" required placeholder="Ikhsan Lemon" name="NamaKapten" />
+               <p>nama player 2</p>
+               <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer2" />
+               <p>nama player 3</p>
+               <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer3" />
+               <p>nama player 4</p>
+               <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer4" />
+               <p>nama player 5</p>
+               <input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer5" />
             </div>
-            <div class="section-bawah-footer">
-                <div class="garis-footer"></div>
-                <h4>© 2020 - TELS E-SPORT</h4>
+            <div class="login-sec-3">
+               <p>IGN-kapten</p>
+               <input type="text" required placeholder="Nickname" name="IGN_Kapten" />
+               <p>IGN-player 2</p>
+               <input type="text" required placeholder="Nickname" name="IGN_Player2" />
+               <p>IGN-player 3</p>
+               <input type="text" required placeholder="Nickname" name="IGN_Player3" />
+               <p>IGN-player 4</p>
+               <input type="text" required placeholder="Nickname" name="IGN_Player4" />
+               <p>IGN-player 5</p>
+               <input type="text" required placeholder="Nickname" name="IGN_Player5" />
             </div>
-        </footer>
+            <div class="login-sec-4">
+               <p>ID kapten</p>
+               <input type="number" required placeholder="37573688" name="IdKapten" min="0" />
+               <p>ID player 2</p>
+               <input type="number" required placeholder="37573688" name="IdPlayer2" min="0" />
+               <p>ID player 3</p>
+               <input type="number" required placeholder="37573688" name="IdPlayer3" min="0" />
+               <p>ID player 4</p>
+               <input type="number" required placeholder="37573688" name="IdPlayer4" min="0" />
+               <p>ID player 5</p>
+               <input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />
+            </div>
+            <div class="login-sec-5">
+               <p>Bukti Transfer</p>
+               <input type="file" name="bukti-tf" />
+               <button type="submit">Daftar</button>
+            </div>
+         </form>
+      </div>
 
-        <!-- script js -->
-        <script src="../static/assets/js/navbar.js"></script>
-    </body>
+      <footer>
+         <div class="section-atas-footer">
+            <div class="footer-brand">
+               <img src="../static/assets/img/logo navbar.svg" alt="#" />
+               <h1>TELS E-SPORT</h1>
+               <p>TOURNAMENT BY TOMCAT</p>
+            </div>
+            <div class="menu-footer">
+               <h1>menu</h1>
+               <a href="#">home</a>
+               <a href="#">jadwal</a>
+               <a href="#">team</a>
+            </div>
+            <div class="kategori-footer">
+               <h1>kategori</h1>
+               <a href="#">Mobile Legends: Bang Bang</a>
+               <a href="#">Free Fire</a>
+               <a href="#">PUBG Mobile</a>
+            </div>
+            <div class="info-footer">
+               <h1>info TOMCAT</h1>
+               <p>+62 896-3773-3392</p>
+               <p>tomcatsquad@gmail.com</p>
+            </div>
+            <div class="support-footer">
+               <h1>SUPPORT BY</h1>
+               <img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
+               <img src="../static/assets/img/xlhum.svg" alt="" />
+            </div>
+
+            <div class="sosmed-footer">
+               <a href="#"><img src="../static/assets/img/Instagram.svg" alt="#" /></a>
+               <a href="#"><img src="../static/assets/img/Twitter.svg" alt="#" /></a>
+               <a href="#"><img src="../static/assets/img/Youtube.svg" alt="#" /></a>
+            </div>
+         </div>
+         <div class="section-bawah-footer">
+            <div class="garis-footer"></div>
+            <h4>© 2020 - TELS E-SPORT</h4>
+         </div>
+      </footer>
+
+      <!-- script js -->
+      <script src="../static/assets/js/navbar.js"></script>
+   </body>
 </html>
