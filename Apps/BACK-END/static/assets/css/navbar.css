@@ -1,175 +1,168 @@
-
- @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-    font-family: 'Poppins', sans-serif;
-    margin : 0 ;
-    padding : 0 ;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-
 nav {
-    display: flex ;
-    background-color: #171619 ;
-    justify-content : space-between  ;
-    padding: 10px 0 ;
-    color: white ;
+    display: flex;
+    background-color: #171619;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: white;
     /* font-family: 'Times New Roman', Times, serif ; */
-    letter-spacing: 2px ;
-    font-size: 20px ;
-    align-items: center ;
+    letter-spacing: 2px;
+    font-size: 20px;
+    align-items: center;
 }
 
 .judul {
-    display: flex ;
-    flex-direction: row ;
-    margin: -10px 10px ;
+    display: flex;
+    flex-direction: row;
+    margin: -10px 10px;
 }
 
 .judul h1 {
-    font-size: 20px ;
-    order: 2 ;
-    text-align: center ;
-    margin: 20px 10px ;
+    font-size: 20px;
+    order: 2;
+    text-align: center;
+    margin: 20px 10px;
 }
 
 .judul img {
-    margin-top: 5px ;
-    width: 55px ;
-    height: 55px ;
-    order: 1 ;
+    margin-top: 15px;
+    width: 40px;
+    height: 40px;
+    order: 1;
 }
 
 nav ul {
-    display: flex ;
-    list-style: none ;
-    width: 20% ;
-    justify-content: space-around ;
-    margin-right: 20px ;
+    display: flex;
+    list-style: none;
+    width: 20%;
+    justify-content: space-around;
+    margin-right: 20px;
 }
 
 nav ul li a {
-    color: white ;
-    text-decoration: none ;
-    font-size: 14px ;
-    text-transform: uppercase ;
-    font-weight: bold ;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .active {
-    padding-bottom: 10px ;
-    color: #5600E7 ;
-    border-bottom: #FFFFFF solid 1px ;
+    padding-bottom: 10px;
+    color: #5600e7;
+    border-bottom: #ffffff solid 1px;
 }
 
 /* nav ul li a:hover {
     color: rgb(15, 129, 124) ;
 } */
 
-
 /* hamburger menu */
 .toggle {
-    display : none ;
-    flex-direction: column ;
-    height: 20px ;
-    justify-content: space-between ;
-    position: relative ;
+    display: none;
+    flex-direction: column;
+    height: 21px;
+    justify-content: space-between;
+    position: relative;
+    /* border: 1px white solid ; */
 }
 
 .toggle span {
-    display: block ;
-    width: 28px ;
-    height: 3px ;
-    background-color: #FFFFFF  ;
-    border-radius: 3px ;
-    transition: 0.5s ;
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: 0.5s;
 }
 
 .toggle input {
-    position: absolute ;
-    width: 40px ;
-    height: 3px ;
-    opacity: 0 ;
-    z-index: 3 ;
-    left: -5px ;
-    top: 3px ;
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    opacity: 0;
+    z-index: 3;
+    left: -5px;
+    top: 3px;
     cursor: pointer;
 }
 
 /* animasi hamburger */
 
 .toggle span:nth-child(2) {
-    transform-origin: 0 0 ;
+    transform-origin: 0 0;
 }
 
-.toggle span:nth-child(4){
-    transform-origin: 0 100% ;
+.toggle span:nth-child(4) {
+    transform-origin: 0 100%;
 }
 
-.toggle input:checked ~ span:nth-child(2){
-    background-color: #FFFFFF ;
-    transform: rotate(50deg) translate(-1px, -1px) ;
+.toggle input:checked ~ span:nth-child(2) {
+    background-color: #ffffff;
+    transform: rotate(45deg) translate(3px, -3px);
 }
 
-.toggle input:checked ~ span:nth-child(3){
-    opacity: 0 ;
+.toggle input:checked ~ span:nth-child(3) {
+    opacity: 0;
     transform: scale(0);
 }
 
-.toggle input:checked ~ span:nth-child(4){
-    background-color: #FFFFFF ;
-    transform: rotate(-50deg) translate(-1px, 0);
+.toggle input:checked ~ span:nth-child(4) {
+    background-color: #ffffff;
+    transform: rotate(-45deg) translate(3px, 3px);
 }
-
-
-
-
 
 /* media breakpoint */
 
 /* ukuran tablet */
-@media only screen and (max-width : 800px ){
+@media only screen and (max-width: 800px) {
     nav ul {
-        width: 50% ;
+        width: 50%;
     }
 }
 
 /* ukuran hp */
 
-@media only screen and (max-width : 600px ){
-
+@media only screen and (max-width: 600px) {
     .judul h1 {
-        font-size: 16px ;
+        font-size: 13px;
     }
 
     .judul img {
-        width: 45px ;
-        height: 45px ;
-        margin-top: 10px ;
+        width: 30px;
+        height: 30px;
+        margin-top: 18px;
     }
 
     .toggle {
-        display: flex ;
-        z-index: 100 ;
-        margin-right: 20px ;
+        display: flex;
+        z-index: 100;
+        margin-right: 20px;
     }
     nav ul {
-        position: absolute ;
-        top : 0 ; 
-        flex-direction: column ;
-        height : 200px ;
-        justify-content:space-evenly  ;
-        align-items: center ;
-        background-color: #171619 ;
-        transition: all 1s ;
-        transform: translateY(-100% );
-        width: 100% ;
-        opacity : 0 ;
-        z-index: 99 ;
+        position: absolute;
+        top: 0;
+        flex-direction: column;
+        height: 200px;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #171619;
+        transition: all 1s;
+        transform: translateY(-100%);
+        width: 100%;
+        opacity: 0;
+        z-index: 99;
     }
 
     .slide {
-        opacity: 1 ;
+        opacity: 1;
         transform: translateY(0%);
     }
 }

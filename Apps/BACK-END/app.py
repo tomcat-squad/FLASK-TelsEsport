@@ -430,11 +430,32 @@ def getTeamPubg():
 @app.route('/')
 def index():
     conn            = mysql.connection
-    #GET Data Table Turnament
-    cur_turnament   = conn.cursor()
-    cur_turnament.execute("SELECT * FROM turnament WHERE Status=1;")
-    result_turnament = cur_turnament.fetchall()
-    return render_template('user/home.html', turnament=result_turnament)
+
+    #GET Data Table Turnament MLBB Aktif
+    cur_turnament_MLBB_Aktif   = conn.cursor()
+    cur_turnament_MLBB_Aktif.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=1;")
+    result_turnament_MLBB_Aktif = cur_turnament_MLBB_Aktif.fetchall()
+
+    #GET Data Table Turnament MLBB Selesai
+    cur_turnament_MLBB_Selesai   = conn.cursor()
+    cur_turnament_MLBB_Selesai.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=0;")
+    result_turnament_MLBB_Selesai = cur_turnament_MLBB_Selesai.fetchall()
+
+    #GET Data Table Turnament PB Aktif
+    cur_turnament_PB_Aktif   = conn.cursor()
+    cur_turnament_PB_Aktif.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=1;")
+    result_turnament_PB_Aktif = cur_turnament_PB_Aktif.fetchall()
+
+    #GET Data Table Turnament PB Selesai
+    cur_turnament_PB_Selesai   = conn.cursor()
+    cur_turnament_PB_Selesai.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=0;")
+    result_turnament_PB_Selesai = cur_turnament_PB_Selesai.fetchall()
+
+    return render_template('user/home.html', 
+    turnament_MLBB_Aktif=result_turnament_MLBB_Aktif,
+    turnament_MLBB_Selesai=result_turnament_MLBB_Selesai,
+    turnament_PB_Aktif=result_turnament_PB_Aktif,
+    turnament_PB_Selesai=result_turnament_PB_Selesai)
 
 @app.route('/jadwal')
 def index_jadwal():
