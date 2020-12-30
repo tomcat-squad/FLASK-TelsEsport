@@ -28,7 +28,7 @@ body {
 }
 
 .container {
-    width: 600px ;
+    width: 900px ;
     margin: 30px auto ;
     display: flex ;
     flex-direction: column ;
@@ -51,8 +51,10 @@ body {
 .button-selection {
     display: grid ;
     grid-template-areas: "judul judul judul" "ml pubg pb";
-    width: 550px ;
+    width: 700px ;
     margin: 20px 0 ;
+    /* justify-content: space-between ; */
+    margin-bottom: 0px ;
 }
 
 .button-selection p {
@@ -60,7 +62,6 @@ body {
     grid-area: judul ;
     color: #FFFFFF ;
 }
-
 
 .mobile-legend {
     color: white ;
@@ -93,7 +94,7 @@ body {
     height: 70px ;
     margin: 10px ;
     cursor: pointer;
-    margin-left: -80px ;
+    margin-left: -180px ;
 }
 
 /* pb */
@@ -111,7 +112,7 @@ body {
     height: 70px ;
     margin: 10px ;
     cursor: pointer;
-    margin-left: -80px ;
+    margin-left: -250px ;
 }
 
 /* tabel */
@@ -119,7 +120,7 @@ body {
 .table-sec {
     grid-area : tabel ;
     background-color: black ;
-    width: 550px ;
+    width: 890px ;
     height: 300px ;
     overflow-x : hidden;
 }
@@ -136,8 +137,9 @@ body {
 
 .ml-tabel table {
     margin: 10px auto ;
-    width: 530px ;
     border-collapse: collapse ;
+    margin-top : 30px  ;
+    width: 870px ;
 }
 
 .ml-tabel tr th {
@@ -165,7 +167,8 @@ body {
 
 .pubg-tabel table {
     margin: 10px auto ;
-    width: 530px ;
+    margin-top : 30px  ;
+    width: 870px ;
     border-collapse: collapse ;
 }
 
@@ -193,7 +196,8 @@ body {
 
 .pb-tabel table {
     margin: 10px auto ;
-    width: 530px ;
+    margin-top : 30px  ;
+    width: 870px ;    
     border-collapse: collapse ;
 }
 
@@ -222,13 +226,37 @@ body {
         margin-bottom: 20px ;
     }
 
+    .button-selection {
+        width: 500px ;
+    }
+
     .hero h1 {
         font-size: 33px ;
     }
 
     .table-sec {
         height: 250px ;
+        width: 560px ;
     }
+
+    .ml-tabel table,
+    .pubg-tabel table,
+    .pb-tabel table {
+        width: 520px ;
+    }
+
+    .mobile-legend img {
+        margin-right : 100px  ;
+    }
+
+    .pubg img {
+        margin-left : -170px  ;
+    }
+
+    .pb img {
+        margin-left:  -130px ;
+    }
+
 
 }
 
@@ -279,5 +307,11 @@ body {
     .hero h1 {
         font-size: 18px ;
         width: 200px ;
+    }
+
+    .mobile-legend img,
+    .pubg img,
+    .pb img  {
+        margin: 0 ;
     }
 }
