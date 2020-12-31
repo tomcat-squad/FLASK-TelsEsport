@@ -1,4 +1,40 @@
-{% include 'user_header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tels Esport | Tomcat Squad</title>
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="../static/assets/css/footer.css" />
+	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
+	<link rel="stylesheet" href="../static/assets/css/jadwal.css" />
+	<!-- font awesome -->
+	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<nav>
+		<div class="judul">
+			<h1>TELS E-SPORT</h1>
+			<img src="../static/assets/img/logo navbar.svg" alt="#" />
+		</div>
+		<ul>
+			<li><a href="/">home</a>
+			</li>
+			<li><a href="/jadwal" class="active">jadwal</a>
+			</li>
+			<li><a href="/team">team</a>
+			</li>
+			<li><a href="https://tomcatsquad.web.id">bagan</a>
+			</li>
+		</ul>
+		<div class="toggle">
+			<input type="checkbox" /> <span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</nav>
 	<div class="hero">
 		<h1>Jadwal Pertandingan Turnamen</h1>
 		<p>Powered By
@@ -29,15 +65,13 @@
 						<th>Nama Team</th>
 						<th>Jam</th>
 						<th>Tanggal</th>
-                    </tr>
-                    {%for row in jadwal_mlbb%}
+					</tr>{%for row in jadwal_mlbb%}
 					<tr>
 						<td>{{row[0]}}</td>
 						<td>{{row[1]}}</td>
 						<td>{{row[2]}}</td>
 						<td>{{row[3]}}</td>
-                    </tr>
-                    {%endfor%}
+					</tr>{%endfor%}
 					<tr>
 				</table>
 			</div>
@@ -48,16 +82,13 @@
 						<th>Nama Team</th>
 						<th>Jam</th>
 						<th>Tanggal</th>
-					</tr>
-                    {%for row in jadwal_pubg%}
+					</tr>{%for row in jadwal_pubg%}
 					<tr>
 						<td>{{row[0]}}</td>
 						<td>{{row[1]}}</td>
 						<td>{{row[2]}}</td>
 						<td>{{row[3]}}</td>
-                    </tr>
-                    {%endfor%}
-				</table>
+					</tr>{%endfor%}</table>
 			</div>
 			<div class="pb-tabel tabel-hilang">
 				<table>
@@ -66,16 +97,13 @@
 						<th>Nama Team</th>
 						<th>Jam</th>
 						<th>Tanggal</th>
-					</tr>
-                    {%for row in jadwal_pb%}
+					</tr>{%for row in jadwal_pb%}
 					<tr>
 						<td>{{row[0]}}</td>
 						<td>{{row[1]}}</td>
 						<td>{{row[2]}}</td>
 						<td>{{row[3]}}</td>
-                    </tr>
-                    {%endfor%}
-				</table>
+					</tr>{%endfor%}</table>
 			</div>
 		</div>
 	</div>
