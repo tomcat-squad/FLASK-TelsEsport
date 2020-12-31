@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>home</title>
+	<title>Tels Esport | Tomcat Squad</title>
 	<!-- stylesheet -->
 	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
 	<link rel="stylesheet" href="../static/assets/css/footer.css" />
@@ -68,8 +68,8 @@
 			<div class="daftar-tabel">
 				<div class="ml">
 					<div class="aktif-ml">
-						<!-- kotakan aktif -->
-						<div class="kotak-aktif">{%for row in turnament_MLBB_Aktif%}
+						<!-- kotakan aktif -->{%for row in turnament_MLBB_Aktif%}
+						<div class="kotak-aktif">
 							<a href="../static/assets/thumbnail/{{row[1]}}">
 								<img src="../static/assets/thumbnail/{{row[1]}}" />
 							</a>
@@ -99,8 +99,8 @@
 							<button onclick="window.location.href='register_{{row[3]}}';">REGISTER</button>
 						</div>{%endfor%}</div>
 					<div class="ml-kelar pembatas-2">
-						<!-- kotak selesai -->
-						<div class="kotak-selesai">{%for row in turnament_MLBB_Selesai%}
+						<!-- kotak selesai -->{%for row in turnament_MLBB_Selesai%}
+						<div class="kotak-selesai">
 							<a href="../static/assets/thumbnail/{{row[1]}}">
 								<img src="../static/assets/thumbnail/{{row[1]}}" />
 							</a>
@@ -126,8 +126,8 @@
 							<div class="hadiah">
 								<p>Hadiah :</p>
 								<p>Rp {{row[6]}}</p>
-							</div>{%endfor%}</div>
-					</div>
+							</div>
+						</div>{%endfor%}</div>
 				</div>
 				<div class="pubg pembatas-1">
 					<div class="pubg-aktif">
@@ -197,40 +197,39 @@
 				<div class="pb pembatas-1">
 					<div class="pb-aktif">
 						<div class="kotak-aktif">
-              <div class="kotak-aktif">{%for row in turnament_PB_Aktif%}
-                <a href="../static/assets/thumbnail/{{row[1]}}">
-                  <img src="../static/assets/thumbnail/{{row[1]}}" />
-                </a>
-                <h1>{{row[2]}}</h1>
-                <div class="main">
-                  <div>
-                    <p>Game</p>
-                    <p>{{row[3]}}</p>
-                  </div>
-                  <div>
-                    <p>Daftar</p>
-                    <p>RP {{row[4]}}</p>
-                  </div>
-                  <div>
-                    <p>Slot</p>
-                    <p>{{row[5]}}</p>
-                  </div>
-                  <div>
-                    <p>Tanggal</p>
-                    <p>{{row[7]}}</p>
-                  </div>
-                </div>
-                <div class="hadiah">
-                  <p>Hadiah :</p>
-                  <p>Rp {{row[6]}}</p>
-                </div>
-                <button onclick="window.location.href='register_{{row[3]}}';">REGISTER</button>
-              </div>{%endfor%}</div>
+							<div class="kotak-aktif">{%for row in turnament_PB_Aktif%}
+								<a href="../static/assets/thumbnail/{{row[1]}}">
+									<img src="../static/assets/thumbnail/{{row[1]}}" />
+								</a>
+								<h1>{{row[2]}}</h1>
+								<div class="main">
+									<div>
+										<p>Game</p>
+										<p>{{row[3]}}</p>
+									</div>
+									<div>
+										<p>Daftar</p>
+										<p>RP {{row[4]}}</p>
+									</div>
+									<div>
+										<p>Slot</p>
+										<p>{{row[5]}}</p>
+									</div>
+									<div>
+										<p>Tanggal</p>
+										<p>{{row[7]}}</p>
+									</div>
+								</div>
+								<div class="hadiah">
+									<p>Hadiah :</p>
+									<p>Rp {{row[6]}}</p>
+								</div>
+								<button onclick="window.location.href='register_{{row[3]}}';">REGISTER</button>
+							</div>{%endfor%}</div>
 					</div>
 					<div class="pb-selesai pembatas-2">
 						<!-- kotak selesai -->
-						<div class="kotak-selesai">
-              {%for row in turnament_PB_Selesai%}
+						<div class="kotak-selesai">{%for row in turnament_PB_Selesai%}
 							<a href="../static/assets/thumbnail/{{row[1]}}">
 								<img src="../static/assets/thumbnail/{{row[1]}}" />
 							</a>
@@ -256,9 +255,7 @@
 							<div class="hadiah">
 								<p>Hadiah :</p>
 								<p>Rp {{row[6]}}</p>
-              </div>
-              {%endfor%}
-						</div>
+							</div>{%endfor%}</div>
 					</div>
 				</div>
 			</div>

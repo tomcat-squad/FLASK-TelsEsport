@@ -482,7 +482,13 @@ def index_jadwal():
 
 @app.route('/team')
 def index_team():
-    return render_template('user/team.html')
+    conn            = mysql.connection
+    #GET Data Nama Team
+    cur_team_MLBB   = conn.cursor()
+    cur_team_MLBB.execute("SELECT id,Team,NamaKapten FROM daftar_ml;")
+    result_team_MLBB = cur_team_MLBB.fetchall()
+    return render_template('user/team.html',
+    team_MLBB=result_team_MLBB)
 #===================
 #SECTION HOME END
 #===================
