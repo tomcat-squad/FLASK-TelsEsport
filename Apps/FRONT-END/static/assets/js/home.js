@@ -5,71 +5,74 @@ document.addEventListener( 'DOMContentLoaded', function () {
 } );
 
 
-const mlportal = document.querySelector('.ml');
-const mlaktif = document.querySelector('.aktif-ml');
-const mlselesai = document.querySelector('.ml-kelar');
-const logoml = document.querySelector(".logoml");
-const pubgportal = document.querySelector('.pubg');
-const pubgaktif = document.querySelector('.pubg-aktif');
-const pubgselesai = document.querySelector('.pubg-kelar');
-const logopubg = document.querySelector('.logopubg');
-const pbportal = document.querySelector('.pb');
-const pbaktif = document.querySelector('.pb-aktif');
-const pbselesai = document.querySelector('.pb-selesai');
-const pblogo = document.querySelector('.logopb'); 
+const game1 = document.querySelector('.game1');
+const game1aktif = document.querySelector('.game1-aktif');
+const game1kelar = document.querySelector('.game1-kelar');
+const logogame1 = document.querySelector(".logogame1");
+
+const game2 = document.querySelector('.game2');
+const game2aktif = document.querySelector('.game2-aktif');
+const game2kelar = document.querySelector('.game2-kelar');
+const logogame2 = document.querySelector('.logogame2');
+
+const game3 = document.querySelector('.game3');
+const game3aktif = document.querySelector('.game3-aktif');
+const game3kelar = document.querySelector('.game3-kelar');
+const logogame3 = document.querySelector('.logogame3'); 
+
 const tombolactive = document.querySelector('.tombolaktif');
 const tombolselesai = document.querySelector('.tombolselesai');
 
 
 tombolactive.addEventListener('click', function() {
-	mlaktif.classList.remove('pembatas-2');
-	mlselesai.classList.add('pembatas-2');
-	pubgaktif.classList.remove('pembatas-2');
-	pubgselesai.classList.add('pembatas-2');
-	pbaktif.classList.remove('pembatas-2');
-	pbselesai.classList.add('pembatas-2');
-	tombolselesai.style.borderRadius = "0px 10px 10px 0px" ;
+	game1aktif.classList.remove('pembatas-2');
+	game1kelar.classList.add('pembatas-2');
+	game2aktif.classList.remove('pembatas-2');
+	game2kelar.classList.add('pembatas-2');
+	game3aktif.classList.remove('pembatas-2');
+	game3kelar.classList.add('pembatas-2');
 	tombolactive.style.borderRadius = "10px" ;
 	tombolactive.style.background = " #5600E7" ;
 	tombolselesai.style.background = " #17161A" ;
+	tombolselesai.style.borderRadius = "0px 10px 10px 0px" ;
 });
 
 tombolselesai.addEventListener('click', function() {
-	mlaktif.classList.add('pembatas-2');
-	mlselesai.classList.remove('pembatas-2');
-	pubgaktif.classList.add('pembatas-2');
-	pubgselesai.classList.remove('pembatas-2');
-	pbaktif.classList.add('pembatas-2');
-	pbselesai.classList.remove('pembatas-2');
+	game1aktif.classList.add('pembatas-2');
+	game1kelar.classList.remove('pembatas-2');
+	game2aktif.classList.add('pembatas-2');
+	game2kelar.classList.remove('pembatas-2');
+	game3aktif.classList.add('pembatas-2');
+	game3kelar.classList.remove('pembatas-2');
 	tombolselesai.style.borderRadius = "10px" ;
-	tombolactive.style.borderRadius = "10px 0px 0px 10px" ;
 	tombolselesai.style.background = " #5600E7" ;
 	tombolactive.style.background = " #17161A" ;
+	tombolactive.style.borderRadius = "10px 0px 0px 10px" ;
 });
 
-logoml.addEventListener('click',function(){
-	pubgportal.classList.add('pembatas-1');
-	mlportal.classList.remove('pembatas-1');
-	pbportal.classList.add('pembatas-1');
-	logoml.style.background = "#5600E7" ;
-	logopubg.style.background = "black" ;
-	pblogo.style.background = "black" ;
+logogame1.addEventListener('click',function(){
+	game1.classList.remove('pembatas-1');
+	game2.classList.add('pembatas-1');
+	game3.classList.add('pembatas-1');
+	logogame1.style.background = "#5600E7" ;
+	logogame2.style.background = "black" ;
+	logogame3.style.background = "black" ;
 });
 
-logopubg.addEventListener('click',function(){
-	pubgportal.classList.remove('pembatas-1');
-	mlportal.classList.add('pembatas-1');
-	pbportal.classList.add('pembatas-1');
-	logopubg.style.background = "#5600E7" ;
-	logoml.style.background = "black" ;
-	pblogo.style.background = "black" ;
+logogame2.addEventListener('click',function(){
+	game1.classList.add('pembatas-1');
+	game2.classList.remove('pembatas-1');
+	game3.classList.add('pembatas-1');
+	logogame1.style.background = "black" ;
+	logogame2.style.background = "#5600E7" ;
+	logogame3.style.background = "black" ;
 });
 
-pblogo.addEventListener('click',function(){
-	pubgportal.classList.add('pembatas-1');
-	mlportal.classList.add('pembatas-1');
-	pbportal.classList.remove('pembatas-1');
-	pblogo.style.background = "#5600E7" ;
-	logopubg.style.background = "black" ;
-	logoml.style.background = "black" ;
+logogame3.addEventListener('click',function(){
+	game1.classList.add('pembatas-1');
+	game2.classList.add('pembatas-1');
+	game3.classList.remove('pembatas-1');
+	logogame1.style.background = "black" ;
+	logogame2.style.background = "black" ;
+	logogame3.style.background = "#5600E7" ;
 });

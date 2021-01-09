@@ -50,7 +50,7 @@ body {
 
 .button-selection {
     display: grid ;
-    grid-template-areas: "judul judul judul" "ml pubg pb";
+    grid-template-areas: "judul judul judul" "game-1 game-2 game-3";
     width: 700px ;
     margin: 20px 0 ;
     /* justify-content: space-between ; */
@@ -63,13 +63,13 @@ body {
     color: #FFFFFF ;
 }
 
-.mobile-legend {
+.game-1 {
     color: white ;
     position: relative ;
-    grid-area: ml ;
+    grid-area: game-1 ;
 }
 
-.mobile-legend img {
+.game-1 img {
     position:  relative ;
     background-color: #5600E7 ;
     width: 100px ;
@@ -81,13 +81,13 @@ body {
 
 /* pubg */
 
-.pubg {
+.game-2 {
     color: white ;
     position: relative ;
-    grid-area: pubg ;
+    grid-area: game-2 ;
 }
 
-.pubg img {
+.game-2 img {
     position:  relative ;
     background-color: #0F0F0F ;
     width: 100px ;
@@ -99,13 +99,13 @@ body {
 
 /* pb */
 
-.pb {
+.game-3 {
     color: white ;
     position: relative ;
-    grid-area: pb ;
+    grid-area: game-3 ;
 }
 
-.pb img {
+.game-3 img {
     position:  relative ;
     background-color: #0F0F0F ;
     width: 100px ;
@@ -123,6 +123,7 @@ body {
     width: 890px ;
     height: 300px ;
     overflow-x : hidden;
+    text-align: center ;
 }
 
 .tabel-hilang {
@@ -131,29 +132,29 @@ body {
 
 /* ml */
 
-.ml-tabel {
+.game1-tabel {
     color: white ;
 }
 
-.ml-tabel table {
+.game1-tabel table {
     margin: 10px auto ;
     border-collapse: collapse ;
     margin-top : 30px  ;
     width: 870px ;
 }
 
-.ml-tabel tr th {
+.game1-tabel tr th {
     font-weight: bold ;
     padding : 10px ;
     border: 0.1px solid white ;
 }
 
-.ml-tabel tr:nth-child(odd){
+.game1-tabel tr:nth-child(odd){
     background-color: #18171A ;
 }
 
 
-.ml-tabel tr td {
+.game1-tabel tr td {
     padding : 10px ;
     border: 1px solid white ;
     border-collapse: collapse ;
@@ -161,28 +162,28 @@ body {
 
 /* pubg */
 
-.pubg-tabel {
+.game2-tabel {
     color: white ;
 }
 
-.pubg-tabel table {
+.game2-tabel table {
     margin: 10px auto ;
     margin-top : 30px  ;
     width: 870px ;
     border-collapse: collapse ;
 }
 
-.pubg-tabel tr th {
+.game2-tabel tr th {
     font-weight: bold ;
     padding : 10px ;
     border: 0.1px solid white ;
 }
 
-.pubg-tabel tr:nth-child(odd){
+.game2-tabel tr:nth-child(odd){
     background-color: #18171A ;
 }
 
-.pubg-tabel tr td {
+.game2-tabel tr td {
     padding : 10px ;
     border: 1px solid white ;
     border-collapse: collapse ;
@@ -190,28 +191,28 @@ body {
 
 /* pb tabel */
 
-.pb-tabel {
+.game3-tabel {
     color: white ;
 }
 
-.pb-tabel table {
+.game3-tabel table {
     margin: 10px auto ;
     margin-top : 30px  ;
     width: 870px ;    
     border-collapse: collapse ;
 }
 
-.pb-tabel tr th {
+.game3-tabel tr th {
     font-weight: bold ;
     padding : 10px ;
     border: 0.1px solid white ;
 }
 
-.pb-tabel tr:nth-child(odd){
+.game3-tabel tr:nth-child(odd){
     background-color: #18171A ;
 }
 
-.pb-tabel tr td {
+.game3-tabel tr td {
     padding : 10px ;
     border: 1px solid white ;
     border-collapse: collapse ;
@@ -239,21 +240,21 @@ body {
         width: 560px ;
     }
 
-    .ml-tabel table,
-    .pubg-tabel table,
-    .pb-tabel table {
+    .game1-tabel table,
+    .game2-tabel table,
+    .game3-tabel table {
         width: 520px ;
     }
 
-    .mobile-legend img {
+    .game-1 img {
         margin-right : 100px  ;
     }
 
-    .pubg img {
+    .game-2 img {
         margin-left : -170px  ;
     }
 
-    .pb img {
+    .game-3 img {
         margin-left:  -130px ;
     }
 
@@ -309,9 +310,9 @@ body {
         width: 200px ;
     }
 
-    .mobile-legend img,
-    .pubg img,
-    .pb img  {
+    .game-1 img,
+    .game-2 img,
+    .game-3 img  {
         margin: 0 ;
     }
 }
