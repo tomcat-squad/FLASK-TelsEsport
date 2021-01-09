@@ -351,6 +351,7 @@ def deleteTurnament(get_id):
 @app.route('/admin/Jadwal')
 def dashboardJadwal():
     if 'admin' in session:
+        form    = Esport_Mobile_Legend()
         conn = mysql.connection
 
         #GET Data Table Jadwal MLBB
@@ -369,12 +370,45 @@ def dashboardJadwal():
         result_jadwal_PB = cur_jadwal_PB.fetchall()
 
         return render_template('/admin/BerhasilLogin/dashboard_jadwal.html',
+        form=form,
         jadwal_mlbb=result_jadwal_MLBB,
         jadwal_pubg=result_jadwal_PUBG,
         jadwal_pb=result_jadwal_PB)
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))  
+
+@app.route('/edit_Jadwal_MLBB', methods=['POST'])
+def editJadwalMLBB():
+    if 'admin' in session:
+        if request.method == 'POST':
+            get_id        = request.form['id']
+            get_team      = request.form['Team']
+            get_waktu     = request.form['Jam']
+            get_tanggal   = request.form['Tanggal']
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("UPDATE turnament_jadwal SET Team=%s, Jam=%s, Tanggal=%s WHERE id=%s",
+                                                    (get_team, get_waktu, get_tanggal, get_id))
+            conn.commit()
+            flash('Berhasil Edit', 'Success')
+            return redirect(url_for('dashboardJadwal'))
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))  
+
+@app.route('/delete_Jadwal_MLBB/<int:get_id>', methods=['GET'])
+def deleteJadwal(get_id):
+    if 'admin' in session:
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute("DELETE FROM turnament_jadwal WHERE id=%s" %(get_id))
+        conn.commit()
+        flash('Berhasil Hapus Team', 'Success')
+        return redirect(url_for('dashboardJadwal'))
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
 
 #===========================
 # DASHBOARD JADWAL END
