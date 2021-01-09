@@ -1,37 +1,34 @@
-const mlinput = document.querySelector('.mobile-legend input');
-const ml = document.querySelector('.mobile-legend img');
-const pubginput = document.querySelector('.pubg input');
-const pubg = document.querySelector('.pubg img');
-const pbinput = document.querySelector('.pb input');
-const pb = document.querySelector('.pb img');
-const mltable = document.querySelector('.ml-tabel');
-const pubgtable = document.querySelector('.pubg-tabel');
-const pbtable = document.querySelector('.pb-tabel');
+const game1 = document.querySelector('.game-1 img');
+const game2 = document.querySelector('.game-2 img');
+const game3 = document.querySelector('.game-3 img');
+const game1table = document.querySelector('.game1-tabel');
+const game2table = document.querySelector('.game2-tabel');
+const game3table = document.querySelector('.game3-tabel');
 
 
-ml.addEventListener('click',function(){
-    ml.style.background =  " #5600E7 " ;
-    pb.style.background =  " #0F0F0F " ;
-    pubg.style.background =  " #0F0F0F " ;
-    mltable.classList.remove('tabel-hilang') ;
-    pubgtable.classList.add('tabel-hilang');
-    pbtable.classList.add('tabel-hilang');
+game1.addEventListener('click',function(){
+    game1.style.background =  " #5600E7 " ;
+    game2.style.background =  " #0F0F0F " ;
+    game3.style.background =  " #0F0F0F " ;
+    game1table.classList.remove('tabel-hilang') ;
+    game2table.classList.add('tabel-hilang');
+    game3table.classList.add('tabel-hilang');
 })
 
-pubg.addEventListener('click',function(){
-    pubg.style.background =  " #5600E7 " ;
-    pb.style.background =  " #0F0F0F " ;
-    ml.style.background =  " #0F0F0F " ;
-    mltable.classList.add('tabel-hilang') ;
-    pubgtable.classList.remove('tabel-hilang') ;
-    pbtable.classList.add('tabel-hilang') ;
+game3.addEventListener('click',function(){
+    game1.style.background =  " #0F0F0F " ;
+    game2.style.background =  " #0F0F0F " ;
+    game3.style.background =  " #5600E7 " ;
+    game1table.classList.add('tabel-hilang') ;
+    game2table.classList.remove('tabel-hilang') ;
+    game3table.classList.add('tabel-hilang') ;
 })
 
-pb.addEventListener('click',function(){
-    pb.style.background =  " #5600E7 " ;
-    ml.style.background =  " #0F0F0F " ;
-    pubg.style.background =  " #0F0F0F " ;
-    mltable.classList.add('tabel-hilang') ;
-    pubgtable.classList.add('tabel-hilang');
-    pbtable.classList.remove('tabel-hilang');
+game2.addEventListener('click',function(){
+    game1.style.background =  " #0F0F0F " ;
+    game2.style.background =  " #5600E7 " ;
+    game3.style.background =  " #0F0F0F " ;
+    game1table.classList.add('tabel-hilang') ;
+    game2table.classList.add('tabel-hilang');
+    game3table.classList.remove('tabel-hilang');
 })
