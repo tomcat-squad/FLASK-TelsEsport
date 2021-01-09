@@ -1,85 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Tels Esport | Tomcat Squad</title>
-      <!-- stylesheet -->
-      <link rel="stylesheet" href="../static/assets/css/footer.css" />
-      <link rel="stylesheet" href="../static/assets/css/navbar.css" />
-      <link rel="stylesheet" href="../static/assets/css/team.css" />
-      <!-- font awesome -->
-      <script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
-   </head>
-   <body>
-      <nav>
-         <div class="judul">
-            <h1>TELS E-SPORT</h1>
-            <img src="../static/assets/img/logo navbar.svg" alt="#" />
-         </div>
-         <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/jadwal">jadwal</a></li>
-            <li><a href="/team" class="active">team</a></li>
-            <li><a href="https://tomcatsquad.web.id">bagan</a></li>
-         </ul>
-         <div class="toggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-         </div>
-      </nav>
 
-      <div class="hero">
-         <h1>Daftar Team</h1>
-      </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tels Esport | Tomcat Squad</title>
+	<link rel="shortcut icon" href="../static/assets/img/favicon.ico">
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="../static/assets/css/footer.css" />
+	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
+	<link rel="stylesheet" href="../static/assets/css/team.css" />
+	<!-- font awesome -->
+	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
+</head>
 
-      <div class="container">
-         <div class="tombol-balik tombol-hilang">
-            <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
-         </div>
-
-         <div class="button-selection">
-            <p>Game :</p>
-
-            <div class="mobile-legend">
-               <img src="../static/assets/img/MOBILE LEGEND.png" />
-            </div>
-
-            <div class="pubg">
-               <img src="../static/assets/img/PUBG.png" />
-            </div>
-
-            <div class="pb">
-               <img src="../static/assets/img/PB.png" />
-            </div>
-         </div>
-
-         <div class="table-sec">
-            <div class="ml-tabel">
-               <table>
+<body>
+	<nav>
+		<div class="judul">
+			<h1>TELS E-SPORT</h1>
+			<img src="../static/assets/img/logo navbar.svg" alt="#" />
+		</div>
+		<ul>
+			<li><a href="/">home</a>
+			</li>
+			<li><a href="/jadwal">jadwal</a>
+			</li>
+			<li><a href="/team" class="active">team</a>
+			</li>
+			<li><a href="/bagan">bagan</a>
+			</li>
+		</ul>
+		<div class="toggle">
+			<input type="checkbox" /> <span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</nav>
+	<div class="hero">
+		<h1>Daftar Team E-sport</h1>
+	</div>
+	<div class="container">
+		<div class="tombol-balik tombol-hilang"> <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+		</div>
+		<div class="button-selection">
+			<p>Game :</p>
+			<div class="game-1">
+				<img src="../static/assets/img/MOBILE LEGEND.png" />
+			</div>
+			<div class="game-2">
+				<img src="../static/assets/img/PUBG.png" />
+			</div>
+			<div class="game-3">
+				<img src="../static/assets/img/PB.png" />
+			</div>
+		</div>
+		<div class="table-sec">
+			<div class="game1-tabel">
+				<table>
+					<tr>
+						<th>No</th>
+						<th>Nama Team</th>
+						<th>Nama Kapten</th>
+					</tr>{%for row in team_MLBB%}
+					<tr>
+						<td>{{row[0]}}</td>
+						<td>{{row[1]}}</td>
+						<td>{{row[2]}}</td>
+					</tr>{%endfor%}</table>
+			</div>
+			<div class="game2-tabel tabel-hilang">
+				<!-- <table>
                   <tr>
-                     <th>No</th>
-                     <th>Nama Team</th>
-                     <th>Nama Kapten</th>
-                  </tr>
-                  {%for row in team_MLBB%}
-                  <tr>
-                     <td>{{row[0]}}</td>
-                     <td>{{row[1]}}</td>
-                     <td>{{row[2]}}</td>
-                  </tr>
-                  {%endfor%}
-               </table>
-            </div>
-
-            <div class="pubg-tabel tabel-hilang">
-               <table>
-                  <tr>
-                     <th>No</th>
-                     <th>Nama Team</th>
-                     <th>Nama Kapten</th>
+                     <th>no</th>
+                     <th>NAMA TEAM</th>
+                     <th>NAMA KAPTEN</th>
                   </tr>
                   <tr>
                      <td>1</td>
@@ -96,15 +90,14 @@
                      <td>mending rakit anak</td>
                      <td>dudung</td>
                   </tr>
-               </table>
-            </div>
-
-            <div class="pb-tabel tabel-hilang">
-               <table>
+               </table> -->
+			</div>
+			<div class="game3-tabel tabel-hilang">
+				<!-- <table>
                   <tr>
-                     <th>No</th>
-                     <th>Nama Team</th>
-                     <th>Nama Kapten</th>
+                     <th>no</th>
+                     <th>NAMA TEAM</th>
+                     <th>NAMA KAPTEN</th>
                   </tr>
                   <tr>
                      <td>1</td>
@@ -126,8 +119,59 @@
                      <td>Fandom Penyihir</td>
                      <td>Elaina</td>
                   </tr>
-               </table>
-            </div>
-         </div>
-      </div>
-{% include 'user_footer.html' %}
+               </table> -->
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="section-atas-footer">
+			<div class="footer-brand">
+				<img src="../static/assets/img/logo navbar.svg" alt="#" />
+				<h1>TELS E-SPORT</h1>
+				<p>TOURNAMENT BY TOMCAT</p>
+			</div>
+			<div class="menu-footer">
+				<h1>menu</h1>
+				<a href="/">Home</a>
+				<a href="/jadwal">Jadwal</a>
+				<a href="/team">Team</a>
+			</div>
+			<div class="kategori-footer">
+				<h1>kategori</h1>
+				<a href="#">Mobile Legends: Bang Bang</a>
+				<a href="#">Point Blank</a>
+				<a href="#">PUBG Mobile</a>
+			</div>
+			<div class="info-footer">
+				<h1>Info Tomcat</h1>
+				<p>+62 896-3773-3392</p>
+				<p>tomcatsquad@gmail.com</p>
+			</div>
+			<div class="support-footer">
+				<h1>SUPPORT BY</h1>
+				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
+				<img src="../static/assets/img/xlhum.svg" alt="" />
+			</div>
+			<div class="sosmed-footer">
+				<a href="#">
+					<img src="../static/assets/img/Instagram.svg" alt="#" />
+				</a>
+				<a href="#">
+					<img src="../static/assets/img/Twitter.svg" alt="#" />
+				</a>
+				<a href="#">
+					<img src="../static/assets/img/Youtube.svg" alt="#" />
+				</a>
+			</div>
+		</div>
+		<div class="section-bawah-footer">
+			<div class="garis-footer"></div>
+			<h4>© 2020 - TELS E-SPORT</h4>
+		</div>
+	</footer>
+	<!-- SCRIPT -->
+	<script src="../static/assets/js/navbar.js"></script>
+	<script src="../static/assets/js/team.js"></script>
+</body>
+
+</html>

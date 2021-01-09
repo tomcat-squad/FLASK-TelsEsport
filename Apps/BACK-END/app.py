@@ -599,7 +599,7 @@ def uploadBukti():
             session.pop('team', None)
             session.pop('genre', None)
             flash('Berhasil Terdaftar', 'Success')
-            return redirect(url_for('register_ML'))
+            return redirect(url_for('index_team'))
         else:
             flash('Upload Gagal!', 'Failed')
             return redirect(url_for('register_ML'))

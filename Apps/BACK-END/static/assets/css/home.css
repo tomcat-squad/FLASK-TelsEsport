@@ -62,7 +62,8 @@ body {
     margin: 20px auto;
     width: 300px;
     display: grid;
-    grid-template-areas: "judul judul" "pb pubg" "ml ml";
+    /*  */
+    grid-template-areas: "judul judul" "game-1 game-2" "game-3 game-3";
 }
 
 
@@ -87,18 +88,18 @@ body {
 }
 
 .kategori img:nth-child(2) {
-    grid-area: pb;
+    grid-area: game-1;
     margin-top: 10px ;
 }
 
 .kategori img:nth-child(3) {
-    grid-area: pubg;
+    grid-area: game-2;
     margin-top: 10px;
     margin-left: 0px ;
 }
 
 .kategori img:nth-child(4) {
-    grid-area: ml;
+    grid-area: game-3;
     background-color: #5600E7 ;
     margin-top: 20px;
 }
@@ -255,28 +256,23 @@ body {
     position: relative;
 }
 
-.ml {
+.game1 {
     width: 700px;
     margin: 10px auto;
     text-align: center;
     position: relative ;
 }
-
-.aktif-ml {
-    
-}
-
-.ml-kelar {
+.game1-kelar {
     color: rgb(10, 10, 10);
 }
 
-.pubg {
+.game2 {
     width: 700px;
     margin: 10px auto;
     text-align: center;
 }
 
-.pb {
+.game3 {
     width: 700px;
     margin: 10px auto;
     text-align: center;
@@ -357,7 +353,8 @@ body {
     .kategori {
         width: 600px;
         display: grid;
-        grid-template-areas: "judul judul judul" "pb pubg ml";
+        
+        grid-template-areas: "judul judul judul" "game-1 game-2 game-3";
         margin-left: 0 ;
     }
 
@@ -459,17 +456,17 @@ body {
         overflow-x : hidden;
     }
     
-    .ml {
+    .game1 {
         width: 600px;
         margin: 10px auto;
         text-align: center;
     }
     
-    .pubg {
+    .game2 {
         width: 600px;
     }
     
-    .pb {
+    .game3 {
         width: 600px ;
     }
     
@@ -518,7 +515,7 @@ body {
     .kategori {
         width: 350px;
         display: grid;
-        grid-template-areas: "judul judul judul" "pb pubg ml";
+        grid-template-areas: "judul judul judul" "game-1 game-2 game-3";
         margin-left: 0 ;
     }
 
@@ -544,6 +541,7 @@ body {
 
     .kategori img:nth-child(4){
         margin-top: 30px ;
+        margin-left: 0 ;
     }
 
     .tombol-atas {
@@ -631,15 +629,15 @@ body {
         overflow-x : hidden;
     }
     
-    .ml {
+    .game1 {
         width: 350px;
     }
     
-    .pubg {
+    .game2 {
         width: 350px;
     }
     
-    .pb {
+    .game3 {
         width: 350px ;
     }
     
