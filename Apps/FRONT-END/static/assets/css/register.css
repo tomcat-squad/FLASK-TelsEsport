@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -36,6 +37,41 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.alert {
+    font-family: 'Roboto', sans-serif;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #5600e7;
+    color: white;
+}
+.alert p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: white;
+    margin-top: 10px;
+}
+
+.alert a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: rgb(66, 240, 211);
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 40px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }
 
 .form-login-register {
