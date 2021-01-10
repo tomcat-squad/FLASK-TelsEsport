@@ -1,0 +1,674 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1D1C1E ;
+}
+
+.splide__slide img {
+    height: 280px;
+    width: 100%;
+}
+
+.container {
+    width: 1100px;
+    margin: 20px auto;
+}
+
+.container-sub {
+    display: grid;
+    grid-template-areas: "tombol-pilihan kategori" "daftar kategori" "daftar sosmed" "daftar tels-stream";
+    width: 1100px;
+}
+
+.tombol-atas {
+    grid-area: tombol-pilihan;
+    display: flex;
+    width: 700px;
+    margin: 20px 0;
+    height: 30px ;
+    background-color: #17161A ;
+    border-radius: 10px ;
+}
+
+.tombolaktif {
+    width: 350px;
+    /* border: 1px black solid; */
+    text-align: center;
+    height: 30px;
+    background-color: #5600E7 ;
+    border-radius: 10px ;
+    color: #FFFFFF ;
+    cursor: pointer;
+    line-height: 30px ;
+}
+
+.tombolselesai {
+    width: 350px;
+    /* border: 1px black solid; */
+    text-align: center;
+    height: 30px;
+    color: #FFFFFF ;
+    background-color: #17161A ;
+    border-radius: 0px 10px 10px 0px ;
+    cursor: pointer;
+    line-height: 30px ;
+}
+
+.kategori {
+    grid-area: kategori;
+    margin: 20px auto;
+    width: 300px;
+    display: grid;
+    /*  */
+    grid-template-areas: "judul judul" "game-1 game-2" "game-3 game-3";
+}
+
+
+
+.kategori p {
+    grid-area: judul;
+    margin-bottom: 0px;
+    font-weight: bolder ;
+    color: #FFFFFF ;
+    background-color: #5600E7 ;
+    width: 280px ;
+    padding: 5px ;
+    text-align: center ;
+    text-transform: uppercase ;
+    border-radius: 8px;
+}
+
+.kategori img {
+    background-color: black;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+.kategori img:nth-child(2) {
+    grid-area: game-1;
+    margin-top: 10px ;
+}
+
+.kategori img:nth-child(3) {
+    grid-area: game-2;
+    margin-top: 10px;
+    margin-left: 0px ;
+}
+
+.kategori img:nth-child(4) {
+    grid-area: game-3;
+    background-color: #5600E7 ;
+    margin-top: 20px;
+}
+
+/* utilitis */
+
+.pembatas-1 {
+    display: none;
+}
+
+.pembatas-2 {
+    display: none;
+}
+
+
+/* kotak aktif */
+
+.kotak-aktif {
+    width: 700px ;
+    height: 250px ;
+    background-color : #0F0F0F ;
+    margin: 10px 0 ;
+    display: grid ;
+    grid-template-areas: "gambar judul judul" "gambar isi isi" "gambar hadiah tombol";
+}
+
+.kotak-aktif a {
+    grid-area: gambar ;
+}
+
+.kotak-aktif img {
+    width: 250px ;
+    height: 230px ;
+    margin: 10px auto ;
+}
+
+.kotak-aktif  h1 {
+    grid-area: judul ;
+    font-size: 20px ;
+    color: #FFFFFF ;
+    margin-top: 30px ;
+    width: 400px ;
+    text-align: left ;
+    margin-left: 10px ;
+}
+
+.main  {
+    grid-area: isi ;
+    display:  flex ;
+    flex-direction: row ;
+    justify-content: space-between ;
+    margin: 0 10px ;
+    width: 400px ;
+}
+
+.main  div {
+    display: flex ;
+    flex-direction: column ;
+}
+
+.main  div p:nth-child(1){
+    color: #9F9F9F ;
+    text-align: left ;
+}
+
+.main  div p:nth-child(2){
+    color: #FFFFFF ;
+    text-align: left ;
+}
+
+.hadiah {
+    grid-area: hadiah ;
+    display: flex  ;
+    flex-direction: row ;
+    color: #9F9F9F ;
+    margin-top: 65px ;
+    margin-left : 10px ;
+}
+
+.hadiah p:nth-child(2){
+    margin-left: 4px ;
+    color: #FFC519 ;
+}
+
+.kotak-aktif button {
+    grid-area: tombol ;
+    background-color: #5600E7 ;
+    border-radius: 10px ;
+    color: #FFFFFF ;
+    width: 100px ;
+    height: 40px ;
+    margin-top: 55px ;
+    border : none ;
+    margin-left: 100px ;
+    cursor:  pointer ;
+}
+
+/* kotak gk aktif */
+
+.kotak-selesai {
+    width: 700px ;
+    height: 250px ;
+    background-color : #0F0F0F ;
+    margin: 10px 0 ;
+    display: grid ;
+    grid-template-areas: "gambar judul judul" "gambar isi isi" "gambar hadiah tombol";
+}
+
+.kotak-selesai h1 {
+    grid-area: judul ;
+    font-size: 20px ;
+    color: #FFFFFF ;
+    margin-top: 30px ;
+    width: 400px ;
+    text-align: left ;
+    margin-left: 10px ;
+}
+
+.kotak-selesai a {
+    grid-area: gambar ;
+}
+
+.kotak-selesai img {
+    width: 250px ;
+    height: 230px ;
+    margin: 10px auto ;
+    filter: grayscale(100%);
+}
+
+
+.kotak-selesai button {
+    grid-area: tombol ;
+    background-color: #e70000 ;
+    border-radius: 10px ;
+    color: #FFFFFF ;
+    width: 100px ;
+    height: 40px ;
+    margin-top: 55px ;
+    border : none ;
+    margin-left: 100px ;
+    cursor:  pointer ;
+}
+
+
+
+/* tabel */
+
+.daftar-tabel {
+    grid-area: daftar;
+    /* border: 1px solid black; */
+    width: 720px;
+    height : 1000px ;
+    overflow-x : hidden;
+    position: relative;
+}
+
+.game1 {
+    width: 700px;
+    margin: 10px auto;
+    text-align: center;
+    position: relative ;
+}
+.game1-kelar {
+    color: rgb(10, 10, 10);
+}
+
+.game2 {
+    width: 700px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.game3 {
+    width: 700px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+/* sosmed */
+
+.sosmed-sidebar {
+    grid-area: sosmed ;
+    margin: auto ;
+    width: 300px ;
+    margin-bottom: 30px ;
+    display: flex ;
+    flex-direction: column ;
+}
+
+.sosmed-sidebar p {
+    margin-bottom : 20px ;
+    color: #FFFFFF ;
+    background-color: #5600E7 ;
+    font-size: 20px ;
+    text-transform: uppercase ;
+    width: 300px ;
+    text-align: center ;
+    font-weight: bolder ;
+    border-radius: 12px ;
+}
+
+.sosmed {
+    display: flex ;
+    justify-content: space-around ;
+}
+
+.sosmed img {
+    width: 40px ;
+    height: 40px ;
+}
+
+/* tels stream */
+
+.tels-stream {
+    grid-area: tels-stream;
+    width: 300px ;
+    margin: auto ;
+    display: flex ;
+    flex-direction: column ;
+}
+
+.tels-stream p {
+    margin-bottom : 20px ;
+    color: #FFFFFF ;
+    background-color: #5600E7 ;
+    font-size: 20px ;
+    text-transform: uppercase ;
+    width: 300px ;
+    text-align: center ;
+    font-weight: bolder ;
+    border-radius: 12px ;
+}
+
+.tels-stream iframe {
+    width: 300px ;
+    height: 250px ;
+    margin: 10px 0 ;
+}
+
+
+@media only screen and (max-width : 800px ){
+    .container {
+        width: 600px ;
+    }
+
+    .container-sub {
+        width: 600px ;
+        grid-template-areas: "kategori"  "tombol-pilihan"  "daftar" "sosmed" "tels-stream";
+    }
+    
+    .kategori {
+        width: 600px;
+        display: grid;
+        
+        grid-template-areas: "judul judul judul" "game-1 game-2 game-3";
+        margin-left: 0 ;
+    }
+
+
+    .kategori img {
+        width: 100px ;
+        height: 80px ;
+    }
+
+    .kategori p {
+        margin: auto ;
+        font-size: 16px ;
+    }
+
+    .kategori img:nth-child(2){
+        margin-top: 30px ;
+        margin-left: 80px ;
+    }
+
+    .kategori img:nth-child(3){
+        margin-top: 30px ;
+    }
+
+    .kategori img:nth-child(4){
+        margin-top: 30px ;
+    }
+
+    .tombol-atas {
+        width: 600px ;
+    }
+    
+    .tombolaktif {
+        width : 300px ; 
+    }
+    
+    .tombolselesai {
+        width: 300px ;
+    }
+
+    .kotak-aktif {
+        width: 600px ;
+        height: 200px ;
+    }
+    
+    .kotak-aktif img {
+        width: 150px ;
+        height: 180px ;
+        margin: 10px 5px ;
+    }
+    
+    .kotak-aktif  h1 {
+        font-size: 16px ;
+        margin-top: 10px ;
+        width: 300px ;
+    }
+    
+    .main  {
+        width: 300px ;
+        font-size: 14px ;
+        margin-top: 10px ;
+    }
+    
+    .hadiah {
+        margin-top: 10px ;
+    }
+    
+    .kotak-aktif button {
+        margin-top: 10px ;
+        height: 30px ;
+    }
+    
+    /* kotak gk aktif */
+    
+    .kotak-selesai {
+        width: 600px ;
+        height: 200px ;
+    }
+    
+    .kotak-selesai h1 {
+        font-size: 16px ;
+        margin-top: 10px ;
+        width: 300px ;
+    }
+    
+    .kotak-selesai img {
+        width: 150px ;
+        height: 180px ;
+        margin: 10px 5px ;
+    }
+    
+    .kotak-selesai button {
+        margin-top: 10px ;
+        height: 30px ;
+    }
+    
+    .daftar-tabel {
+        width: 600px;
+        height : 500px ;
+        overflow-x : hidden;
+    }
+    
+    .game1 {
+        width: 600px;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    .game2 {
+        width: 600px;
+    }
+    
+    .game3 {
+        width: 600px ;
+    }
+    
+    /* sosmed */
+    
+    .sosmed-sidebar {
+        grid-area: sosmed ;
+        margin: auto ;
+        width: 300px ;
+        margin-bottom: 30px ;
+        display: flex ;
+        flex-direction: column ;
+    }
+    
+    .sosmed-sidebar p {
+        margin-top: 20px ;
+        margin-bottom : 20px ;
+        font-size: 16px ;
+    }
+    
+    .sosmed img {
+        width: 30px ;
+        height: 30px ;
+    }
+    
+    /* tels stream */
+
+    
+    .tels-stream p {
+        margin-bottom : 20px ;
+        font-size: 16px ;
+    }
+    
+}
+
+@media only screen and (max-width : 600px ){
+    .container {
+        width: 350px ;
+    }
+
+    .container-sub {
+        width: 350px ;
+        grid-template-areas: "kategori"  "tombol-pilihan"  "daftar" "sosmed" "tels-stream";
+    }
+    
+    .kategori {
+        width: 350px;
+        display: grid;
+        grid-template-areas: "judul judul judul" "game-1 game-2 game-3";
+        margin-left: 0 ;
+    }
+
+
+    .kategori img {
+        width: 100px ;
+        height: 80px ;
+    }
+
+    .kategori p {
+        margin: auto ;
+        font-size: 13px ;
+    }
+
+    .kategori img:nth-child(2){
+        margin-top: 30px ;
+        margin-left: 0 ;
+    }
+
+    .kategori img:nth-child(3){
+        margin-top: 30px ;
+    }
+
+    .kategori img:nth-child(4){
+        margin-top: 30px ;
+        margin-left: 0 ;
+    }
+
+    .tombol-atas {
+        width: 350px ;
+    }
+    
+    .tombolaktif {
+        width : 175px ; 
+        height: 30px ;
+        line-height: 30px ;
+    }
+    
+    .tombolselesai {
+        width: 175px ;
+        height: 30px ;
+        line-height: 30px ;
+    }
+
+    .kotak-aktif {
+        width: 350px ;
+        height: 150px ;
+    }
+    
+    .kotak-aktif img {
+        width: 100px ;
+        height: 130px ;
+        margin: 10px 2px ;
+    }
+    
+    .kotak-aktif  h1 {
+        font-size: 12px ;
+        margin-top: 10px ;
+        width: 250px ;
+    }
+    
+    .main  {
+        width: 230px ;
+        font-size: 10px ;
+        margin-top: 10px ;
+        overflow-x : hidden ;
+    }
+
+    .hadiah {
+        margin-top: 10px ;
+        font-size: 10px ;
+        width: 150px ;
+    }
+    
+    .kotak-aktif button {
+        margin-top: 10px ;
+        height: 18px ;
+        font-size: 10px ;
+        margin-left: -60px ;
+    }
+    
+    /* kotak gk aktif */
+    
+    .kotak-selesai {
+        width: 350px ;
+        height: 150px ;
+    }
+    
+    .kotak-selesai img {
+        width: 100px ;
+        height: 130px ;
+        margin: 10px 2px ;
+    }
+    
+    .kotak-selesai  h1 {
+        font-size: 12px ;
+        margin-top: 10px ;
+        width: 250px ;
+    }
+    
+    .kotak-selesai button {
+        margin-top: 10px ;
+        height: 18px ;
+        font-size: 10px ;
+        margin-left: -60px ;
+    }
+    
+    .daftar-tabel {
+        width: 350px;
+        height : 500px ;
+        overflow-x : hidden;
+    }
+    
+    .game1 {
+        width: 350px;
+    }
+    
+    .game2 {
+        width: 350px;
+    }
+    
+    .game3 {
+        width: 350px ;
+    }
+    
+    /* sosmed */
+    
+    .sosmed-sidebar {
+        grid-area: sosmed ;
+        margin: auto ;
+        width: 300px ;
+        margin-bottom: 30px ;
+        display: flex ;
+        flex-direction: column ;
+    }
+    
+    .sosmed-sidebar p {
+        margin-top: 20px ;
+        margin-bottom : 20px ;
+        font-size: 16px ;
+    }
+    
+    .sosmed img {
+        width: 30px ;
+        height: 30px ;
+    }
+    
+    /* tels stream */
+
+    
+    .tels-stream p {
+        margin-bottom : 20px ;
+        font-size: 16px ;
+    }
+    
+}

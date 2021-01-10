@@ -3,7 +3,8 @@
 
 <head>
     <!-- Required meta tags -->
-    <title>Tels Esport</title>
+	<title>Dashboard Admin | Tels Esport</title>
+	<link rel="shortcut icon" href="../static/assets/img/favicon.ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Bootstrap CSS -->
@@ -25,7 +26,6 @@
 		<div class="border-right" style="background-color: #343434; color: #ffffff;" id="sidebar-wrapper">
 			<div class="list-group list-group-flush">
 				<a href="{{url_for('index_dashboard')}}" class="list-group-item list-group-item-action" style="background-color: #343434; color: #ffffff;"> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
-				<a href="{{url_for('dashboardML')}}" class="list-group-item list-group-item-action" style="background-color: #343434; color: #ffffff;"> <i class="fas fa-users" aria-hidden="true"></i> Mobile Legend</a>
 				<a href="{{(url_for('dashboardTurnament'))}}" class="list-group-item list-group-item-action" style="background-color: #343434; color: #ffffff;"> <i class="fas fa-trophy" aria-hidden="true"></i> Turnament</a>
 				<a href="{{(url_for('dashboardJadwal'))}}" class="list-group-item list-group-item-action" style="background-color: #343434; color: #ffffff;"> <i class="fas fa-calendar-alt"></i> Jadwal</a>
 				<a href="{{(url_for('logout_admin'))}}" class="list-group-item list-group-item-action" style="background-color: #343434; color: #ffffff;"> <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout</a>

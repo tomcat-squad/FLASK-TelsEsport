@@ -15,19 +15,19 @@ game1.addEventListener('click',function(){
     game3table.classList.add('tabel-hilang');
 })
 
-game3.addEventListener('click',function(){
+game2.addEventListener('click',function(){
     game1.style.background =  " #0F0F0F " ;
-    game2.style.background =  " #0F0F0F " ;
-    game3.style.background =  " #5600E7 " ;
+    game2.style.background =  " #5600E7 " ;
+    game3.style.background =  " #0F0F0F " ;
     game1table.classList.add('tabel-hilang') ;
     game2table.classList.remove('tabel-hilang') ;
     game3table.classList.add('tabel-hilang') ;
 })
 
-game2.addEventListener('click',function(){
+game3.addEventListener('click',function(){
     game1.style.background =  " #0F0F0F " ;
-    game2.style.background =  " #5600E7 " ;
-    game3.style.background =  " #0F0F0F " ;
+    game2.style.background =  " #0F0F0F " ;
+    game3.style.background =  " #5600E7 " ;
     game1table.classList.add('tabel-hilang') ;
     game2table.classList.add('tabel-hilang');
     game3table.classList.remove('tabel-hilang');

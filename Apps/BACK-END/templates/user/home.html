@@ -1,71 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-        <title>Tels Esport</title>
-        <link rel="stylesheet" href="css/style.css" />
-        <style>
-            table,
-            th,
-            td {
-                border: 1px solid black;
-                border-collapse: collapse;
-            }
-            th,
-            td {
-                padding: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- CONTENT -->
-        <div class="container">
-            <a href="/team">TEAM</a>
-            <br>
-            <h1>Turnament</h1>
-            <button type="button" onclick="showTurnament(this.value)" value="1">Aktif</button>
-            <button type="button" onclick="showTurnament(this.value)" value="0">Selesai</button>
-            <div id="dataTurnament">
-                <div class="card-columns">
-                    {% for row in turnament %}
-                    <div class="card">
-                        <img src="static/assets/thumbnail/{{row[1]}}" class="card-img-top" alt="Thumbnail" width="300" height="300" />
-                        <div class="card-body">
-                            <h5 class="card-title">{{row[2]}}</h5>
-                            <p class="card-text">Genre : {{row[3]}}</p>
-                            <p class="card-text">
-                                <small class="text-muted">Biaya : {{row[4]}}</small><br />
-                                <small class="text-muted">Slot {{row[5]}}</small><br />
-                                <small class="text-muted">Hadiah : {{row[6]}}</small><br />
-                                <small class="text-muted">Tanggal {{row[7]}}</small><br />
-                            </p>
-                            <a href="/register_{{row[3]}}" class="btn btn-success"><i class="fas fa-video"></i> Register</a>
-                        </div>
-                    </div>
-                    {%endfor%}
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tels Esport | Tomcat Squad</title>
+	<link rel="shortcut icon" href="../static/assets/img/favicon.ico">
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
+	<link rel="stylesheet" href="../static/assets/css/footer.css" />
+	<link rel="stylesheet" href="../static/assets/css/home.css" />
+	<!-- utilies -->
+	<link rel="stylesheet" href="path-to-the-file/splide.min.css" />
+	<!-- or the one installed in node_modules directory, -->
+	<link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css" />
+	<!-- or the reference on CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
+</head>
+
+<body>
+	<nav>
+		<div class="judul">
+			<h1>TELS E-SPORT</h1>
+			<img src="../static/assets/img/logo navbar.svg" alt="#" />
+		</div>
+		<ul>
+			<li><a href="/" class="active">home</a>
+			</li>
+			<li><a href="/jadwal">jadwal</a>
+			</li>
+			<li><a href="/team">team</a>
+			</li>
+			<li><a href="/bagan">bagan</a>
+			</li>
+		</ul>
+		<div class="toggle">
+			<input type="checkbox" /> <span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="slidebar">
+			<div id="image-slider" class="splide">
+				<div class="splide__track">
+					<ul class="splide__list">
+						<li class="splide__slide">
+							<img src="https://dummyimage.com/1044x280/000/fff.png" />
+						</li>
+						<li class="splide__slide">
+							<img src="https://dummyimage.com/1044x280/000/fff.png" />
+						</li>
+						<li class="splide__slide">
+							<img src="https://dummyimage.com/1044x280/000/fff.png" />
+						</li>
+						<li class="splide__slide">
+							<img src="https://dummyimage.com/1044x280/000/fff.png" />
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container-sub">
+			<div class="tombol-atas">
+				<p class="tombolaktif">Aktif</p>
+				<p class="tombolselesai">Selesai</p>
+			</div>
+			<div class="daftar-tabel">
+				<div class="game1 pembatas-1">
+					<div class="game1-aktif">
+						<!-- kotakan aktif -->
+						<!-- <div class="kotak-aktif">
+                <a href="#"><img src="../static/assets/img/gambar contoh.svg" /></a>
+                <h1>Mobile Legend | Telesandi Only</h1>
+                <div class="main">
+                  <div>
+                    <p>Game</p>
+                    <p>MLBB</p>
+                  </div>
+
+                  <div>
+                    <p>Daftar</p>
+                    <p>RP 35.000</p>
+                  </div>
+
+                  <div>
+                    <p>Slot</p>
+                    <p>5/32</p>
+                  </div>
+
+                  <div>
+                    <p>Tanggal</p>
+                    <p>11 Desember 2020</p>
+                  </div>
                 </div>
-            </div>
-            <script>
-                function showTurnament(int) {
-                    var xhttp;
-                    if (int == "") {
-                        document.getElementById("dataTurnament").innerHTML = "";
-                        return;
-                    }
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("dataTurnament").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "get_turnament/" + int, true);
-                    xhttp.send();
-                }
-            </script>
-        </div>
-    </body>
+
+                <div class="hadiah">
+                  <p>Hadiah :</p>
+                  <p>Rp 600.000</p>
+                </div>
+
+                <button>
+                  REGISTER
+                </button>
+              </div> --></div>
+					<div class="game1-kelar pembatas-2">
+						<!-- kotak selesai -->
+						<!-- <div class="kotak-selesai">
+                <a href="#"><img src="../static/assets/img/gambar contoh.svg" /></a>
+                <h1>Mobile Legend | Telesandi Only</h1>
+                <div class="main">
+                  <div>
+                    <p>Game</p>
+                    <p>MLBB</p>
+                  </div>
+
+                  <div>
+                    <p>Daftar</p>
+                    <p>RP 35.000</p>
+                  </div>
+
+                  <div>
+                    <p>Slot</p>
+                    <p>5/32</p>
+                  </div>
+
+                  <div>
+                    <p>Tanggal</p>
+                    <p>5 november 2019</p>
+                  </div>
+                </div>
+
+                <div class="hadiah">
+                  <p>Hadiah :</p>
+                  <p>Rp 600.000</p>
+                </div>
+
+                <button>
+                  tidak tersedia
+                </button>
+              </div> --></div>
+				</div>
+				<div class="game2 pembatas-1">
+					<div class="game2-aktif">
+						<!-- kotak aktif -->
+						<!-- <div class="kotak-aktif">
+                 <a href="#"><img src="../static/assets/img/gambar contoh.svg" /></a>
+                <h1>PUBG ngab | Telesandi Only</h1>
+                <div class="main">
+                  <div>
+                    <p>Game</p>
+                    <p>MLBB</p>
+                  </div>
+
+                  <div>
+                    <p>Daftar</p>
+                    <p>RP 35.000</p>
+                  </div>
+
+                  <div>
+                    <p>Slot</p>
+                    <p>5/32</p>
+                  </div>
+
+                  <div>
+                    <p>Tanggal</p>
+                    <p>11 Desember 2020</p>
+                  </div>
+                </div>
+
+                <div class="hadiah">
+                  <p>Hadiah :</p>
+                  <p>Rp 600.000</p>
+                </div>
+
+                <button>
+                  REGISTER
+                </button>
+              </div> --></div>
+					<div class="game2-kelar pembatas-2">
+						<!-- kotak selesai -->
+						<!-- <div class="kotak-selesai">
+                <a href="#"><img src="../static/assets/img/gambar contoh.svg" /></a>
+                <h1>PUBG | Telesandi Only</h1>
+                <div class="main">
+                  <div>
+                    <p>Game</p>
+                    <p>PUBG</p>
+                  </div>
+
+                  <div>
+                    <p>Daftar</p>
+                    <p>RP 35.000</p>
+                  </div>
+
+                  <div>
+                    <p>Slot</p>
+                    <p>5/32</p>
+                  </div>
+
+                  <div>
+                    <p>Tanggal</p>
+                    <p>5 november 2019</p>
+                  </div>
+                </div>
+
+                <div class="hadiah">
+                  <p>Hadiah :</p>
+                  <p>Rp 600.000</p>
+                </div>
+
+                <button>
+                  tidak tersedia
+                </button>
+              </div> --></div>
+				</div>
+				<div class="game3">
+					<div class="game3-aktif">
+						{%for row in turnament_MLBB_Aktif%}
+						<div class="kotak-aktif">
+							<a href="../static/assets/thumbnail/{{row[1]}}">
+								<img src="../static/assets/thumbnail/{{row[1]}}" />
+							</a>
+							<h1>{{row[2]}}</h1>
+							<div class="main">
+								<div>
+									<p>Game</p>
+									<p>{{row[3]}}</p>
+								</div>
+								<div>
+									<p>Daftar</p>
+									<p>RP {{row[4]}}</p>
+								</div>
+								<div>
+									<p>Slot</p>
+									<p>{{row[5]}}</p>
+								</div>
+								<div>
+									<p>Tanggal</p>
+									<p>{{row[7]}}</p>
+								</div>
+							</div>
+							<div class="hadiah">
+								<p>Hadiah :</p>
+								<p>Rp {{row[6]}}</p>
+							</div>
+							<button onclick="window.location.href='register_{{row[3]}}';">REGISTER</button>
+						</div>
+						{%endfor%}
+					</div>
+					<div class="game3-kelar pembatas-2">
+						{%for row in turnament_MLBB_Selesai%}
+						<div class="kotak-selesai">
+							<a href="../static/assets/thumbnail/{{row[1]}}">
+								<img src="../static/assets/thumbnail/{{row[1]}}" />
+							</a>
+							<h1>{{row[2]}}</h1>
+							<div class="main">
+								<div>
+									<p>Game</p>
+									<p>{{row[3]}}</p>
+								</div>
+								<div>
+									<p>Daftar</p>
+									<p>RP {{row[4]}}</p>
+								</div>
+								<div>
+									<p>Slot</p>
+									<p>{{row[5]}}</p>
+								</div>
+								<div>
+									<p>Tanggal</p>
+									<p>{{row[7]}}</p>
+								</div>
+							</div>
+							<div class="hadiah">
+								<p>Hadiah :</p>
+								<p>Rp {{row[6]}}</p>
+							</div>
+							<button>SELESAI</button>
+						</div>
+						{%endfor%}
+					</div>
+				</div>
+			</div>
+			<div class="kategori">
+				<p>kategori</p>
+				<img class="logogame1" src="../static/assets/img/PB.png" />
+				<img class="logogame2" src="../static/assets/img/PUBG.png" />
+				<img class="logogame3" src="../static/assets/img/MOBILE LEGEND.png" alt="" />
+			</div>
+			<div class="sosmed-sidebar">
+				<p>social media</p>
+				<div class="sosmed">
+					<a href="#">
+						<img src="../static/assets/img/Instagram.svg" />
+					</a>
+					<a href="#">
+						<img src="../static/assets/img/web.svg" />
+					</a>
+					<a href="#">
+						<img src="../static/assets/img/Twitter.svg" />
+					</a>
+					<a href="#">
+						<img src="../static/assets/img/Youtube.svg" />
+					</a>
+				</div>
+			</div>
+			<div class="tels-stream">
+				<p>tels stream</p>
+				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div class="section-atas-footer">
+			<div class="footer-brand">
+				<img src="../static/assets/img/logo navbar.svg" alt="#" />
+				<h1>TELS E-SPORT</h1>
+				<p>TOURNAMENT BY TOMCAT</p>
+			</div>
+			<div class="menu-footer">
+				<h1>menu</h1>
+				<a href="/">Home</a>
+				<a href="/jadwal">Jadwal</a>
+				<a href="/team">Team</a>
+			</div>
+			<div class="kategori-footer">
+				<h1>kategori</h1>
+				<a href="#">Mobile Legends: Bang Bang</a>
+				<a href="#">Point Blank</a>
+				<a href="#">PUBG Mobile</a>
+			</div>
+			<div class="info-footer">
+				<h1>Info Tomcat</h1>
+				<p>+62 896-3773-3392</p>
+				<p>tomcatsquad@gmail.com</p>
+			</div>
+			<div class="support-footer">
+				<h1>SUPPORT BY</h1>
+				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
+				<img src="../static/assets/img/xlhum.svg" alt="" />
+			</div>
+			<div class="sosmed-footer">
+				<a href="#">
+					<img src="../static/assets/img/Instagram.svg" alt="#" />
+				</a>
+				<a href="#">
+					<img src="../static/assets/img/Twitter.svg" alt="#" />
+				</a>
+				<a href="#">
+					<img src="../static/assets/img/Youtube.svg" alt="#" />
+				</a>
+			</div>
+		</div>
+		<div class="section-bawah-footer">
+			<div class="garis-footer"></div>
+			<h4>© 2020 - TELS E-SPORT</h4>
+		</div>
+	</footer>
+	<!-- script -->
+	<script src="../static/assets/js/home.js"></script>
+	<script src="../static/assets/js/navbar.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+</body>
+
 </html>
