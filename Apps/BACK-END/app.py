@@ -378,6 +378,27 @@ def dashboardJadwal():
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))  
 
+@app.route('/uploadJadwal', methods=['POST'])
+def uploadJadwal():
+    if 'admin' in session:
+        if request.method == 'POST':
+            get_team      = request.form['Team']
+            get_waktu     = request.form['Jam']
+            get_tanggal   = request.form['Tanggal']
+            get_genre     = request.form['Genre']
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute("INSERT INTO turnament_jadwal (Team, Jam, Tanggal, Genre) VALUES (%s,%s,%s,%s)", 
+                                                (get_team, get_waktu, get_tanggal, get_genre))
+            conn.commit()
+            flash('Berhasil Buat Jadwal Pertandingan', 'Success')
+            return redirect(url_for('dashboardJadwal'))
+        else:
+            abort(405)
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
+
 @app.route('/edit_Jadwal_MLBB', methods=['POST'])
 def editJadwalMLBB():
     if 'admin' in session:
@@ -496,17 +517,17 @@ def index_jadwal():
     conn            = mysql.connection
     #GET Data Table Jadwal MLBB
     cur_jadwal_MLBB   = conn.cursor()
-    cur_jadwal_MLBB.execute("SELECT * FROM turnament_jadwal WHERE Genre='MLBB';")
+    cur_jadwal_MLBB.execute("SELECT * FROM turnament_jadwal WHERE Genre='MLBB' ORDER BY Tanggal ASC;")
     result_jadwal_MLBB = cur_jadwal_MLBB.fetchall()
 
     #GET Data Table Jadwal PUBG
     cur_jadwal_PUBG   = conn.cursor()
-    cur_jadwal_PUBG.execute("SELECT * FROM turnament_jadwal WHERE Genre='PUBG';")
+    cur_jadwal_PUBG.execute("SELECT * FROM turnament_jadwal WHERE Genre='PUBG' ORDER BY Tanggal ASC;")
     result_jadwal_PUBG = cur_jadwal_PUBG.fetchall()
 
     #GET Data Table Jadwal PB
     cur_jadwal_PB   = conn.cursor()
-    cur_jadwal_PB.execute("SELECT * FROM turnament_jadwal WHERE Genre='PB';")
+    cur_jadwal_PB.execute("SELECT * FROM turnament_jadwal WHERE Genre='PB' ORDER BY Tanggal ASC ;")
     result_jadwal_PB = cur_jadwal_PB.fetchall()
 
     return render_template('user/jadwal.html', 
@@ -528,7 +549,7 @@ def index_team():
 #===================
 
 #===================
-#MOBILE LEGEND START
+#REGISTER MOBILE LEGEND START
 #===================
 @app.route('/register_MLBB')
 def register_ML():
@@ -595,11 +616,11 @@ def uploadML():
     else:
         return render_template('user/register.html', form=form)
 #===================
-#MOBILE LEGEND END
+#REGISTER MOBILE LEGEND END
 #===================
 
 #========================
-# Upload Bukti Pembayaran
+# UPLOAD BUKTI PEMBAYARAN START
 #========================
 @app.route('/pembayaran')
 def indexPembayaran():
@@ -639,6 +660,9 @@ def uploadBukti():
             return redirect(url_for('register_ML'))
     else:
         abort(405)
+#========================
+# UPLOAD BUKTI PEMBAYARAN END
+#========================
 '''
 VIEW USER END
 '''
