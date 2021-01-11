@@ -20,12 +20,13 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 12pt;
+    font-size: 14px;
 }
 
 .tombol-balik a {
     text-decoration: none;
     color: #ffffff;
+    margin-top : 5px ;
 }
 
 .hero-register h1 {
@@ -258,6 +259,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+
     * {
         overflow-x: hidden;
     }
@@ -274,6 +276,16 @@ body {
     .form-login-register {
         width: 390px;
         overflow-x: hidden;
+    }
+
+    .tombol-balik {
+        margin-left: 15px ;
+    }
+
+    .alert {
+        width: 300px ;
+        font-size: 12px ;
+        margin-left: 15px ;
     }
 
     .form-login-register form {
