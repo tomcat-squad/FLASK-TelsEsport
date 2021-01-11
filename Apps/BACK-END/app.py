@@ -443,6 +443,7 @@ VIEW ADMIN END
 VIEW USER START
 '''
 
+'''
 #===================
 #URL FOR AJAX START
 #===================
@@ -478,6 +479,7 @@ def getTeamPubg():
 #===================
 #URL FOR AJAX END
 #===================
+'''
 
 #===================
 #SECTION HOME START
@@ -554,7 +556,8 @@ def index_team():
 @app.route('/register_MLBB')
 def register_ML():
     form = Esport_Mobile_Legend()
-    return render_template('user/register.html', form=form)
+    return render_template('user/register.html', form=form) # Index Register
+    #return render_template('error_page/close.html') # Index Jika Sudah Tutup Pendaftaran
 
 @app.route('/upload_ML', methods=['POST'])
 def uploadML():

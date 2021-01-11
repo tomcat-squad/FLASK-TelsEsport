@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -19,12 +20,13 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 12pt;
+    font-size: 14px;
 }
 
 .tombol-balik a {
     text-decoration: none;
     color: #ffffff;
+    margin-top : 5px ;
 }
 
 .hero-register h1 {
@@ -36,6 +38,41 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.alert {
+    font-family: 'Roboto', sans-serif;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #5600e7;
+    color: white;
+}
+.alert p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: white;
+    margin-top: 10px;
+}
+
+.alert a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: rgb(66, 240, 211);
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 40px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
 }
 
 .form-login-register {
@@ -222,6 +259,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+
     * {
         overflow-x: hidden;
     }
@@ -238,6 +276,16 @@ body {
     .form-login-register {
         width: 390px;
         overflow-x: hidden;
+    }
+
+    .tombol-balik {
+        margin-left: 15px ;
+    }
+
+    .alert {
+        width: 300px ;
+        font-size: 12px ;
+        margin-left: 15px ;
     }
 
     .form-login-register form {
