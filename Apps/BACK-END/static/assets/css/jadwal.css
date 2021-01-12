@@ -53,6 +53,7 @@ body {
     font-size: 12pt;
     height: 30px;
     grid-area: button-balik;
+    line-height: 30px;
 }
 
 .tombol-balik a {
