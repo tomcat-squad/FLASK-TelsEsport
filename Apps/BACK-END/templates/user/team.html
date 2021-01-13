@@ -15,6 +15,11 @@
 </head>
 
 <body>
+	{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+	<script>alert('{{message}}')</script>
+	{% endfor %} 
+	{%endif%} 
+	{% endwith %}
 	<nav>
 		<div class="judul">
 			<h1>TELS E-SPORT</h1>

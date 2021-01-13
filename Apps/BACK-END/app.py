@@ -597,7 +597,7 @@ def uploadML():
             cur.execute(f"SELECT Team FROM daftar_ml WHERE Team='{get_Team}'")
             result_team = cur.fetchall()
             if len(result_team) == 1:
-                return 'Team Sudah Ada'
+                return render_template('error_page/register_failed.html')
             else:
                 cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
                                                     NamaPlayer2, IGN_Player2, ID_Player2,\
@@ -664,8 +664,7 @@ def uploadBukti():
             flash('Berhasil Terdaftar', 'Success')
             return redirect(url_for('index_team'))
         else:
-            flash('Upload Gagal!', 'Failed')
-            return redirect(url_for('register_ML'))
+            return render_template('error_page/upload_failed.html')
     else:
         abort(405)
 #========================
