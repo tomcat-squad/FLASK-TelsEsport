@@ -75,7 +75,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="../static/assets/img/barcode ovo.jpeg">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>
@@ -84,7 +84,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>
@@ -93,7 +93,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>

@@ -594,26 +594,31 @@ def uploadML():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
-                                                NamaPlayer2, IGN_Player2, ID_Player2,\
-                                                NamaPlayer3, IGN_Player3, ID_Player3,\
-                                                NamaPlayer4, IGN_Player4, ID_Player4,\
-                                                NamaPlayer5, IGN_Player5, ID_Player5,\
-                                                Email, Whatsapp, Waktu)\
-                        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
-                                %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
-                                (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
-                                get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
-                                get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
-                                get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
-                                get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
-                                get_Email, get_Whatsapp, get_waktu))
-            conn.commit()
-            #Create Session
-            session['success'] = True
-            session['team'] = get_Team
-            session['genre'] = 'MLBB'
-            return redirect(url_for('indexPembayaran'))
+            cur.execute(f"SELECT Team FROM daftar_ml WHERE Team='{get_Team}'")
+            result_team = cur.fetchall()
+            if len(result_team) == 1:
+                return 'Team Sudah Ada'
+            else:
+                cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
+                                                    NamaPlayer2, IGN_Player2, ID_Player2,\
+                                                    NamaPlayer3, IGN_Player3, ID_Player3,\
+                                                    NamaPlayer4, IGN_Player4, ID_Player4,\
+                                                    NamaPlayer5, IGN_Player5, ID_Player5,\
+                                                    Email, Whatsapp, Waktu)\
+                            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
+                                    %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                    (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
+                                    get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
+                                    get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
+                                    get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
+                                    get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
+                                    get_Email, get_Whatsapp, get_waktu))
+                conn.commit()
+                #Create Session
+                session['success'] = True
+                session['team'] = get_Team
+                session['genre'] = 'MLBB'
+                return redirect(url_for('indexPembayaran'))
         else:
             abort(405)
     else:

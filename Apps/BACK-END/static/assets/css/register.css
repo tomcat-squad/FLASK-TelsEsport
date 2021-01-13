@@ -20,7 +20,9 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 12pt;
+    height: 30px ;
+    line-height: 30px;
 }
 
 .tombol-balik a {
@@ -190,6 +192,7 @@ body {
     border: 1px solid #404040;
     border-radius: 5px;
     cursor: pointer;
+    height: 30px;
 }
 
 .login-sec-5 input[type="file"] {
