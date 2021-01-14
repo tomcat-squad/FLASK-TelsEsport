@@ -546,6 +546,10 @@ def index_team():
     result_team_MLBB = cur_team_MLBB.fetchall()
     return render_template('user/team.html',
     team_MLBB=result_team_MLBB)
+
+@app.route('/bagan')
+def index_bagan():
+    return render_template('user/bagan.html')
 #===================
 #SECTION HOME END
 #===================
