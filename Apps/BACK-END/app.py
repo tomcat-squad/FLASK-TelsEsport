@@ -660,20 +660,25 @@ def uploadBukti():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
-            conn.commit()
-            session.pop('success', None)
-            session.pop('team', None)
-            session.pop('genre', None)
-            flash('Berhasil Terdaftar', 'Success')
-            return redirect(url_for('index_team'))
+            cur.execute(f"SELECT Team FROM bukti_pembayaran WHERE Team='{get_team}'")
+            result_team = cur.fetchall()
+            if len(result_team) == 1:
+                session.pop('success', None)
+                session.pop('team', None)
+                session.pop('genre', None)
+                abort(403)
+            else:
+                cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
+                conn.commit()
+                session.pop('success', None)
+                session.pop('team', None)
+                session.pop('genre', None)
+                flash('Berhasil Terdaftar', 'Success')
+                return redirect(url_for('index_team'))
         else:
             return render_template('error_page/upload_failed.html')
     else:
         abort(405)
-#========================
-# UPLOAD BUKTI PEMBAYARAN END
-#========================
 '''
 VIEW USER END
 '''
