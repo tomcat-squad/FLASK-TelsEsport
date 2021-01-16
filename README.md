@@ -23,3 +23,39 @@ Genre yang dimainkan dari Mobile, Desktop, Hingga Console..
 
 ## Desain UI/UX ✨
 <a href="https://www.figma.com/file/CGDbfs8rIKYXZYJnDZMnva/TelsEsport?node-id=0%3A1">Figma Tels Esport</a>
+
+## Python Version Support
+<a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.6-purple" alt="Version"/></a>
+<a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.7-orange" alt="Version"/></a>
+<a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.8-blue" alt="Version"/></a>
+
+## Installation ▶️
+1. Install module yang dibutuhkan
+```
+python -m pip install -r requirements.txt
+```
+2. Import database <a href="https://raw.githubusercontent.com/tomcat-squad/FLASK-TelsEsport/main/Apps/BACK-END/tomcat_esport.sql">tomcat_esport.sql</a> ke mysql
+3. Sesuaikan user database pada file app.py
+```
+app.config['MYSQL_HOST']        = 'localhost'
+app.config['MYSQL_USER']        = 'root'
+app.config['MYSQL_PASSWORD']    = ''
+app.config['MYSQL_DATABASE']    = 'tomcat_esport'
+mysql = MySQL(app)
+```
+4. Sesuaikan directory untuk menyimpan file yang di upload user
+```
+UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
+app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
+
+UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail'
+app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
+```
+5. Jalankan file app.py
+```
+python app.py
+```
+6. Buka browser 
+```
+http://127.0.0.1:5000
+```
