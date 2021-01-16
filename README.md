@@ -36,7 +36,7 @@ python -m pip install -r requirements.txt
 ```
 2. Import database <a href="https://raw.githubusercontent.com/tomcat-squad/FLASK-TelsEsport/main/Apps/BACK-END/tomcat_esport.sql">tomcat_esport.sql</a> ke mysql
 #### Linux (Mysql)
-```
+```sql
 #Buat Database
 mysql -u root -p 
 CREATE DATABASE tomcat_esport;
@@ -52,7 +52,7 @@ mysql -u root -p < /home/tomcatsq/tomcat_esport.sql
 3. Selesai
 ```
 3. Sesuaikan user database pada file app.py
-```
+```python
 app.config['MYSQL_HOST']        = 'localhost'
 app.config['MYSQL_USER']        = 'root'
 app.config['MYSQL_PASSWORD']    = ''
@@ -60,7 +60,7 @@ app.config['MYSQL_DATABASE']    = 'tomcat_esport'
 mysql = MySQL(app)
 ```
 4. Sesuaikan directory untuk menyimpan file yang di upload user
-```
+```python
 UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
 app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 
@@ -68,7 +68,7 @@ UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail'
 app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
 ```
 5. Sesuaikan directory file .htacces untuk blacklist ip address user nakal
-```
+```python
 #Blacklist Ip Di Htaccess
 if len(logger_read) == 5:
     htaccess = open('static/.htaccess', 'a')
