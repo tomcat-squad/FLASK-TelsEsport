@@ -1,12 +1,22 @@
 <p align="center"> 
   <img alt="Tels Esport" src="https://i.ytimg.com/vi/DOz9Nz26rPo/maxresdefault.jpg" height="300" /></a>
-  <h3 align="center"><b>Tels Esport</b></h3>
+  <h3 align="center"><b>Tels E-Sport</b></h3>
 </p>
-<a href="https://github.com/tomcat-squad/FLASK-TelsEsport/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/tomcat-squad/FLASK-TelsEsport?color=2b9348"></a>
-<a href="https://github.com/tomcat-squad/FLASK-TelsEsport/pulls"><img src="https://img.shields.io/github/issues-pr/tomcat-squad/FLASK-TelsEsport" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/tomcat-squad/FLASK-TelsEsport"><img src="https://img.shields.io/badge/version-1.0-blueviolet" alt="Version"/></a>
-<a href="https://github.com/tomcat-squad/FLASK-TelsEsport"><img src="https://img.shields.io/badge/TomcatSquad-website%20project-blue" alt="Version"/></a>
-<a href="https://github.com/tomcat-squad/FLASK-TelsEsport/network/members"><img src="https://img.shields.io/github/forks/tomcat-squad/FLASK-TelsEsport" alt="Forks Badge"/></a><br>
+<p align="center">
+   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/tomcat-squad/FLASK-TelsEsport?color=2b9348"></a>
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/pulls"><img src="https://img.shields.io/github/issues-pr/tomcat-squad/FLASK-TelsEsport" alt="Pull Requests Badge"/></a>
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport"><img src="https://img.shields.io/badge/version-1.0-blueviolet" alt="Version"/></a>
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport"><img src="https://img.shields.io/badge/TomcatSquad-website%20project-blue" alt="Version"/></a>
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/network/members"><img src="https://img.shields.io/github/forks/tomcat-squad/FLASK-TelsEsport" alt="Forks Badge"/></a><br>
+  Website Daftar Turnament
+  <br />
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Dokumentasi</a>
+  ·
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Laporkan Bug</a>
+  ·
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Permintaan Fitur</a>
+</p>
+<br>
 
 ## Tentang 🤷
 Tels Esport merupakan turnament yang diselengarakan oleh tomcat squad, Pertama kali dibuat oleh angkatan 10 dan baru dijalankan oleh angkatan 11. 
