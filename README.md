@@ -15,6 +15,8 @@
   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Laporkan Bug</a>
   -
   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Permintaan Fitur</a>
+    -
+  <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/blob/main/.github/ISSUE_TEMPLATE/kontribusi.md">Kontribusi</a>
 </p>
 <br>
 
