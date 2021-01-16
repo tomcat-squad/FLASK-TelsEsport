@@ -35,6 +35,22 @@ Genre yang dimainkan dari Mobile, Desktop, Hingga Console..
 python -m pip install -r requirements.txt
 ```
 2. Import database <a href="https://raw.githubusercontent.com/tomcat-squad/FLASK-TelsEsport/main/Apps/BACK-END/tomcat_esport.sql">tomcat_esport.sql</a> ke mysql
+#### Linux (Mysql)
+```
+#Buat Database
+mysql -u root -p 
+CREATE DATABASE tomcat_esport;
+quit;
+
+#Import Database
+mysql -u root -p < /home/tomcatsq/tomcat_esport.sql
+```
+#### Windows (XAMPP)
+```
+1. Buat database di phpmyadmin
+2. Import tomcat_esport.sql ke database yang dibuat.
+3. Selesai
+```
 3. Sesuaikan user database pada file app.py
 ```
 app.config['MYSQL_HOST']        = 'localhost'
@@ -51,11 +67,20 @@ app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail'
 app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
 ```
-5. Jalankan file app.py
+5. Sesuaikan directory file .htacces untuk blacklist ip address user nakal
+```
+#Blacklist Ip Di Htaccess
+if len(logger_read) == 5:
+    htaccess = open('static/.htaccess', 'a')
+    htaccess.write(f'deny from {logger_read[0]}allow from all\n')
+    htaccess.close()
+    os.remove('static/logger_admin.txt')
+```
+6. Jalankan file app.py
 ```
 python app.py
 ```
-6. Buka browser 
+7. Buka browser 
 ```
 http://127.0.0.1:5000
 ```
