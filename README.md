@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Tels Esport" src="https://i.ytimg.com/vi/DOz9Nz26rPo/maxresdefault.jpg" height="300" /></a>
+  <img alt="Tels Esport" src="https://i.ytimg.com/vi/DOz9Nz26rPo/maxresdefault.jpg" height="300" />
   <h3 align="center"><b>Tels E-Sport</b></h3>
 </p>
 <p align="center">
@@ -11,9 +11,9 @@
   Website Daftar Turnament
   <br />
   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Dokumentasi</a>
-  ·
+  -
   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Laporkan Bug</a>
-  ·
+  -
   <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/issues/new/choose">Permintaan Fitur</a>
 </p>
 <br>
