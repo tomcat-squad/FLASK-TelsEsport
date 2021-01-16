@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Tels Esport" src="https://i.ytimg.com/vi/DOz9Nz26rPo/maxresdefault.jpg" height="300" />
+  <img alt="Tels Esport" src="https://www.flaticon.com/svg/vstatic/svg/771/771261.svg?token=exp=1610822949~hmac=a799bf6d232b3173aa32e795908f6519" height="200" />
   <h3 align="center"><b>Tels E-Sport</b></h3>
 </p>
 <p align="center">
