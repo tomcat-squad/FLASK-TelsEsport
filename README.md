@@ -36,7 +36,7 @@ Genre yang dimainkan dari Mobile, Desktop, Hingga Console..
 ## Desain UI/UX ✨
 <a href="https://www.figma.com/file/CGDbfs8rIKYXZYJnDZMnva/TelsEsport?node-id=0%3A1">Figma Tels Esport</a>
 
-## Python Version Support
+## Python Version 🐍
 <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.6-purple" alt="Version"/></a>
 <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.7-orange" alt="Version"/></a>
 <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.8-blue" alt="Version"/></a>
@@ -96,3 +96,9 @@ python app.py
 ```
 http://127.0.0.1:5000
 ```
+## Security 🛡️
+- CSRF Token
+- Filter Ekstension
+- Filter Size Upload Image
+- Input Validation
+- Block IP Attacker
