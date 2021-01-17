@@ -41,7 +41,7 @@ Genre yang dimainkan dari Mobile, Desktop, Hingga Console..
 <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.7-orange" alt="Version"/></a>
 <a href="https://python.org"><img src="https://img.shields.io/badge/Python-3.8-blue" alt="Version"/></a>
 
-## Installation ▶️
+## Installation 🛠️ 
 1. Install module yang dibutuhkan
 ```
 python -m pip install -r requirements.txt
