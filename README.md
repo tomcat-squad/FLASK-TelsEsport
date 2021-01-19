@@ -102,9 +102,3 @@ http://127.0.0.1:5000
 - Filter Size Upload Image
 - Input Validation
 - Block IP Attacker
-
-## Sandbox Testing 🐱‍💻
-```
-https://tomcatsquad.pythonanywhere.com/
-```
-Kami menyediakan server sanbox yang digunakan untuk pentester melakukan pengujian, dan kami mohon untuk tidak melakukan pengujian di server utama karena bisa melanggar UU ITE. Kami sangat apresiasi jika anda melakukan patch diprojek ini.
