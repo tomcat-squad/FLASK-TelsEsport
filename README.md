@@ -29,6 +29,7 @@
   - [Linux - Mysql](#linux-mysql)
   - [Windows - Xampp](#windows-xampp)
 - [Keamanan](#security-%EF%B8%8F)
+- [Uji Keamanan](#testing-guide-)
     
 ## Tentang 🤷
 Tels Esport merupakan turnament yang diselengarakan oleh tomcat squad, Pertama kali dibuat oleh angkatan 10 dan baru dijalankan oleh angkatan 11. 
