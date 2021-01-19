@@ -20,6 +20,16 @@
 </p>
 <br>
 
+## Daftar Isi
+- [Tentang](#tentang-)
+- [Dibuat Dengan Apa?](#teknologi-yang-digunakan-)
+- [Desain UI/UX](#desain-uiux-)
+- [Versi Python](#python-version-)
+- [Cara Install](#installation-%EF%B8%8F)
+  - [Linux - Mysql](#linux-mysql)
+  - [Windows - Xampp](#windows-xampp)
+- [Keamanan](#security-%EF%B8%8F)
+    
 ## Tentang 🤷
 Tels Esport merupakan turnament yang diselengarakan oleh tomcat squad, Pertama kali dibuat oleh angkatan 10 dan baru dijalankan oleh angkatan 11. 
 Genre yang dimainkan dari Mobile, Desktop, Hingga Console..
@@ -102,3 +112,6 @@ http://127.0.0.1:5000
 - Filter Size Upload Image
 - Input Validation
 - Block IP Attacker
+
+## Testing Guide 🕵🏼
+Untuk pentester yang ingin melakukan pengujian bisa membaca ketentuanya <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/blob/main/.github/ISSUE_TEMPLATE/pentester.md">disini</a>
