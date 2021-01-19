@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img alt="Tels Esport" src="https://www.flaticon.com/svg/vstatic/svg/771/771261.svg?token=exp=1610822949~hmac=a799bf6d232b3173aa32e795908f6519" height="200" />
+  <img alt="Tels Esport" src="https://www.flaticon.com/svg/vstatic/svg/1880/1880988.svg?token=exp=1611047305~hmac=edf1c49921ef07c19ba74ea538199131" height="200" />
   <h3 align="center"><b>Tels E-Sport</b></h3>
 </p>
 <p align="center">
@@ -102,3 +102,9 @@ http://127.0.0.1:5000
 - Filter Size Upload Image
 - Input Validation
 - Block IP Attacker
+
+## Sandbox Testing 🐱‍💻
+```
+https://tomcatsquad.pythonanywhere.com/
+```
+Kami menyediakan server sanbox yang digunakan untuk pentester melakukan pengujian, dan kami mohon untuk tidak melakukan pengujian di server utama karena bisa melanggar UU ITE. Kami sangat apresiasi jika anda melakukan patch diprojek ini.
