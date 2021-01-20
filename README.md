@@ -63,10 +63,9 @@ python -m pip install -r requirements.txt
 #Buat Database
 mysql -u root -p 
 CREATE DATABASE tomcat_esport;
-quit;
-
 #Import Database
-mysql -u root -p < /home/tomcatsq/tomcat_esport.sql
+use tomcat_esport; source /home/tomcatsq/tomcat_esport.sql
+quit;
 ```
 #### Windows (XAMPP)
 ```
