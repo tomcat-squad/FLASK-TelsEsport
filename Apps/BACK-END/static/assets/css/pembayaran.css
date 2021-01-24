@@ -12,8 +12,9 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 15px;
-    height: 25px;
+    font-size: 12pt;
+    height: 30px ;
+    line-height: 30px;
 }
 
 .tombol-balik a {
@@ -184,6 +185,7 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
+    margin-top: 15px;
 }
 
 .pembayaran-gopay {
@@ -210,6 +212,7 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
+    margin-top: 15px;
 }
 
 .pembayaran-dana form input:nth-child(1) {
@@ -241,6 +244,7 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
+    margin-top: 15px;
 }
 
 .isi-offline {
@@ -403,8 +407,26 @@ footer {
         position: relative;
         margin-top: 30px;
     }
+    .pembayaran-ovo input,
+    .pembayaran-gopay input,
+    .pembayaran-dana input {
+        width: 200px ;
+        margin: auto ;
+    }
 
     .pembayaran-ovo button {
+        width: 200px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .pembayaran-gopay button {
+        width: 200px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .pembayaran-dana button {
         width: 200px;
         margin: auto;
         margin-top: 20px;

@@ -290,15 +290,15 @@ body {
 }
 
 .sosmed-sidebar p {
-    margin-bottom : 20px ;
+    margin-bottom: 10px;
+    font-weight: bolder ;
     color: #FFFFFF ;
     background-color: #5600E7 ;
-    font-size: 20px ;
-    text-transform: uppercase ;
-    width: 300px ;
+    width: 280px ;
+    padding: 5px ;
     text-align: center ;
-    font-weight: bolder ;
-    border-radius: 12px ;
+    text-transform: uppercase ;
+    border-radius: 8px;
 }
 
 .sosmed {

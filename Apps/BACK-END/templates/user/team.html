@@ -14,7 +14,10 @@
 	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body>{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+	<script>
+		alert('{{message}}')
+	</script>{% endfor %} {%endif%} {% endwith %}
 	<nav>
 		<div class="judul">
 			<h1>TELS E-SPORT</h1>
@@ -40,7 +43,7 @@
 		<h1>Daftar Team E-sport</h1>
 	</div>
 	<div class="container">
-		<div class="tombol-balik tombol-hilang"> <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+		<div class="tombol-balik tombol-hilang"> <a href="javascript:history.back();">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
 		</div>
 		<div class="button-selection">
 			<p>Game :</p>
@@ -143,23 +146,22 @@
 				<a href="#">PUBG Mobile</a>
 			</div>
 			<div class="info-footer">
-				<h1>Info Tomcat</h1>
-				<p>+62 896-3773-3392</p>
-				<p>tomcatsquad@gmail.com</p>
+				<h1>INFO TOMCAT</h1>
+				<p>+62 813-8166-2912</p>
+				<p>tomcatsquad@tomcatsquad.web.id</p>
 			</div>
 			<div class="support-footer">
 				<h1>SUPPORT BY</h1>
 				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
-				<img src="../static/assets/img/xlhum.svg" alt="" />
 			</div>
 			<div class="sosmed-footer">
-				<a href="#">
+				<a href="https://www.instagram.com/telsradio">
 					<img src="../static/assets/img/Instagram.svg" alt="#" />
 				</a>
 				<a href="#">
 					<img src="../static/assets/img/Twitter.svg" alt="#" />
 				</a>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCjsTHbWeujQU82uljWS_U6g">
 					<img src="../static/assets/img/Youtube.svg" alt="#" />
 				</a>
 			</div>
