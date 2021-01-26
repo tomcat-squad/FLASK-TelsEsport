@@ -443,6 +443,7 @@ VIEW ADMIN END
 VIEW USER START
 '''
 
+'''
 #===================
 #URL FOR AJAX START
 #===================
@@ -478,6 +479,7 @@ def getTeamPubg():
 #===================
 #URL FOR AJAX END
 #===================
+'''
 
 #===================
 #SECTION HOME START
@@ -544,6 +546,10 @@ def index_team():
     result_team_MLBB = cur_team_MLBB.fetchall()
     return render_template('user/team.html',
     team_MLBB=result_team_MLBB)
+
+@app.route('/bagan')
+def index_bagan():
+    return render_template('user/bagan.html')
 #===================
 #SECTION HOME END
 #===================
@@ -554,7 +560,8 @@ def index_team():
 @app.route('/register_MLBB')
 def register_ML():
     form = Esport_Mobile_Legend()
-    return render_template('user/register.html', form=form)
+    return render_template('user/register.html', form=form) # Index Register
+    #return render_template('error_page/close.html') # Index Jika Sudah Tutup Pendaftaran
 
 @app.route('/upload_ML', methods=['POST'])
 def uploadML():
@@ -591,26 +598,31 @@ def uploadML():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
-                                                NamaPlayer2, IGN_Player2, ID_Player2,\
-                                                NamaPlayer3, IGN_Player3, ID_Player3,\
-                                                NamaPlayer4, IGN_Player4, ID_Player4,\
-                                                NamaPlayer5, IGN_Player5, ID_Player5,\
-                                                Email, Whatsapp, Waktu)\
-                        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
-                                %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
-                                (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
-                                get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
-                                get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
-                                get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
-                                get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
-                                get_Email, get_Whatsapp, get_waktu))
-            conn.commit()
-            #Create Session
-            session['success'] = True
-            session['team'] = get_Team
-            session['genre'] = 'MLBB'
-            return redirect(url_for('indexPembayaran'))
+            cur.execute(f"SELECT Team FROM daftar_ml WHERE Team='{get_Team}'")
+            result_team = cur.fetchall()
+            if len(result_team) == 1:
+                return render_template('error_page/register_failed.html')
+            else:
+                cur.execute("INSERT INTO daftar_ml (Team, NamaKapten, IGN_Kapten, ID_Kapten,\
+                                                    NamaPlayer2, IGN_Player2, ID_Player2,\
+                                                    NamaPlayer3, IGN_Player3, ID_Player3,\
+                                                    NamaPlayer4, IGN_Player4, ID_Player4,\
+                                                    NamaPlayer5, IGN_Player5, ID_Player5,\
+                                                    Email, Whatsapp, Waktu)\
+                            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
+                                    %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                    (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
+                                    get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
+                                    get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
+                                    get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
+                                    get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
+                                    get_Email, get_Whatsapp, get_waktu))
+                conn.commit()
+                #Create Session
+                session['success'] = True
+                session['team'] = get_Team
+                session['genre'] = 'MLBB'
+                return redirect(url_for('indexPembayaran'))
         else:
             abort(405)
     else:
@@ -648,21 +660,25 @@ def uploadBukti():
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
-            conn.commit()
-            session.pop('success', None)
-            session.pop('team', None)
-            session.pop('genre', None)
-            flash('Berhasil Terdaftar', 'Success')
-            return redirect(url_for('index_team'))
+            cur.execute(f"SELECT Team FROM bukti_pembayaran WHERE Team='{get_team}'")
+            result_team = cur.fetchall()
+            if len(result_team) == 1:
+                session.pop('success', None)
+                session.pop('team', None)
+                session.pop('genre', None)
+                abort(403)
+            else:
+                cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
+                conn.commit()
+                session.pop('success', None)
+                session.pop('team', None)
+                session.pop('genre', None)
+                flash('Berhasil Terdaftar', 'Success')
+                return redirect(url_for('index_team'))
         else:
-            flash('Upload Gagal!', 'Failed')
-            return redirect(url_for('register_ML'))
+            return render_template('error_page/upload_failed.html')
     else:
         abort(405)
-#========================
-# UPLOAD BUKTI PEMBAYARAN END
-#========================
 '''
 VIEW USER END
 '''

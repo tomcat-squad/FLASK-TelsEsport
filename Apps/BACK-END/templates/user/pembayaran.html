@@ -75,7 +75,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="../static/assets/img/barcode ovo.jpeg">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>
@@ -84,7 +84,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>
@@ -93,7 +93,7 @@
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
 				<img src="">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-					<input type="file" name="bukti-tf">
+					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
 				</form>
 			</div>
@@ -119,23 +119,22 @@
 				<a href="#">PUBG Mobile</a>
 			</div>
 			<div class="info-footer">
-				<h1>Info Tomcat</h1>
-				<p>+62 896-3773-3392</p>
-				<p>tomcatsquad@gmail.com</p>
+				<h1>INFO TOMCAT</h1>
+				<p>+62 813-8166-2912</p>
+				<p>tomcatsquad@tomcatsquad.web.id</p>
 			</div>
 			<div class="support-footer">
 				<h1>SUPPORT BY</h1>
 				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
-				<img src="../static/assets/img/xlhum.svg" alt="" />
 			</div>
 			<div class="sosmed-footer">
-				<a href="#">
+				<a href="https://www.instagram.com/telsradio">
 					<img src="../static/assets/img/Instagram.svg" alt="#" />
 				</a>
 				<a href="#">
 					<img src="../static/assets/img/Twitter.svg" alt="#" />
 				</a>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCjsTHbWeujQU82uljWS_U6g">
 					<img src="../static/assets/img/Youtube.svg" alt="#" />
 				</a>
 			</div>

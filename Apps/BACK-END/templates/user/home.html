@@ -13,10 +13,6 @@
 	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
 	<link rel="stylesheet" href="../static/assets/css/footer.css" />
 	<link rel="stylesheet" href="../static/assets/css/home.css" />
-	<!-- utilies -->
-	<link rel="stylesheet" href="path-to-the-file/splide.min.css" />
-	<!-- or the one installed in node_modules directory, -->
-	<link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css" />
 	<!-- or the reference on CDN -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css" />
 </head>
@@ -49,16 +45,7 @@
 				<div class="splide__track">
 					<ul class="splide__list">
 						<li class="splide__slide">
-							<img src="https://dummyimage.com/1044x280/000/fff.png" />
-						</li>
-						<li class="splide__slide">
-							<img src="https://dummyimage.com/1044x280/000/fff.png" />
-						</li>
-						<li class="splide__slide">
-							<img src="https://dummyimage.com/1044x280/000/fff.png" />
-						</li>
-						<li class="splide__slide">
-							<img src="https://dummyimage.com/1044x280/000/fff.png" />
+							<img src="../static/assets/img/thumbnail1.jpg" />
 						</li>
 					</ul>
 				</div>
@@ -219,8 +206,7 @@
               </div> --></div>
 				</div>
 				<div class="game3">
-					<div class="game3-aktif">
-						{%for row in turnament_MLBB_Aktif%}
+					<div class="game3-aktif">{%for row in turnament_MLBB_Aktif%}
 						<div class="kotak-aktif">
 							<a href="../static/assets/thumbnail/{{row[1]}}">
 								<img src="../static/assets/thumbnail/{{row[1]}}" />
@@ -249,11 +235,8 @@
 								<p>Rp {{row[6]}}</p>
 							</div>
 							<button onclick="window.location.href='register_{{row[3]}}';">REGISTER</button>
-						</div>
-						{%endfor%}
-					</div>
-					<div class="game3-kelar pembatas-2">
-						{%for row in turnament_MLBB_Selesai%}
+						</div>{%endfor%}</div>
+					<div class="game3-kelar pembatas-2">{%for row in turnament_MLBB_Selesai%}
 						<div class="kotak-selesai">
 							<a href="../static/assets/thumbnail/{{row[1]}}">
 								<img src="../static/assets/thumbnail/{{row[1]}}" />
@@ -282,9 +265,7 @@
 								<p>Rp {{row[6]}}</p>
 							</div>
 							<button>SELESAI</button>
-						</div>
-						{%endfor%}
-					</div>
+						</div>{%endfor%}</div>
 				</div>
 			</div>
 			<div class="kategori">
@@ -296,27 +277,29 @@
 			<div class="sosmed-sidebar">
 				<p>social media</p>
 				<div class="sosmed">
-					<a href="#">
+					<a href="https://www.instagram.com/telsradio">
 						<img src="../static/assets/img/Instagram.svg" />
 					</a>
-					<a href="#">
+					<a href="https://tomcatsquad.web.id">
 						<img src="../static/assets/img/web.svg" />
 					</a>
 					<a href="#">
 						<img src="../static/assets/img/Twitter.svg" />
 					</a>
-					<a href="#">
+					<a href="https://www.youtube.com/channel/UCjsTHbWeujQU82uljWS_U6g">
 						<img src="../static/assets/img/Youtube.svg" />
 					</a>
 				</div>
 			</div>
+			<!--
 			<div class="tels-stream">
 				<p>tels stream</p>
 				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				<iframe width="853" height="480" src="https://www.youtube.com/embed/ZPeMqhLZBwk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
+			-->
 		</div>
+	</div>
 	</div>
 	<footer>
 		<div class="section-atas-footer">
@@ -338,23 +321,22 @@
 				<a href="#">PUBG Mobile</a>
 			</div>
 			<div class="info-footer">
-				<h1>Info Tomcat</h1>
-				<p>+62 896-3773-3392</p>
-				<p>tomcatsquad@gmail.com</p>
+				<h1>INFO TOMCAT</h1>
+				<p>+62 813-8166-2912</p>
+				<p>tomcatsquad@tomcatsquad.web.id</p>
 			</div>
 			<div class="support-footer">
 				<h1>SUPPORT BY</h1>
 				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
-				<img src="../static/assets/img/xlhum.svg" alt="" />
 			</div>
 			<div class="sosmed-footer">
-				<a href="#">
+				<a href="https://www.instagram.com/telsradio">
 					<img src="../static/assets/img/Instagram.svg" alt="#" />
 				</a>
 				<a href="#">
 					<img src="../static/assets/img/Twitter.svg" alt="#" />
 				</a>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCjsTHbWeujQU82uljWS_U6g">
 					<img src="../static/assets/img/Youtube.svg" alt="#" />
 				</a>
 			</div>

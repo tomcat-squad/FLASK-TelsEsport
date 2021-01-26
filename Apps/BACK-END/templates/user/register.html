@@ -9,7 +9,7 @@
 	<!-- stylesheet -->
 	<link rel="stylesheet" href="../static/assets/css/footer.css" />
 	<link rel="stylesheet" href="../static/assets/css/navbar.css" />
-    <link rel="stylesheet" href="../static/assets/css/register.css" />
+	<link rel="stylesheet" href="../static/assets/css/register.css" />
 	<!-- font awesome -->
 	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
 </head>
@@ -42,6 +42,15 @@
 	<div class="form-login-register">
 		<div class="tombol-balik"> <a href="javascript:history.back();">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
 		</div>
+		<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  <strong>INFORMASI DAFTAR !</strong>
+			<br>
+			<p>1. Dilarang memasukan data 2x.</p>
+			<p>2. Dilarang input nickname menggunakan special karakter seperti symbol. (Ganti dengan huruf A-Z saat input nickname)</p>
+			<p>3. Untuk menambah jumlah pemain bisa kontak admin. (Maks 2 orang cadangan)</p>
+			<p>4. Jika ada pertanyaan seputar turnament atau ingin merubah data bisa hubungi admin dibawah ini.</p>
+			<p><a href="#">Admin 1</a>  <a href="#">Admin 2</a>
+			</p>
+		</div>
 		<form action="{{url_for('uploadML')}}" enctype="multipart/form-data" method="POST">{{ form.csrf_token }} {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
 			<script>
 				alert('{{message}}')
@@ -59,35 +68,35 @@
 				{% endfor %}</div>
 			<div class="login-sec-2">
 				<p>nama kapten</p>
-				<input type="text" required placeholder="Ikhsan Lemon" name="NamaKapten" />{% for error in form.NamaKapten.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaKapten" />{% for error in form.NamaKapten.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>nama player 2</p>
-				<input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer2" />{% for error in form.NamaPlayer2.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer2" />{% for error in form.NamaPlayer2.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>nama player 3</p>
-				<input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer3" />{% for error in form.NamaPlayer3.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer3" />{% for error in form.NamaPlayer3.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>nama player 4</p>
-				<input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer4" />{% for error in form.NamaPlayer4.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer4" />{% for error in form.NamaPlayer4.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>nama player 5</p>
-				<input type="text" required placeholder="Ikhsan Lemon" name="NamaPlayer5" />{% for error in form.NamaPlayer5.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer5" />{% for error in form.NamaPlayer5.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}</div>
 			<div class="login-sec-3">
 				<p>IGN-kapten</p>
-				<input type="text" required placeholder="Nickname" name="IGN_Kapten" />{% for error in form.IGN_Kapten.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Lemon" name="IGN_Kapten" />{% for error in form.IGN_Kapten.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>IGN-player 2</p>
-				<input type="text" required placeholder="Nickname" name="IGN_Player2" />{% for error in form.IGN_Player2.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Lemon" name="IGN_Player2" />{% for error in form.IGN_Player2.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>IGN-player 3</p>
-				<input type="text" required placeholder="Nickname" name="IGN_Player3" />{% for error in form.IGN_Player3.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Lemon" name="IGN_Player3" />{% for error in form.IGN_Player3.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>IGN-player 4</p>
-				<input type="text" required placeholder="Nickname" name="IGN_Player4" />{% for error in form.IGN_Player4.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Lemon" name="IGN_Player4" />{% for error in form.IGN_Player4.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}
 				<p>IGN-player 5</p>
-				<input type="text" required placeholder="Nickname" name="IGN_Player5" />{% for error in form.IGN_Player5.errors %} <small style="color: red;">{{ error }}</small>
+				<input type="text" required placeholder="Lemon" name="IGN_Player5" />{% for error in form.IGN_Player5.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}</div>
 			<div class="login-sec-4">
 				<p>ID kapten</p>
@@ -106,7 +115,7 @@
 				<input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />{% for error in form.IdPlayer5.errors %} <small style="color: red;">{{ error }}</small>
 				{% endfor %}</div>
 			<div class="login-sec-5">
-				<button type="submit">Daftar</button>
+				<button type="submit">Submit</button>
 			</div>
 		</form>
 	</div>
@@ -130,23 +139,22 @@
 				<a href="#">PUBG Mobile</a>
 			</div>
 			<div class="info-footer">
-				<h1>Info Tomcat</h1>
-				<p>+62 896-3773-3392</p>
-				<p>tomcatsquad@gmail.com</p>
+				<h1>INFO TOMCAT</h1>
+				<p>+62 813-8166-2912</p>
+				<p>tomcatsquad@tomcatsquad.web.id</p>
 			</div>
 			<div class="support-footer">
 				<h1>SUPPORT BY</h1>
 				<img src="../static/assets/img/logo sekolah tercinta.svg" alt="#" />
-				<img src="../static/assets/img/xlhum.svg" alt="" />
 			</div>
 			<div class="sosmed-footer">
-				<a href="#">
+				<a href="https://www.instagram.com/telsradio">
 					<img src="../static/assets/img/Instagram.svg" alt="#" />
 				</a>
 				<a href="#">
 					<img src="../static/assets/img/Twitter.svg" alt="#" />
 				</a>
-				<a href="#">
+				<a href="https://www.youtube.com/channel/UCjsTHbWeujQU82uljWS_U6g">
 					<img src="../static/assets/img/Youtube.svg" alt="#" />
 				</a>
 			</div>
@@ -156,6 +164,8 @@
 			<h4>© 2020 - TELS E-SPORT</h4>
 		</div>
 	</footer>
+	<!-- SCRIPT -->
+	<script src="../static/assets/js/navbar.js"></script>
 </body>
 
 </html>
