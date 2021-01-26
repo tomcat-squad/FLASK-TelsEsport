@@ -155,20 +155,6 @@ body {
     width: 50%;
 }
 
-.pembayaran-ovo {
-    margin: 30px auto;
-}
-
-.pembayaran-ovo form {
-    display: flex;
-    flex-direction: column;
-}
-
-.pembayaran-gopay form input:nth-child(1) {
-    margin: 20px auto;
-    width: 50%;
-}
-
 .pembayaran-ovo img {
     width: 200px;
     height: 200px;
@@ -186,6 +172,8 @@ body {
     height: 25px;
 }
 
+
+
 .pembayaran-gopay {
     margin: 30px auto;
 }
@@ -193,6 +181,11 @@ body {
 .pembayaran-gopay form {
     display: flex;
     flex-direction: column;
+}
+
+.pembayaran-gopay form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-gopay img {
@@ -212,11 +205,6 @@ body {
     height: 25px;
 }
 
-.pembayaran-dana form input:nth-child(1) {
-    margin: 20px auto;
-    width: 50%;
-}
-
 .pembayaran-dana {
     margin: 30px auto;
 }
@@ -224,6 +212,11 @@ body {
 .pembayaran-dana form {
     display: flex;
     flex-direction: column;
+}
+
+.pembayaran-dana form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-dana img {
@@ -404,7 +397,26 @@ footer {
         margin-top: 30px;
     }
 
+    .pembayaran-ovo input,
+    .pembayaran-gopay input,
+    .pembayaran-dana input {
+        width: 200px ;
+        margin: auto ;
+    }
+
     .pembayaran-ovo button {
+        width: 200px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .pembayaran-gopay button {
+        width: 200px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .pembayaran-dana button {
         width: 200px;
         margin: auto;
         margin-top: 20px;
