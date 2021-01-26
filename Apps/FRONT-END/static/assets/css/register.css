@@ -17,6 +17,8 @@ body {
     background-size: cover no-repeat;
     height: 300px;
     position: relative;
+    top: 0 ;
+    margin-top: -13px ;
 }
 
 .tombol-balik {
@@ -50,6 +52,7 @@ body {
     border-radius: 5px;
     background-color: #5600e7;
     color: white;
+    width: 900px ;
 }
 .alert p {
     font-family: 'Roboto', sans-serif;
@@ -215,6 +218,16 @@ body {
         left: 30% ;
         right: 30% ;
     } */
+
+    .hero-register {
+        margin-top: -12px ;
+    }
+
+    .alert {
+        width: 600px ;
+        margin: 0 ;
+        margin-bottom: 20px ;
+    }
 
     .form-login-register {
         width: 650px;
