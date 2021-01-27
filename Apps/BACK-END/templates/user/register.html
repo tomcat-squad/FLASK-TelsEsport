@@ -40,7 +40,7 @@
 		<h1>Pedaftaran Online Mobile Legends</h1>
 	</div>
 	<div class="form-login-register">
-		<div class="tombol-balik"> <a href="javascript:history.back();">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+		<div class="tombol-balik"> <a href="javascript:history.back();">&nbsp;<i class="fas fa-arrow-circle-left"></i> KEMBALI</a>
 		</div>
 		<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  <strong>INFORMASI DAFTAR !</strong>
 			<br>
@@ -57,63 +57,63 @@
 			</script>{% endfor %} {%endif%} {% endwith %}
 			<div class="login-sec-0">
 				<p>nama team</p>
-				<input type="text" required placeholder="Rex Regum Qeon" name="Team" />{% for error in form.Team.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}</div>
+				<input type="text" required placeholder="Rex Regum Qeon" name="Team" />{% for error in form.Team.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}</div>
 			<div class="login-sec-1">
 				<p>email</p>
-				<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />{% for error in form.Email.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />{% for error in form.Email.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>whatsapp</p>
-				<input type="number" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />{% for error in form.Whatsapp.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}</div>
+				<input type="number" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />{% for error in form.Whatsapp.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}</div>
 			<div class="login-sec-2">
 				<p>nama kapten</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaKapten" />{% for error in form.NamaKapten.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaKapten" />{% for error in form.NamaKapten.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>nama player 2</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer2" />{% for error in form.NamaPlayer2.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer2" />{% for error in form.NamaPlayer2.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>nama player 3</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer3" />{% for error in form.NamaPlayer3.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer3" />{% for error in form.NamaPlayer3.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>nama player 4</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer4" />{% for error in form.NamaPlayer4.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer4" />{% for error in form.NamaPlayer4.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>nama player 5</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer5" />{% for error in form.NamaPlayer5.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}</div>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer5" />{% for error in form.NamaPlayer5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}</div>
 			<div class="login-sec-3">
 				<p>IGN-kapten</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Kapten" />{% for error in form.IGN_Kapten.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Kapten" />{% for error in form.IGN_Kapten.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>IGN-player 2</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player2" />{% for error in form.IGN_Player2.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player2" />{% for error in form.IGN_Player2.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>IGN-player 3</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player3" />{% for error in form.IGN_Player3.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player3" />{% for error in form.IGN_Player3.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>IGN-player 4</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player4" />{% for error in form.IGN_Player4.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player4" />{% for error in form.IGN_Player4.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>IGN-player 5</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player5" />{% for error in form.IGN_Player5.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}</div>
+				<input type="text" required placeholder="Lemon" name="IGN_Player5" />{% for error in form.IGN_Player5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}</div>
 			<div class="login-sec-4">
 				<p>ID kapten</p>
-				<input type="number" required placeholder="37573688" name="IdKapten" min="0" />{% for error in form.IdKapten.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdKapten" min="0" />{% for error in form.IdKapten.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>ID player 2</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer2" min="0" />{% for error in form.IdPlayer2.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdPlayer2" min="0" />{% for error in form.IdPlayer2.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>ID player 3</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer3" min="0" />{% for error in form.IdPlayer3.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdPlayer3" min="0" />{% for error in form.IdPlayer3.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>ID player 4</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer4" min="0" />{% for error in form.IdPlayer4.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdPlayer4" min="0" />{% for error in form.IdPlayer4.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
 				<p>ID player 5</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />{% for error in form.IdPlayer5.errors %} <small style="color: red;">{{ error }}</small>
-				{% endfor %}</div>
+				<input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />{% for error in form.IdPlayer5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}</div>
 			<div class="login-sec-5">
 				<button type="submit">Submit</button>
 			</div>

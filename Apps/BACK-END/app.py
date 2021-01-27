@@ -295,7 +295,6 @@ def editTurnament():
     if 'admin' in session:
         if request.method == 'POST':
             get_id          = request.form['id']
-            get_thumbnail   = request.files['thumbnail']
             get_judul       = request.form['judul']
             get_genre       = request.form['genre']
             get_biaya       = request.form['biaya']
@@ -303,21 +302,14 @@ def editTurnament():
             get_hadiah      = request.form['hadiah']
             get_tanggal     = request.form['waktu']
             get_status      = request.form['status']
-            date_time       = datetime.datetime.now()
-            if get_thumbnail and allowed_file(get_thumbnail.filename):
-                try:
-                    filename = get_thumbnail.filename
-                    get_thumbnail.save(os.path.join(app.config['UPLOAD_FOLDER_THUMBNAIL'], get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg'))
-                except:
-                    abort(403)
             '''
             Myqsl Configuration
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("UPDATE turnament SET Thumbnail=%s, Judul=%s, Genre=%s, Biaya=%s, Slot=%s, \
+            cur.execute("UPDATE turnament SET Judul=%s, Genre=%s, Biaya=%s, Slot=%s, \
                                                 Hadiah=%s, Waktu=%s, Status=%s WHERE id=%s",
-                                                (get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg', get_judul, get_genre, \
+                                                (get_judul, get_genre, \
                                                 get_biaya, get_slot, get_hadiah, get_tanggal, get_status, get_id))
             conn.commit()
             flash('Berhasil Edit', 'Success')

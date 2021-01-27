@@ -78,11 +78,7 @@
 					<div class="modal-body">
 						<form action="{{url_for('editTurnament')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
 							<div class="form-group">
-								<label>Thumbnail</label>
 								<input type="hidden" name="id" value="{{row.0}}">
-								<input type="file" class="form-control" name="thumbnail" value="{{row[1]}}">
-							</div>
-							<div class="form-group">
 								<label>Judul</label>
 								<input type="text" class="form-control" name="judul" placeholder="Mobile Legend | Umum" value="{{row[2]}}" required>
 							</div>
