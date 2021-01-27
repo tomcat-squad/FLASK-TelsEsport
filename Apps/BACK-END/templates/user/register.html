@@ -56,68 +56,93 @@
 				alert('{{message}}')
 			</script>{% endfor %} {%endif%} {% endwith %}
 			<div class="login-sec-0">
-				<p>nama team</p>
-				<input type="text" required placeholder="Rex Regum Qeon" name="Team" />{% for error in form.Team.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}</div>
+				<p>nama team</p>{% for error in form.Team.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input style="height: 30px;" type="text" required placeholder="Rex Regum Qeon" name="Team" />
+			</div>
+
 			<div class="login-sec-1">
 				<p>email</p>
-				<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />{% for error in form.Email.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}
+				{% for error in form.Email.errors %}
+				<p id="alert">{{ error }}</p>
+				{% endfor %}
+				<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />
+
 				<p>whatsapp</p>
-				<input type="number" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />{% for error in form.Whatsapp.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}</div>
+				{% for error in form.Whatsapp.errors %}
+				<p id="alert">{{ error }}</p>
+				{% endfor %}
+				<input type="number" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />
+				
+			</div>
+
 			<div class="login-sec-2">
-				<p>nama kapten</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaKapten" />{% for error in form.NamaKapten.errors %}
+				<p>nama kapten</p>{% for error in form.NamaKapten.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>nama player 2</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer2" />{% for error in form.NamaPlayer2.errors %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaKapten" />
+				<p>nama player 2</p>{% for error in form.NamaPlayer2.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>nama player 3</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer3" />{% for error in form.NamaPlayer3.errors %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer2" />
+				<p>nama player 3</p>{% for error in form.NamaPlayer3.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>nama player 4</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer4" />{% for error in form.NamaPlayer4.errors %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer3" />
+				<p>nama player 4</p>{% for error in form.NamaPlayer4.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>nama player 5</p>
-				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer5" />{% for error in form.NamaPlayer5.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}</div>
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer4" />
+				<p>nama player 5</p>{% for error in form.NamaPlayer5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer5" />
+				<p>nama player 6</p>{% for error in form.NamaPlayer6.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="text" required placeholder="Muhammad Ikhsan" name="NamaPlayer6" />
+			</div>
+				
+
 			<div class="login-sec-3">
-				<p>IGN-kapten</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Kapten" />{% for error in form.IGN_Kapten.errors %}
+				<p>IGN-kapten</p>{% for error in form.IGN_Kapten.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>IGN-player 2</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player2" />{% for error in form.IGN_Player2.errors %}
+				<input type="text" required placeholder="Lemon" name="IGN_Kapten" />
+				<p>IGN-player 2</p>{% for error in form.IGN_Player2.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>IGN-player 3</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player3" />{% for error in form.IGN_Player3.errors %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player2" />
+				<p>IGN-player 3</p>{% for error in form.IGN_Player3.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>IGN-player 4</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player4" />{% for error in form.IGN_Player4.errors %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player3" />
+				<p>IGN-player 4</p>{% for error in form.IGN_Player4.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>IGN-player 5</p>
-				<input type="text" required placeholder="Lemon" name="IGN_Player5" />{% for error in form.IGN_Player5.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}</div>
+				<input type="text" required placeholder="Lemon" name="IGN_Player4" />
+				<p>IGN-player 5</p>{% for error in form.IGN_Player5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player5" />
+				<p>IGN-player 6</p>{% for error in form.IGN_Player6.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="text" required placeholder="Lemon" name="IGN_Player6" />
+			</div>
+
 			<div class="login-sec-4">
-				<p>ID kapten</p>
-				<input type="number" required placeholder="37573688" name="IdKapten" min="0" />{% for error in form.IdKapten.errors %}
+				<p>ID kapten</p>{% for error in form.IdKapten.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>ID player 2</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer2" min="0" />{% for error in form.IdPlayer2.errors %}
+				<input type="number" required placeholder="37573688" name="IdKapten" min="0" />
+				<p>ID player 2</p>{% for error in form.IdPlayer2.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>ID player 3</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer3" min="0" />{% for error in form.IdPlayer3.errors %}
+				<input type="number" required placeholder="37573688" name="IdPlayer2" min="0" />
+				<p>ID player 3</p>{% for error in form.IdPlayer3.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>ID player 4</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer4" min="0" />{% for error in form.IdPlayer4.errors %}
+				<input type="number" required placeholder="37573688" name="IdPlayer3" min="0" />
+				<p>ID player 4</p>{% for error in form.IdPlayer4.errors %}
 				<p id="alert">{{ error }}</p>{% endfor %}
-				<p>ID player 5</p>
-				<input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />{% for error in form.IdPlayer5.errors %}
-				<p id="alert">{{ error }}</p>{% endfor %}</div>
+				<input type="number" required placeholder="37573688" name="IdPlayer4" min="0" />
+				<p>ID player 5</p>{% for error in form.IdPlayer5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdPlayer5" min="0" />
+				<p>ID player 6</p>{% for error in form.IdPlayer5.errors %}
+				<p id="alert">{{ error }}</p>{% endfor %}
+				<input type="number" required placeholder="37573688" name="IdPlayer6" min="0" />
+			</div>
 			<div class="login-sec-5">
 				<button type="submit">Submit</button>
 			</div>
-		</form>
+	</form>
 	</div>
 	<footer>
 		<div class="section-atas-footer">
