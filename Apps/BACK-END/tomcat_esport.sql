@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jan 2021 pada 19.55
+-- Waktu pembuatan: 27 Jan 2021 pada 14.01
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.21
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'mchevro', 'cubegaming');
+(1, 'tomcat', 'tomcat123');
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,9 @@ CREATE TABLE `daftar_ml` (
   `NamaPlayer5` varchar(100) NOT NULL,
   `IGN_Player5` varchar(100) NOT NULL,
   `ID_Player5` bigint(4) NOT NULL,
+  `NamaPlayer6` varchar(100) NOT NULL,
+  `IGN_Player6` varchar(100) NOT NULL,
+  `ID_Player6` bigint(4) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Whatsapp` varchar(20) NOT NULL,
   `Waktu` timestamp NOT NULL DEFAULT current_timestamp()
@@ -121,7 +124,7 @@ CREATE TABLE `turnament` (
 CREATE TABLE `turnament_jadwal` (
   `id` int(11) NOT NULL,
   `Team` varchar(100) NOT NULL,
-  `Jam` time NOT NULL,
+  `Jam` varchar(5) NOT NULL,
   `Tanggal` date NOT NULL,
   `Genre` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

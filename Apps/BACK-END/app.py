@@ -192,6 +192,11 @@ def editML():
             get_Nama_Player_5   = request.form['NamaPlayer5']
             get_IGN_Player_5    = request.form['IGN_Player5']
             get_Id_Player_5     = request.form['IdPlayer5']
+
+            get_Nama_Player_6   = request.form['NamaPlayer6']
+            get_IGN_Player_6    = request.form['IGN_Player6']
+            get_Id_Player_6     = request.form['IdPlayer6']
+
             get_waktu           = datetime.datetime.now()
             '''
             Myqsl Configuration
@@ -203,6 +208,7 @@ def editML():
                                             NamaPlayer3=%s, IGN_Player3=%s, ID_Player3=%s,\
                                             NamaPlayer4=%s, IGN_Player4=%s, ID_Player4=%s,\
                                             NamaPlayer5=%s, IGN_Player5=%s, ID_Player5=%s,\
+                                            NamaPlayer6=%s, IGN_Player6=%s, ID_Player6=%s,\
                                             Email=%s, Whatsapp=%s, Waktu=%s\
                                             WHERE id=%s", 
                                             (get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,\
@@ -210,6 +216,7 @@ def editML():
                                             get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,\
                                             get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,\
                                             get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,\
+                                            get_Nama_Player_6, get_IGN_Player_6, get_Id_Player_6,\
                                             get_Email, get_Whatsapp, get_waktu, get_id))
             conn.commit()
             flash('Berhasil Edit', 'Success')
@@ -295,7 +302,6 @@ def editTurnament():
     if 'admin' in session:
         if request.method == 'POST':
             get_id          = request.form['id']
-            get_thumbnail   = request.files['thumbnail']
             get_judul       = request.form['judul']
             get_genre       = request.form['genre']
             get_biaya       = request.form['biaya']
@@ -303,21 +309,14 @@ def editTurnament():
             get_hadiah      = request.form['hadiah']
             get_tanggal     = request.form['waktu']
             get_status      = request.form['status']
-            date_time       = datetime.datetime.now()
-            if get_thumbnail and allowed_file(get_thumbnail.filename):
-                try:
-                    filename = get_thumbnail.filename
-                    get_thumbnail.save(os.path.join(app.config['UPLOAD_FOLDER_THUMBNAIL'], get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg'))
-                except:
-                    abort(403)
             '''
             Myqsl Configuration
             '''
             conn = mysql.connection
             cur = conn.cursor()
-            cur.execute("UPDATE turnament SET Thumbnail=%s, Judul=%s, Genre=%s, Biaya=%s, Slot=%s, \
+            cur.execute("UPDATE turnament SET Judul=%s, Genre=%s, Biaya=%s, Slot=%s, \
                                                 Hadiah=%s, Waktu=%s, Status=%s WHERE id=%s",
-                                                (get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg', get_judul, get_genre, \
+                                                (get_judul, get_genre, \
                                                 get_biaya, get_slot, get_hadiah, get_tanggal, get_status, get_id))
             conn.commit()
             flash('Berhasil Edit', 'Success')
@@ -592,6 +591,10 @@ def uploadML():
             get_IGN_Player_5    = request.form['IGN_Player5']
             get_Id_Player_5     = request.form['IdPlayer5']
 
+            get_Nama_Player_6   = request.form['NamaPlayer6']
+            get_IGN_Player_6    = request.form['IGN_Player6']
+            get_Id_Player_6     = request.form['IdPlayer6']
+
             get_waktu           = datetime.datetime.now()
             '''
             Myqsl Configuration
@@ -608,14 +611,16 @@ def uploadML():
                                                     NamaPlayer3, IGN_Player3, ID_Player3,\
                                                     NamaPlayer4, IGN_Player4, ID_Player4,\
                                                     NamaPlayer5, IGN_Player5, ID_Player5,\
+                                                    NamaPlayer6, IGN_Player6, ID_Player6,\
                                                     Email, Whatsapp, Waktu)\
                             VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
-                                    %s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                    %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
                                     (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
                                     get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
                                     get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
                                     get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
                                     get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
+                                    get_Nama_Player_6, get_IGN_Player_6, get_Id_Player_6,
                                     get_Email, get_Whatsapp, get_waktu))
                 conn.commit()
                 #Create Session

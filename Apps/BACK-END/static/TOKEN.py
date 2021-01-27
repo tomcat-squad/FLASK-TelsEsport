@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, IntegerField
-from wtforms.validators import DataRequired, Length, Regexp
+from wtforms.validators import DataRequired, Length, Regexp, Optional
 
 class RegistrationForm(FlaskForm):
     nama = StringField('Nama Lengkap', validators=[DataRequired()])
@@ -39,3 +39,8 @@ class Esport_Mobile_Legend(FlaskForm):
     IGN_Player5 = StringField('Team', validators=[DataRequired(message='*Wajib Isi'), Length(min=1, max=100),
                                                     Regexp(regex=r'^[0-9A-Za-z]',flags=1 ,message='*Dilarang Menggunakan Simbol')])
     IdPlayer5   = IntegerField('Whatsapp', validators=[DataRequired(message='*Wajib Isi')])  
+    NamaPlayer6 = StringField('Team', validators=[Optional(strip_whitespace=True), Length(min=1, max=100),
+                                                    Regexp(regex=r'^[0-9A-Za-z]',flags=1 ,message='*Dilarang Menggunakan Simbol')])
+    IGN_Player6 = StringField('Team', validators=[Optional(strip_whitespace=True), Length(min=1, max=100),
+                                                    Regexp(regex=r'^[0-9A-Za-z]',flags=1 ,message='*Dilarang Menggunakan Simbol')])
+    IdPlayer6   = IntegerField('Whatsapp', validators=[Optional(strip_whitespace=True)]) 
