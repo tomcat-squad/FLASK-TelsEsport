@@ -19,7 +19,7 @@ body {
     margin-bottom: 10px;
     border-radius: 3px;
     font-size: 12pt;
-    height: 30px ;
+    height: 30px;
     line-height: 30px;
 }
 
@@ -144,9 +144,9 @@ body {
 }
 
 .dana img {
+    margin-top: 100px ;
     width: 110px;
     height: 100px;
-    margin-top: 100px;
 }
 
 .pembayaran-ovo {
@@ -159,20 +159,6 @@ body {
 }
 
 .pembayaran-ovo form input:nth-child(1) {
-    margin: 20px auto;
-    width: 50%;
-}
-
-.pembayaran-ovo {
-    margin: 30px auto;
-}
-
-.pembayaran-ovo form {
-    display: flex;
-    flex-direction: column;
-}
-
-.pembayaran-gopay form input:nth-child(1) {
     margin: 20px auto;
     width: 50%;
 }
@@ -192,8 +178,9 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
-    margin-top: 15px;
 }
+
+
 
 .pembayaran-gopay {
     margin: 30px auto;
@@ -202,6 +189,11 @@ body {
 .pembayaran-gopay form {
     display: flex;
     flex-direction: column;
+}
+
+.pembayaran-gopay form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-gopay img {
@@ -219,22 +211,21 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
-    margin-top: 15px;
-}
-
-.pembayaran-dana form input:nth-child(1) {
-    margin: 20px auto;
-    width: 50%;
 }
 
 .pembayaran-dana {
     margin: 30px auto;
-    display: none;
+    display: none ;
 }
 
 .pembayaran-dana form {
     display: flex;
     flex-direction: column;
+}
+
+.pembayaran-dana form input:nth-child(1) {
+    margin: 20px auto;
+    width: 50%;
 }
 
 .pembayaran-dana img {
@@ -244,7 +235,7 @@ body {
 }
 
 .pembayaran-dana button {
-    width: 300px;
+    width: 270px;
     margin: auto;
     border-radius: 5px;
     background-color: #5600e7;
@@ -252,7 +243,6 @@ body {
     border: none;
     cursor: pointer;
     height: 25px;
-    margin-top: 15px;
 }
 
 .isi-offline {
@@ -269,6 +259,11 @@ body {
     font-size: 15px;
     margin: 10px;
     text-align: left;
+}
+.isi-offline a {
+    font-size: 15px;
+    color: #5a78ff;
+    text-decoration: none;
 }
 
 .cod2 {
@@ -306,9 +301,10 @@ footer {
     }
 
     .tombol-balik {
-        margin-top: 20px;
+        margin-top: 18px;
         margin-left: 20px;
-        height: 25px;
+        height: 30px;
+        line-height: 30px
     }
 
     .online {
@@ -402,7 +398,7 @@ footer {
         margin: auto;
         left: 0;
         right: 0;
-        margin-top: 30px;
+        margin-top: 40px;
     }
 
     .cod h3 {
@@ -415,6 +411,7 @@ footer {
         position: relative;
         margin-top: 30px;
     }
+
     .pembayaran-ovo input,
     .pembayaran-gopay input,
     .pembayaran-dana input {

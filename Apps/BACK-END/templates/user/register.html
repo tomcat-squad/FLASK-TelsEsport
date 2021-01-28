@@ -62,17 +62,20 @@
 			</div>
 
 			<div class="login-sec-1">
-				<p>email</p>
-				{% for error in form.Email.errors %}
-				<p id="alert">{{ error }}</p>
-				{% endfor %}
-				<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />
-
-				<p id="id-judul-wa">whatsapp</p>
-				{% for error in form.Whatsapp.errors %}
-				<p id="alert">{{ error }}</p>
-				{% endfor %}
-				<input type="number" id="id-wa" required placeholder="081381662082" name="Whatsapp" min="0" />
+				<aside>
+					<p>email</p>
+					{% for error in form.Email.errors %}
+					<p id="alert">{{ error }}</p>
+					{% endfor %}
+					<input type="email" required placeholder="tomcat@tomcatsquad.com" name="Email" />
+				</aside>
+				<aside>
+					<p id="id-judul-wa">whatsapp</p>
+					{% for error in form.Whatsapp.errors %}
+					<p id="alert">{{ error }}</p>
+					{% endfor %}
+					<input type="number" id="id-wa" required placeholder="081381662082" name="Whatsapp" min="0" />
+				</aside>
 			</div>
 
 			<div class="login-sec-2">

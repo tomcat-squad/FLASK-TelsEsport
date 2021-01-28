@@ -19,10 +19,11 @@ onlinePortal.addEventListener('click',function(){
     isioffline.classList.add('online-hilang');
     offlinefull.classList.add('online-hilang');
     isiOnline.classList.add('pembayaran');
-    //ovo.classList.remove('online-hilang');
-    //ovopayment.classList.remove('online-hilang');
+    // ovo.classList.remove('online-hilang');
+    // ovopayment.classList.remove('online-hilang');
     isiOnline.style.display = "flex" ;
     mapcod.classList.add('online-hilang');
+    danapayment.style.display = "block" ;
 })
 
 tombolKembali.addEventListener('click',function(){
@@ -33,10 +34,10 @@ tombolKembali.addEventListener('click',function(){
     isiOnline.style.display = "none";
     isioffline.classList.add('online-hilang');
     isiOnline.classList.toggle('pembayaran');
-    //ovopayment.classList.add('online-hilang');
-    //ovo.classList.add('online-hilang');
-    //gopaypayment.classList.add('online-hilang');
-    danapayment.classList.add('online-hilang');
+    // ovopayment.classList.add('online-hilang');
+    // ovo.classList.add('online-hilang');
+    // gopaypayment.classList.add('online-hilang');
+    danapayment.style.display = "none"; 
     mapcod.classList.add('online-hilang');
 })
 
@@ -48,36 +49,36 @@ offlinePortal.addEventListener('click',function(){
     isiOnline.classList.add('online-hilang');
     isioffline.classList.remove('online-hilang');
     isiOnline.classList.remove('pembayaran');
-    //ovopayment.classList.add('online-hilang');
-    //ovo.classList.add('online-hilang');
-    //gopaypayment.classList.add('online-hilang');
+    // ovopayment.classList.add('online-hilang');
+    // ovo.classList.add('online-hilang');
+    // gopaypayment.classList.add('online-hilang');
     danapayment.classList.add('online-hilang');
     mapcod.classList.remove('online-hilang');
 })
 
-//const ovopayment = document.querySelector('.pembayaran-ovo');
-//const ovo = document.querySelector('.ovo img');
-//const gopaypayment = document.querySelector('.pembayaran-gopay');
-//const gopay = document.querySelector('.gopay img');
+// const ovopayment = document.querySelector('.pembayaran-ovo');
+// const ovo = document.querySelector('.ovo img');
+// const gopaypayment = document.querySelector('.pembayaran-gopay');
+// const gopay = document.querySelector('.gopay img');
 const danapayment = document.querySelector('.pembayaran-dana');
 const dana = document.querySelector('.dana img');
 
-//ovo.addEventListener('click',function(){
-//    ovopayment.classList.remove('online-hilang');
-//    gopaypayment.classList.add('online-hilang');
-//    danapayment.classList.add('online-hilang');
-//})
+// ovo.addEventListener('click',function(){
+//     ovopayment.classList.remove('online-hilang');
+//     // gopaypayment.classList.add('online-hilang');
+//     danapayment.classList.add('online-hilang');
+// })
 
-//gopay.addEventListener('click',function(){
-//    gopaypayment.classList.remove('online-hilang');
-//    ovopayment.classList.add('online-hilang');
-//    danapayment.classList.add('online-hilang');
-//})
+// gopay.addEventListener('click',function(){
+//     gopaypayment.classList.remove('online-hilang');
+//     ovopayment.classList.add('online-hilang');
+//     danapayment.classList.add('online-hilang');
+// })
 
 dana.addEventListener('click',function(){
-    //gopaypayment.classList.add('online-hilang');
-    //ovopayment.classList.add('online-hilang');
-    danapayment.classList.remove('online-hilang');
+    // gopaypayment.classList.add('online-hilang');
+    // ovopayment.classList.add('online-hilang');
+    danapayment.style.display = "block";
 })
 
 
