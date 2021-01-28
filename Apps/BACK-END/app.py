@@ -543,6 +543,9 @@ def index_team():
     cur_team_MLBB   = conn.cursor()
     cur_team_MLBB.execute("SELECT id,Team,NamaKapten FROM daftar_ml;")
     result_team_MLBB = cur_team_MLBB.fetchall()
+    session.pop('success', None)
+    session.pop('team', None)
+    session.pop('genre', None)
     return render_template('user/team.html',
     team_MLBB=result_team_MLBB)
 

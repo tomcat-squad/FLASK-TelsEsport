@@ -45,10 +45,10 @@
 		<div class="alert"> <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  <strong>INFORMASI DAFTAR !</strong>
 			<br>
 			<p>1. Dilarang memasukan data 2x.</p>
-			<p>2. Dilarang input nickname menggunakan special karakter seperti symbol. (Ganti dengan huruf A-Z saat input nickname)</p>
-			<p>3. Untuk menambah jumlah pemain bisa kontak admin. (Maks 2 orang cadangan)</p>
-			<p>4. Jika ada pertanyaan seputar turnament atau ingin merubah data bisa hubungi admin dibawah ini.</p>
-			<p><a href="#">Admin 1</a>  <a href="#">Admin 2</a>
+			<p>2. Dilarang input nickname menggunakan spesial karakter seperti simbol (Ganti dengan inisial huruf A-Z saat input nickname).</p>
+			<p>3. Untuk pembayaran via COD silahkan kontak panitia di halaman pembayaran sesudah mendaftar.</p>
+			<p>4. Jika ada pertanyaan seputar turnament atau ingin merubah data bisa hubungi salah satu admin dibawah ini.</p>
+			<p><a href="https://api.whatsapp.com/send?phone=+6285155420114&text=Hallo%20min">Admin 1</a>  <a href="https://api.whatsapp.com/send?phone=+6281290070890&text=Hallo%20min">Admin 2</a>
 			</p>
 		</div>
 		<form action="{{url_for('uploadML')}}" enctype="multipart/form-data" method="POST">{{ form.csrf_token }} {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
@@ -72,7 +72,7 @@
 				{% for error in form.Whatsapp.errors %}
 				<p id="alert">{{ error }}</p>
 				{% endfor %}
-				<input type="number" id="id-wa" required placeholder="0813 8166 2082" name="Whatsapp" min="0" />
+				<input type="number" id="id-wa" required placeholder="081381662082" name="Whatsapp" min="0" />
 			</div>
 
 			<div class="login-sec-2">

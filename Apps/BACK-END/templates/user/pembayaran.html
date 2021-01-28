@@ -12,6 +12,12 @@
 	<link rel="stylesheet" href="../static/assets/css/pembayaran.css" />
 	<!-- font awesome -->
 	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
+	<!-- redirect page -->
+	<script>
+		setTimeout(function(){
+			window.location.href = '/team';
+		}, 3600000);
+	</script>
 </head>
 
 <body>
@@ -44,12 +50,14 @@
 			<img src="../static/assets/img/online.png" alt="" />
 			<div class="method-pembayaran online-hilang">
 				<h3>Pilih Opsi Pembayaran</h3>
+				<!--
 				<div class="ovo">
 					<img src="../static/assets/img/ovo.png" />
 				</div>
 				<div class="gopay">
 					<img src="../static/assets/img/gopay.png" />
 				</div>
+				-->
 				<div class="dana">
 					<img src="../static/assets/img/dana.png" />
 				</div>
@@ -69,7 +77,9 @@
 				<p>0813-8166-2020</p>
 				<p style="font-size: 20px;">Mahendra Chevro</p>
 				<p>0812-8166-2045</p>
+				<small class="keterangan">*Silahkan hubungi panitia untuk melakukan pembayaran offline.</small>
 			</div>
+			<!--
 			<div class="pembayaran-ovo online-hilang">
 				<p>Via Ovo</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
@@ -79,6 +89,7 @@
 					<button>Upload</button>
 				</form>
 			</div>
+			
 			<div class="pembayaran-gopay online-hilang">
 				<p>Via Gopay</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
@@ -88,10 +99,11 @@
 					<button>Upload</button>
 				</form>
 			</div>
-			<div class="pembayaran-dana online-hilang">
+			-->
+			<div class="pembayaran-dana">
 				<p>Via Dana</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
-				<img src="">
+				<img src="https://www.sultan.co.id/wp-content/uploads/2019/10/dana-723x1024.jpeg">
 				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
 					<input type="file" name="bukti-tf" required>
 					<button>Upload</button>
