@@ -12,8 +12,9 @@ body {
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
-    font-size: 15px;
-    height: 25px;
+    font-size: 12pt;
+    height: 30px;
+    line-height: 30px;
 }
 
 .tombol-balik a {
@@ -228,7 +229,7 @@ body {
 }
 
 .pembayaran-dana button {
-    width: 300px;
+    width: 270px;
     margin: auto;
     border-radius: 5px;
     background-color: #5600e7;
@@ -289,9 +290,10 @@ footer {
     }
 
     .tombol-balik {
-        margin-top: 20px;
+        margin-top: 18px;
         margin-left: 20px;
-        height: 25px;
+        height: 30px;
+        line-height: 30px
     }
 
     .online {
