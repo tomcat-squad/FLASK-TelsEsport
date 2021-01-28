@@ -9,6 +9,7 @@ body {
 }
 
 #alert {
+    /* display: none ; */
     font-size: 12px;
     color: #e70000;
 }
@@ -138,15 +139,19 @@ body {
 }
 
 .login-sec-1 {
-    display: grid;
-    grid-template-areas: "judul1 judul2" "email wa";
+    display: flex ;
+    flex-direction: row ;
     grid-area: sec-1;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
+.login-sec-1 aside {
+    display: flex ;
+    flex-direction: column ;
+}
+
 .login-sec-1 input[type="email"] {
-    grid-area: email;
     width: 450px;
     margin-bottom: 10px;
     background-color: #0f0f0f;
@@ -168,19 +173,18 @@ body {
 
 .login-sec-1 #id-judul-wa{
     grid-area: judul2;
-    margin-left: -50px;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
-.login-sec-1 p:nth-child(5) {
-    grid-area: alert2 ;
-    margin-left: -50px ;
+.login-sec-1 aside .alert-2 {
+    margin-left: 20px ;
 }
 
 .login-sec-1 #id-wa {
     grid-area: wa;
     width: 450px;
-    margin-left: -50px;
+    margin-left: 20px;
     margin-bottom: 10px;
 }
 
@@ -238,33 +242,37 @@ body {
     }
 
     .form-login-register {
-        width: 650px;
+        width: 600px;
     }
 
     .form-login-register form {
         margin: 10px auto;
-        width: 630px;
+        width: 600px;
     }
 
     .login-sec-0 {
         width: 626px;
     }
 
-    .login-sec-1 input[type="email"] {
+    .login-sec-0 input[type = "text"]{
+        width: 600px ;
+    }
+
+    .login-sec-1 aside input[type="email"] {
         width: 280px;
     }
 
-    .login-sec-1 p:nth-child(4) {
+    .login-sec-1 #id-judul-wa{
         margin-left: 40px;
         margin-bottom: 10px;
     }
 
-    .login-sec-1 p:nth-child(5){
+    .login-sec-1 aside .alert-2{
         margin-bottom: 10px;
         margin-left: 40px;
     }
 
-    .login-sec-1 input:nth-child(6) {
+    .login-sec-1 #id-wa {
         grid-area: wa;
         width: 280px;
         margin-left: 40px;
@@ -294,7 +302,8 @@ body {
     }
 
     .login-sec-5 {
-        width: 630px;
+        width: 500px;
+        margin: 30px auto ;
     }
 }
 
@@ -351,10 +360,9 @@ body {
     }
 
     .login-sec-0 input[type="text"] {
-        grid-area: namainput ;
-        margin-left: -18px;
+        margin-left: 0px;
         height: 21px;
-        width: 308px;
+        width: 430px;
         padding: 3px;
     }
 
@@ -364,7 +372,6 @@ body {
 
     .login-sec-1 {
         margin-top: 30px ;
-        grid-template-areas: "judul1 email" "alert1 alert1"  "judul2 wa" ;
         margin-bottom: 20px;
     }
 
@@ -374,23 +381,23 @@ body {
     }
 
     .login-sec-1 #id-judul-wa{
-        margin-left: 0;
-    }
-    
-    .login-sec-1 input[type="email"] {
-        width: 300px;
-        margin-left: 0;
+        margin-left: 60px ;
     }
 
-    .login-sec-1 p:nth-child(5){
-        margin-left: -564px;
+    .login-sec-1 aside input[type="email"] {
+        width: 250px;
+        margin-left: 0px ;
+    }
+
+    .login-sec-1 aside .alert-2{
         margin-bottom: 10px;
+        margin-left: 60px;
     }
 
-    .login-sec-1 #id-wa {
+    .login-sec-1 aside #id-wa {
         grid-area: wa;
-        width: 300px;
-        margin-left: 0px;
+        width: 250px;
+        margin-left: 60px;
         margin-bottom: 10px;
     }
 

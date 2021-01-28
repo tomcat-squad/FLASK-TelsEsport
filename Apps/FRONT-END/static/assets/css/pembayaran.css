@@ -137,6 +137,7 @@ body {
 }
 
 .dana img {
+    margin-top: 100px ;
     width: 110px;
     height: 100px;
 }
@@ -207,6 +208,7 @@ body {
 
 .pembayaran-dana {
     margin: 30px auto;
+    display: none ;
 }
 
 .pembayaran-dana form {
@@ -383,7 +385,7 @@ footer {
         margin: auto;
         left: 0;
         right: 0;
-        margin-top: 30px;
+        margin-top: 40px;
     }
 
     .cod h3 {
