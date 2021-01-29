@@ -192,14 +192,20 @@ body {
     grid-area: sec-2;
 }
 
+
 .login-sec-3 {
     grid-area: sec-3;
     margin-left: -625px;
 }
 
+.login-sec-3 input , .login-sec-2 input, .login-sec-4 input{
+    width: 257px ;
+}
+
 .login-sec-4 {
     grid-area: sec-4;
     margin-left: -310px;
+    width: 257px ;
 }
 
 .login-sec-5 {
@@ -225,41 +231,41 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
-    /* .hero-register h1 {
-        top: 30% ;
-        left: 30% ;
-        right: 30% ;
-    } */
+
+    * {
+        overflow-x: hidden ;
+    }
 
     .hero-register {
         margin-top: -12px ;
     }
 
     .alert {
-        width: 600px ;
+        width: 500px ;
+        padding: 10px ;
         margin: 0 ;
         margin-bottom: 20px ;
     }
 
     .form-login-register {
-        width: 600px;
+        width: 550px ;
     }
 
     .form-login-register form {
         margin: 10px auto;
-        width: 600px;
+        width: 550px;
     }
 
     .login-sec-0 {
-        width: 626px;
+        width: 550px;
     }
 
     .login-sec-0 input[type = "text"]{
-        width: 600px ;
+        width: 520px ;
     }
 
     .login-sec-1 aside input[type="email"] {
-        width: 280px;
+        width: 250px;
     }
 
     .login-sec-1 #id-judul-wa{
@@ -274,7 +280,7 @@ body {
 
     .login-sec-1 #id-wa {
         grid-area: wa;
-        width: 280px;
+        width: 240px;
         margin-left: 40px;
         margin-bottom: 10px;
     }
@@ -286,7 +292,7 @@ body {
     }
 
     .login-sec-3 {
-        margin-left: -390px;
+        margin-left: -360px;
     }
 
     .login-sec-3 input {
@@ -302,15 +308,19 @@ body {
     }
 
     .login-sec-5 {
-        width: 500px;
+        width: 550px;
         margin: 30px auto ;
+    }
+
+    .login-sec-5 button {
+        width: 400px ;
     }
 }
 
 @media only screen and (max-width: 600px) {
 
     * {
-        overflow-x: hidden;
+        overflow-x : hidden;
     }
 
     .hero-register {
@@ -361,8 +371,9 @@ body {
 
     .login-sec-0 input[type="text"] {
         margin-left: 0px;
+        margin-right: -50px ;
         height: 21px;
-        width: 430px;
+        width: 400px;
         padding: 3px;
     }
 
@@ -385,7 +396,7 @@ body {
     }
 
     .login-sec-1 aside input[type="email"] {
-        width: 250px;
+        width: 270px;
         margin-left: 0px ;
     }
 
@@ -396,26 +407,33 @@ body {
 
     .login-sec-1 aside #id-wa {
         grid-area: wa;
-        width: 250px;
+        width: 207px;
         margin-left: 60px;
         margin-bottom: 10px;
     }
 
+    .login-sec-3 input , .login-sec-2 input, .login-sec-4 input{
+        width: 150px ;
+    }
 
     .login-sec-2 {
         /* margin-left: -10px ; */
     }
 
     .login-sec-3 {
-        margin-left: -40 0px;
+        margin-left: -340px;
     }
 
     .login-sec-4 {
-        margin-left: -200px;
+        margin-left: -150px;
     }
 
     .login-sec-5 {
-        margin: 30px auto   ;
+        margin: 30px auto ;
+        width: 330px ;
+    }
+
+    .login-sec-5 button {
         width: 290px ;
     }
 
