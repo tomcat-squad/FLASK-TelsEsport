@@ -12,6 +12,12 @@
 	<link rel="stylesheet" href="../static/assets/css/pembayaran.css" />
 	<!-- font awesome -->
 	<script src="https://kit.fontawesome.com/bc6d3d8101.js" crossorigin="anonymous"></script>
+	<!-- redirect page -->
+	<script>
+		setTimeout(function(){
+			window.location.href = '/team';
+		}, 3600000);
+	</script>
 </head>
 
 <body>
@@ -31,25 +37,29 @@
 			</li>
 		</ul>
 		<div class="toggle">
-			<input type="checkbox" /> <span></span>
+			<input type="checkbox" /> 
+			<span></span>
 			<span></span>
 			<span></span>
 		</div>
 	</nav>
 	<div class="container-utama">
-		<div class="tombol-balik tombol-hilang"> <a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
+		<div class="tombol-balik tombol-hilang"> 
+			<a href="#">&nbsp;<i class="fas fa-arrow-circle-left"></i> Kembali</a>
 		</div>
 		<h1>Metode Pembayaran</h1>
 		<div class="online">
 			<img src="../static/assets/img/online.png" alt="" />
 			<div class="method-pembayaran online-hilang">
 				<h3>Pilih Opsi Pembayaran</h3>
+				<!--
 				<div class="ovo">
 					<img src="../static/assets/img/ovo.png" />
 				</div>
 				<div class="gopay">
 					<img src="../static/assets/img/gopay.png" />
 				</div>
+				-->
 				<div class="dana">
 					<img src="../static/assets/img/dana.png" />
 				</div>
@@ -63,13 +73,13 @@
 			<img src="../static/assets/img/offline.png" alt="" />
 			<div class="isi-offline online-hilang">
 				<h1>Hubungi Panitia Untuk COD</h1>
-				<p style="font-size: 20px;">Ahmad Fauzi</p>
-				<p>0813-8166-2030</p>
-				<p style="font-size: 20px;">Faldi Ramadhan</p>
-				<p>0813-8166-2020</p>
-				<p style="font-size: 20px;">Mahendra Chevro</p>
-				<p>0812-8166-2045</p>
+				<p style="font-size: 20px;">Dewangga</p>
+				<p><a href="https://api.whatsapp.com/send?phone=+6281290070890&text=Permisi%20kak,%20mau%20COD%20nih">0812-9007-0890</a></p>
+				<p style="font-size: 20px;">Rifki</p>
+				<p><a href="https://api.whatsapp.com/send?phone=+6281807779305&text=Permisi%20kak,%20mau%20COD%20nih">0818-0777-9305</a></p>
+				<small class="keterangan">*Silahkan hubungi panitia untuk melakukan pembayaran offline.</small>
 			</div>
+			<!--
 			<div class="pembayaran-ovo online-hilang">
 				<p>Via Ovo</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
@@ -79,6 +89,7 @@
 					<button>Upload</button>
 				</form>
 			</div>
+			
 			<div class="pembayaran-gopay online-hilang">
 				<p>Via Gopay</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
@@ -88,13 +99,15 @@
 					<button>Upload</button>
 				</form>
 			</div>
-			<div class="pembayaran-dana online-hilang">
+			-->
+			<div class="pembayaran-dana">
 				<p>Via Dana</p>
 				<p>Scan Barcode Berikut Dan Upload Bukti Pembayaran</p>
-				<img src="">
-				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
+				<img src="../static/assets/img/barcode-dana.png">
+				<form action="{{url_for('uploadBukti')}}" method="POST" enctype="multipart/form-data">
 					<input type="file" name="bukti-tf" required>
-					<button>Upload</button>
+					<button>SUBMIT</button>
+					{{ form.csrf_token }}
 				</form>
 			</div>
 		</div>
