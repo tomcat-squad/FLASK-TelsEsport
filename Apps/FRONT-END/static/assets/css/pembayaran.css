@@ -7,6 +7,12 @@ body {
     background-color: #1d1c1e;
 }
 
+.keterangan{
+    font-size: 13px;
+    text-align: left;
+    color: #e70000;
+}
+
 .tombol-balik {
     background-color: #e70000;
     width: 100px;
@@ -106,14 +112,14 @@ body {
 }
 
 .isi-offline .tombol-selesai {
-    background-color: #e70000;
+    background-color: #5600e7;
     width: 100px;
     margin-bottom: 10px;
     border-radius: 3px;
     font-size: 12pt;
     height: 30px;
     line-height: 30px;
-    margin-left : 250px ;
+    margin-left: 250px;
 }
 
 .isi-offline .tombol-selesai a {
