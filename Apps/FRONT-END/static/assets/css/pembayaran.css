@@ -105,6 +105,23 @@ body {
     box-shadow: 0 0 5px gray;
 }
 
+.isi-offline .tombol-selesai {
+    background-color: #e70000;
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 12pt;
+    height: 30px;
+    line-height: 30px;
+    margin-left : 250px ;
+}
+
+.isi-offline .tombol-selesai a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
 .pembayaran {
     display: flex;
     flex-direction: column;
@@ -435,6 +452,10 @@ footer {
         width: 300px;
         margin-left: -30px;
         cursor: none;
+    }
+
+    .isi-offline .tombol-selesai {
+        margin-left: 200px ;
     }
 
     .isi-offline h1 {
