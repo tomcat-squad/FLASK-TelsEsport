@@ -146,9 +146,11 @@ body {
 }
 
 .game1-tabel tr th {
+    font-size: 14px;
     font-weight: bold ;
     padding : 10px ;
     border: 0.1px solid white ;
+    background-color: #5600e7;
 }
 
 .game1-tabel tr:nth-child(odd){
