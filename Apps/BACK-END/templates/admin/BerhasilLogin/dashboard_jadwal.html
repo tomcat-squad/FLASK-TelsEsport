@@ -1,8 +1,9 @@
 {% include 'header.html' %}
 <!--CONTENT-->
 <div class="container">
-	<h1 class="text-center">JADWAL PERTANDINGAN</h1>
-	<hr style="margin-bottom: 30px;"> <a href="/" class="btn btn-success" data-toggle="modal" data-target="#buatJadwal"><i class="fas fa-plus"></i> Buat Jadwal</a>
+	<h5>JADWAL PERTANDINGAN</h5>
+	<hr style="margin-bottom: 20px; margin-top: -5px;">
+	<a href="/" class="btn btn-success" data-toggle="modal" data-target="#buatJadwal" style="margin-bottom: 20px;"><i class="fas fa-plus"></i> Buat Jadwal</a>
 	<div class="modal fade" id="buatJadwal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -42,7 +43,6 @@
 			</div>
 		</div>
 	</div>
-	<h3>MOBILE LEGEND</h3>
 	{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
 	<p class="text-center">{{message}}</p>{% endfor %} {%endif%} {% endwith %}
 	<div style="height: 500px;overflow: scroll;">

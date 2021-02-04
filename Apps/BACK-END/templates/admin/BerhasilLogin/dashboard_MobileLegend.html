@@ -1,7 +1,7 @@
 {% include 'header.html' %}
-<div class="container text-center">
-	<h1>DATA TEAM MOBILE LEGEND</h1>
-	<hr style="background-color: #000000;">{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+<div class="container">
+	<h5>DASHBOARD</h5>
+	<hr style="margin-bottom: 20px; margin-top: -5px;"> {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
 	<p class="text-center">{{message}}</p>{% endfor %} {%endif%} {% endwith %}
 	<h3 style="margin-top: 30px;">PEMBAYARAN VIA ONLINE</h3>
 	<div style="height: 500px;overflow: scroll;">
@@ -181,7 +181,7 @@
 					</div>{%endfor%}</tbody>
 		</table>
 		</div>
-		<h3 style="margin-top: 30px;">ALL TEAM</h3>
+		<h3 style="margin-top: 30px;">SEMUA TIM</h3>
 		<div style="height: 900px;overflow: scroll;">
 			<table class="table table-striped table-hover table-bordered text-center">
 				<thead style="background-color: #343434; color: #fff; border-color: #343434;">

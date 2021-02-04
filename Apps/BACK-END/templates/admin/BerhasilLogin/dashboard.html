@@ -1,17 +1,46 @@
 {% include 'header.html' %}
 <!--CONTENT-->
-<div class="container text-center">
-	<h1>DASHBOARD ADMIN</h1>
-	<hr style="margin-bottom: 40px;">
+<div class="container">
+	<h5>DASHBOARD</h5>
+	<hr style="margin-bottom: 20px; margin-top: -5px;">
 	<div class="row">
-		<div class="col-sm-4">
-			<div class="card" style="width: 18rem; border-color: #7541cf;">
-				<img class="card-img-top" style="background-color: #343434; width: 286px;" src="https://i.pinimg.com/originals/5e/d3/e5/5ed3e5f342657fa99dd1869fab1c59f0.png" alt="Thumbnail">
+		<div class="col-sm-4" style="">
+			<div class="card" style="width: 120%; border-color: #57ca8d; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.26)">
 				<div class="card-body">
-					<h5 class="card-text">Team Mobile Legend</h5>  <a href="{{url_for('dashboardML')}}" class="btn btn-info"><i class="fas fa-users"></i> DATA</a>
+					<p>GRAFIK ANALISA</p>
+					<canvas id="line-chart" width="800" height="750"></canvas>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<script>
+	new Chart(document.getElementById("line-chart"), {
+  type: 'line',
+  data: {
+    labels: ["7 Feb","8 Feb","9 Feb","10 Feb","11 Feb","12 Feb","13 Feb","14 Feb"],
+    datasets: [{ 
+        data: [86,114,106,106,107,111,133,221,783,2478],
+        label: "Mobile Legends",
+        borderColor: "#3e95cd",
+        fill: false
+      }, { 
+        data: [282,350,411,502,635,809,947],
+        label: "Free Fire",
+        borderColor: "#8e5ea2",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'STATISTIK PENDAFTARAN'
+    }
+  }
+});
+
+</script>
 {% include 'footer.html' %}

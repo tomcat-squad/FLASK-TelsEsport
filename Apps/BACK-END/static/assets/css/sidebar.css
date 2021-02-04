@@ -28,6 +28,14 @@
   margin-left: 0;
 }
 
+.list-unstyled{
+  margin-left: 30px;
+  font-size: 17px;
+}
+.list-unstyled a{
+  color: #343434;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
       margin-left: 0;
