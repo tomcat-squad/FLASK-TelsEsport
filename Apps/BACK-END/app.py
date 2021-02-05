@@ -113,9 +113,15 @@ def login_admin():
         get_username = request.form['username']
         get_password = request.form['password']
         cur = mysql.new_cursor(dictionary=True)
-        cur.execute("SELECT * FROM admin WHERE username=%s AND password=%s", (get_username, get_password))
+        cur.execute("SELECT * FROM akun WHERE username=%s AND password=%s AND level='admin'", (get_username, get_password))
         account = cur.fetchone()
         if account:
+            get_waktu = datetime.datetime.now()
+            get_ip    = request.environ['REMOTE_ADDR']
+            conn = mysql.connection
+            cur = conn.cursor()
+            cur.execute(f"UPDATE akun SET waktu='{get_waktu}', ip='{get_ip}' WHERE username='{get_username}'")
+            conn.commit()
             session['admin'] = True
             session['username'] = account['username']
             os.remove('static/logger_admin.txt')
@@ -137,10 +143,15 @@ def logout_admin():
 def index_dashboard():
     if 'admin' in session:
         conn    = mysql.connection
-        cur     = conn.cursor()
-        cur.execute("SELECT * FROM daftar_ml;")
-        result_mlbb = cur.fetchall()
-        return render_template('admin/BerhasilLogin/dashboard.html', result_mlbb=result_mlbb)
+        #Statistik Mobile Legends
+        cur_mlbb = conn.cursor()
+        cur_mlbb.execute("SELECT * FROM daftar_ml;")
+        result_mlbb = cur_mlbb.fetchall()
+        #Logger Terakhir Login
+        cur_log = conn.cursor()
+        cur_log.execute("SELECT username,waktu,ip FROM akun ORDER BY waktu ASC LIMIT 1;")
+        result_log = cur_log.fetchall()
+        return render_template('admin/BerhasilLogin/dashboard.html', result_mlbb=result_mlbb, result_log=result_log)
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))

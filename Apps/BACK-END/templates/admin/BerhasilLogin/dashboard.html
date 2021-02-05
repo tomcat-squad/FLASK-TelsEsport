@@ -8,6 +8,7 @@
             <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
                 <div class="card-body">
                     <p class="judul">GRAFIK ANALISIS</p>
+                    <hr style="margin-bottom: 10px; margin-top: -10px;" />
                     <canvas id="line-chart" width="800" height="750"></canvas>
                 </div>
             </div>
@@ -16,24 +17,41 @@
             <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
                 <div class="card-body">
                     <p class="judul">TERAKHIR LOGIN</p>
-                    <table class="table table-sm text-center">
+                    <hr style="margin-bottom: 10px; margin-top: -10px;" />
+                    <table class="table table-sm table-bordered text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Nama</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Waktu</th>
                                 <th scope="col">IP</th>
                             </tr>
                         </thead>
                         <tbody>
+                          {%for row in result_log%}
                             <tr>
-                                <td>Mahendra Chevro</td>
-                                <td>2021-04-03 19:34:23</td>
-                                <td>143.132.21.43</td>
+                                <td>{{row[0]}}</td>
+                                <td>{{row[1]}}</td>
+                                <td>{{row[2]}}</td>
                             </tr>
+                          {%endfor%}
                         </tbody>
                     </table>
                 </div>
             </div>
+            <div class="card" style="margin-top: 20px ;width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+              <div class="card-body">
+                  <p class="judul">EXPORT DATA</p>
+                  <hr style="margin-bottom: 10px; margin-top: -10px;" />
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <a href="#" class="btn bg-secondary text-light">MOBILE LEGENDS</a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="#" class="btn bg-secondary  text-light">FREE FIRE</a>
+                    </div>
+                  </div>
+              </div>
+          </div>
         </div>
     </div>
 </div>
