@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jan 2021 pada 14.01
+-- Waktu pembuatan: 05 Feb 2021 pada 09.43
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.3.21
 
@@ -24,21 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Struktur dari tabel `akun`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `akun` (
   `id` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
-  `password` varchar(10) NOT NULL
+  `password` varchar(10) NOT NULL,
+  `level` varchar(10) NOT NULL,
+  `waktu` datetime NOT NULL,
+  `Ip` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data untuk tabel `akun`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'tomcat', 'tomcat123');
+INSERT INTO `akun` (`id`, `username`, `password`, `level`, `waktu`, `Ip`) VALUES
+(1, 'tomcat', 'tomcat123', 'admin', '2021-02-05 15:36:51', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -134,9 +137,9 @@ CREATE TABLE `turnament_jadwal` (
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indeks untuk tabel `akun`
 --
-ALTER TABLE `admin`
+ALTER TABLE `akun`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -174,9 +177,9 @@ ALTER TABLE `turnament_jadwal`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT untuk tabel `akun`
 --
-ALTER TABLE `admin`
+ALTER TABLE `akun`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
