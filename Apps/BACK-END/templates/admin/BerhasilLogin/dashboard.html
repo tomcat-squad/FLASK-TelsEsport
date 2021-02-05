@@ -1,45 +1,70 @@
 {% include 'header.html' %}
 <!--CONTENT-->
 <div class="container">
-	<h5 class="font-weight-bold" style="color: #6a6a6a;">DASHBOARD</h5>
-	<hr style="margin-bottom: 20px; margin-top: -5px;">
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17)">
-				<div class="card-body">
-					<canvas id="line-chart" width="800" height="750"></canvas>
-				</div>
-			</div>
-		</div>
-	</div>
+    <h5 class="font-weight-bold" style="color: #6a6a6a;">DASHBOARD</h5>
+    <hr style="margin-bottom: 20px; margin-top: -5px;" />
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+                <div class="card-body">
+                    <p class="judul">GRAFIK ANALISIS</p>
+                    <canvas id="line-chart" width="800" height="750"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+                <div class="card-body">
+                    <p class="judul">TERAKHIR LOGIN</p>
+                    <table class="table table-sm text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Waktu</th>
+                                <th scope="col">IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mahendra Chevro</td>
+                                <td>2021-04-03 19:34:23</td>
+                                <td>143.132.21.43</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
 <script>
-	new Chart(document.getElementById("line-chart"), {
-  type: 'line',
-  data: {
-    labels: ["7 Feb","8 Feb","9 Feb","10 Feb","11 Feb","12 Feb","13 Feb","14 Feb"],
-    datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
-        label: "Mobile Legends",
-        borderColor: "#3e95cd",
-        fill: false
-      }, { 
-        data: [282,350,411,502,635,809,947],
-        label: "Free Fire",
-        borderColor: "#8e5ea2",
-        fill: false
+    	new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: [
+          {%for row in result_mlbb%}
+            "{{row[22]}}",
+          {%endfor%}
+          ],
+        datasets: [{
+            data: [
+            {%for row in result_mlbb%}
+              "{{row[0]}}",
+            {%endfor%}
+            ],
+            label: "Mobile Legends",
+            borderColor: "#3e95cd",
+            fill: false
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'STATISTIK PENDAFTARAN'
+        }
       }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'STATISTIK PENDAFTARAN'
-    }
-  }
-});
-
+    });
 </script>
 {% include 'footer.html' %}

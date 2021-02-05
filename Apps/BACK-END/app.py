@@ -136,7 +136,11 @@ def logout_admin():
 @app.route('/admin/dashboard')
 def index_dashboard():
     if 'admin' in session:
-        return render_template('admin/BerhasilLogin/dashboard.html')
+        conn    = mysql.connection
+        cur     = conn.cursor()
+        cur.execute("SELECT * FROM daftar_ml;")
+        result_mlbb = cur.fetchall()
+        return render_template('admin/BerhasilLogin/dashboard.html', result_mlbb=result_mlbb)
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))

@@ -1,132 +1,137 @@
 {% include 'header.html' %}
 <div class="container">
-	<h5 class="font-weight-bold" style="color: #6a6a6a;">TURNAMENT</h5>
-	<hr style="margin-bottom: 20px; margin-top: -5px;">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17)">
-				<div class="card-body">
-					<a href="/" class="btn btn-success" data-toggle="modal" data-target="#buatTurnament"><i class="fas fa-plus"></i> Buat Turnament</a>
-	<div class="modal fade" id="buatTurnament">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title">Turnament</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<!-- Modal body -->
-				<div class="modal-body">
-					<form action="{{url_for('uploadTurnament')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-						<div class="form-group">
-							<label>Thumbnail</label>
-							<input type="file" class="form-control" name="thumbnail">
-						</div>
-						<div class="form-group">
-							<label>Judul</label>
-							<input type="text" class="form-control" name="judul" placeholder="Mobile Legend | Umum" required>
-						</div>
-						<div class="form-group">
-							<label>Genre</label>
-							<input type="text" class="form-control" name="genre" placeholder="MLBB" required>
-						</div>
-						<div class="form-group">
-							<label>Biaya</label>
-							<input type="text" class="form-control" name="biaya" placeholder="50.000" required>
-						</div>
-						<div class="form-group">
-							<label>Jumlah Slot</label>
-							<input type="text" class="form-control" name="slot" placeholder="0/35" required>
-						</div>
-						<div class="form-group">
-							<label>Hadiah</label>
-							<input type="text" class="form-control" name="hadiah" placeholder="600.000" required>
-						</div>
-						<div class="form-group">
-							<label>Tanggal</label>
-							<input type="date" class="form-control" name="waktu" placeholder="" required>
-						</div>
-						<div class="form-group">
-							<button class="btn btn-primary" type="submit">Submit</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
-	<p class="text-center">{{message}}</p>{% endfor %} {%endif%} {% endwith %}
-	<div class="card-columns">{% for row in turnament %}
-		<div class="card" style="width:350px; margin-top: 10px;">
-			<a href="../static/assets/thumbnail/{{row[1]}}">
-				<img class="card-img-top" src="../static/assets/thumbnail/{{row[1]}}" alt="Card image" width="350" height="350">
-			</a>
-			<div class="card-body">
-				<h4 class="card-title">{{row[2]}}</h4>
-				<p class="card-text">Genre : {{row[3]}}</p>
-				<p class="card-text">Biaya : {{row[4]}}</p>
-				<p class="card-text">Team : {{row[5]}}</p>
-				<p class="card-text">Hadiah : {{row[6]}}</p>
-				<p class="card-text">Tanggal : {{row[7]}}</p> <a href="#" class="btn btn-info" data-toggle="modal" data-target="#edit{{row[0]}}">Edit</a>
-				<a href="/delete_Turnament/{{row[0]}}" class="btn btn-danger" onclick="return confirm('Apakah Yakin Mau Hapus Team?')">Delete</a>
-			</div>
-		</div>
-		<!-- The Modal -->
-		<div class="modal fade" id="edit{{row[0]}}">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title">Edit Turnament</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<!-- Modal body -->
-					<div class="modal-body">
-						<form action="{{url_for('editTurnament')}}" method="POST" enctype="multipart/form-data">{{ form.csrf_token }}
-							<div class="form-group">
-								<input type="hidden" name="id" value="{{row.0}}">
-								<label>Judul</label>
-								<input type="text" class="form-control" name="judul" placeholder="Mobile Legend | Umum" value="{{row[2]}}" required>
-							</div>
-							<div class="form-group">
-								<label>Genre</label>
-								<input type="text" class="form-control" name="genre" placeholder="MLBB" value="{{row[3]}}" required>
-							</div>
-							<div class="form-group">
-								<label>Biaya</label>
-								<input type="text" class="form-control" name="biaya" placeholder="50.000" value="{{row[4]}}" required>
-							</div>
-							<div class="form-group">
-								<label>Jumlah Slot</label>
-								<input type="text" class="form-control" name="slot" placeholder="0/35" value="{{row[5]}}" required>
-							</div>
-							<div class="form-group">
-								<label>Hadiah</label>
-								<input type="text" class="form-control" name="hadiah" placeholder="600.000" value="{{row[6]}}" required>
-							</div>
-							<div class="form-group">
-								<label>Tanggal</label>
-								<input type="date" class="form-control" name="waktu" placeholder="" value="{{row[7]}}" required>
-							</div>
-							<div class="form-check">
-								<label class="form-check-label">
-									<input type="radio" class="form-check-input" id="radio1" name="status" value="1" checked>Aktif</label>
-							</div>
-							<div class="form-check">
-								<label class="form-check-label">
-									<input type="radio" class="form-check-input" id="radio2" name="status" value="0" checked>Selesai</label>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-primary" type="submit">Submit</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>{% endfor %}</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+    <h5 class="font-weight-bold" style="color: #6a6a6a;">TURNAMENT</h5>
+    <hr style="margin-bottom: 20px; margin-top: -5px;" />
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+                <div class="card-body">
+                    <a href="/" class="btn btn-success" data-toggle="modal" data-target="#buatTurnament"><i class="fas fa-plus"></i> Buat Turnament</a>
+                    <div class="modal fade" id="buatTurnament">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Turnament</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form action="{{url_for('uploadTurnament')}}" method="POST" enctype="multipart/form-data">
+                                        {{ form.csrf_token }}
+                                        <div class="form-group">
+                                            <label>Thumbnail</label>
+                                            <input type="file" class="form-control" name="thumbnail" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Judul</label>
+                                            <input type="text" class="form-control" name="judul" placeholder="Mobile Legend | Umum" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Genre</label>
+                                            <input type="text" class="form-control" name="genre" placeholder="MLBB" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Biaya</label>
+                                            <input type="text" class="form-control" name="biaya" placeholder="50.000" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jumlah Slot</label>
+                                            <input type="text" class="form-control" name="slot" placeholder="0/35" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Hadiah</label>
+                                            <input type="text" class="form-control" name="hadiah" placeholder="600.000" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tanggal</label>
+                                            <input type="date" class="form-control" name="waktu" placeholder="" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+                    <p class="text-center">{{message}}</p>
+                    {% endfor %} {%endif%} {% endwith %}
+                    <div class="card-columns">
+                        {% for row in turnament %}
+                        <div class="card" style="width: 350px; margin-top: 10px;">
+                            <a href="../static/assets/thumbnail/{{row[1]}}">
+                                <img class="card-img-top" src="../static/assets/thumbnail/{{row[1]}}" alt="Card image" width="350" height="350" />
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">{{row[2]}}</h4>
+                                <p class="card-text">Genre : {{row[3]}}</p>
+                                <p class="card-text">Biaya : {{row[4]}}</p>
+                                <p class="card-text">Team : {{row[5]}}</p>
+                                <p class="card-text">Hadiah : {{row[6]}}</p>
+                                <p class="card-text">Tanggal : {{row[7]}}</p>
+                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#edit{{row[0]}}">Edit</a>
+                                <a href="/delete_Turnament/{{row[0]}}" class="btn btn-danger" onclick="return confirm('Apakah Yakin Mau Hapus Team?')">Delete</a>
+                            </div>
+                        </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="edit{{row[0]}}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Edit Turnament</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form action="{{url_for('editTurnament')}}" method="POST" enctype="multipart/form-data">
+                                            {{ form.csrf_token }}
+                                            <div class="form-group">
+                                                <input type="hidden" name="id" value="{{row.0}}" />
+                                                <label>Judul</label>
+                                                <input type="text" class="form-control" name="judul" placeholder="Mobile Legend | Umum" value="{{row[2]}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Genre</label>
+                                                <input type="text" class="form-control" name="genre" placeholder="MLBB" value="{{row[3]}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Biaya</label>
+                                                <input type="text" class="form-control" name="biaya" placeholder="50.000" value="{{row[4]}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jumlah Slot</label>
+                                                <input type="text" class="form-control" name="slot" placeholder="0/35" value="{{row[5]}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Hadiah</label>
+                                                <input type="text" class="form-control" name="hadiah" placeholder="600.000" value="{{row[6]}}" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Tanggal</label>
+                                                <input type="date" class="form-control" name="waktu" placeholder="" value="{{row[7]}}" required />
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label"> <input type="radio" class="form-check-input" id="radio1" name="status" value="1" checked />Aktif</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label"> <input type="radio" class="form-check-input" id="radio2" name="status" value="0" checked />Selesai</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary" type="submit">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% include 'footer.html' %}
