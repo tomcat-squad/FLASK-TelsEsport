@@ -84,31 +84,35 @@ VIEW ADMIN START
 #==============================
 @app.route('/download/csv_mlbb')
 def download_mlbb():
-    conn = mysql.connection
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM daftar_ml;")
-    result = cur.fetchall()
-    output = io.StringIO()
-    writer = csv.writer(output)
+    if 'admin' in session:
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM daftar_ml;")
+        result = cur.fetchall()
+        output = io.StringIO()
+        writer = csv.writer(output)
 
-    line = ['ID', 'Nama Team', 
-    'Nama Kapten', 'IGN-Kapten', 'ID-Kapten',
-    'Player-2', 'IGN-Player2', 'ID-Player2',
-    'Player-3', 'IGN-Player3', 'ID-Player3',
-    'Player-4', 'IGN-Player4', 'ID-Player4',
-    'Player-5', 'IGN-Player5', 'ID-Player5',
-    'Player-6', 'IGN-Player6', 'ID-Player6',
-    'Email', 'Nomor-WA', 'Waktu']
-    writer.writerow(line)
-    for row in result:
-        line = [row[0], row[1], row[2], row[3], 
-        row[4], row[5], row[6], row[7], row[8], 
-        row[9], row[10], row[11], row[12], row[13], 
-        row[14], row[15], row[16], row[17], row[18] , 
-        row[19], row[20], row[21], row[22]]
+        line = ['ID', 'Nama Team', 
+        'Nama Kapten', 'IGN-Kapten', 'ID-Kapten',
+        'Player-2', 'IGN-Player2', 'ID-Player2',
+        'Player-3', 'IGN-Player3', 'ID-Player3',
+        'Player-4', 'IGN-Player4', 'ID-Player4',
+        'Player-5', 'IGN-Player5', 'ID-Player5',
+        'Player-6', 'IGN-Player6', 'ID-Player6',
+        'Email', 'Nomor-WA', 'Waktu']
         writer.writerow(line)
-    output.seek(0)
-    return Response(output, mimetype="text/csv", headers={"Content-Disposition":"attachment;filename=data_mlbb.csv"})
+        for row in result:
+            line = [row[0], row[1], row[2], row[3], 
+            row[4], row[5], row[6], row[7], row[8], 
+            row[9], row[10], row[11], row[12], row[13], 
+            row[14], row[15], row[16], row[17], row[18] , 
+            row[19], row[20], row[21], row[22]]
+            writer.writerow(line)
+        output.seek(0)
+        return Response(output, mimetype="text/csv", headers={"Content-Disposition":"attachment;filename=data_mlbb.csv"})
+    else:
+        flash('Login Terlebih Dahulu', 'Failed')
+        return redirect(url_for('index_admin'))
 
 @app.route('/admin')
 def index_admin():
