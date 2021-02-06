@@ -1,63 +1,65 @@
 {% include 'header.html' %}
 <!--CONTENT-->
-<div class="container">
-    <h5 class="font-weight-bold" style="color: #6a6a6a;">DASHBOARD</h5>
-    <hr style="margin-bottom: 20px; margin-top: -5px;" />
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
-                <div class="card-body">
-                    <p class="judul">GRAFIK ANALISIS</p>
-                    <hr style="margin-bottom: 10px; margin-top: -10px;" />
-                    <canvas id="line-chart" width="800" height="750"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
-                <div class="card-body">
-                    <p class="judul">TERAKHIR LOGIN</p>
-                    <hr style="margin-bottom: 10px; margin-top: -10px;" />
-                    <table class="table table-sm table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col">Username</th>
-                                <th scope="col">Waktu</th>
-                                <th scope="col">IP</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          {%for row in result_log%}
-                            <tr>
-                                <td>{{row[0]}}</td>
-                                <td>{{row[1]}}</td>
-                                <td>{{row[2]}}</td>
-                            </tr>
-                          {%endfor%}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card" style="margin-top: 20px ;width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
-              <div class="card-body">
-                  <p class="judul">EXPORT DATA</p>
-                  <hr style="margin-bottom: 10px; margin-top: -10px;" />
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <a href="{{(url_for('download_mlbb'))}}" class="btn bg-secondary text-light">MOBILE LEGENDS</a>
-                    </div>
-                    <div class="col-sm-4">
-                      <a href="#" class="btn bg-secondary  text-light">FREE FIRE</a>
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-    </div>
+<div class="container animated slideInDown">
+	<h5 class="font-weight-bold" style="color: #6a6a6a;">DASHBOARD</h5>
+	<hr style="margin-bottom: 20px; margin-top: -5px;" />
+	<div class="row">
+		<div class="col-sm-6 ">
+			<div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+				<div class="card-body">
+					<p class="judul">ANALYSIS GRAPH</p>
+					<hr style="margin-bottom: 10px; margin-top: -10px;" />
+					<canvas id="line-chart" width="800" height="750"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card" style="width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+				<div class="card-body">
+					<p class="judul">LAST LOGIN</p>
+					<hr style="margin-bottom: 10px; margin-top: -10px;" />
+					<table class="table table-sm table-bordered text-center">
+						<thead>
+							<tr>
+								<th scope="col">Username</th>
+								<th scope="col">Waktu</th>
+								<th scope="col">IP</th>
+							</tr>
+						</thead>
+						<tbody>{%for row in result_log%}
+							<tr>
+								<td>{{row[0]}}</td>
+								<td>{{row[1]}}</td>
+								<td>{{row[2]}}</td>
+							</tr>{%endfor%}</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="card" style="margin-top: 20px ;width: 100%; box-shadow: 0 15px 15px rgba(51, 54, 53, 0.17);">
+				<div class="card-body">
+					<p class="judul">TOOLS</p>
+					<hr style="margin-bottom: 10px; margin-top: -10px;" />
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="btn-group">
+								<button type="button" class="btn dropdown-toggle" style="background-color: #f82626c4; color: #ffffff;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-file-download"></i> Export</button>
+								<div class="dropdown-menu"> <a class="dropdown-item" href="{{(url_for('download_mlbb'))}}"><i class="fas fa-download"></i> Mobile Legends</a>
+									<a class="dropdown-item" href="#"><i class="fas fa-download"></i> Free Fire</a>
+								</div>
+							</div>
+						</div>
+            <div class="col-sm-8">
+              <a href="#" class="btn btn-dark"><i class="fas fa-power-off"></i> Restart Server</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
-    	new Chart(document.getElementById("line-chart"), {
+	new Chart(document.getElementById("line-chart"), {
       type: 'line',
       data: {
         labels: [
@@ -84,5 +86,4 @@
         }
       }
     });
-</script>
-{% include 'footer.html' %}
+</script>{% include 'footer.html' %}
