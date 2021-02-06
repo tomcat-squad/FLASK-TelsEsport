@@ -74,8 +74,6 @@
                                     <a href="/delete_Jadwal_MLBB/{{row.0}}" class="btn btn-danger btn-xs fa fa-trash" onclick="return confirm('Apakah Yakin Mau Hapus Jadwal?')"></a>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
                     <div id="modaledit{{row.0}}" class="modal fade text-dark" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
@@ -109,6 +107,8 @@
                             </div>
                         </div>
                         {%endfor%}
+                    </tbody>
+                </table>
 
                         <!--
 					<h3 style="margin-top: 30px;">PUBG</h3>
