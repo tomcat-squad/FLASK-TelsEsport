@@ -15,9 +15,9 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 csrf.init_app(app)
 
-'''
-CUSTOM ERROR PAGE
-'''
+#==============================
+# CUSTOM ERROR PAGE START
+#==============================
 @app.errorhandler(CSRFError)
 def handle_csrf_error(e):
     code_error = '400'
@@ -47,7 +47,9 @@ def page_server_error(e):
     code_error = '500'
     pesan_error = 'SERVER ERROR :('
     return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 500
-
+#==============================
+# CUSTOM ERROR PAGE END
+#==============================
 
 
 #==============================
@@ -120,6 +122,9 @@ def download_mlbb():
 # EXPORT DATA MOBILE LEGEND END
 #==============================
 
+#==============================
+# PROSES LOGIN ADMIN START
+#==============================
 @app.route('/admin')
 def index_admin():
     get_ip  = request.environ['REMOTE_ADDR']
@@ -198,6 +203,9 @@ def index_dashboard():
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
+#==============================
+# PROSES LOGIN ADMIN END
+#==============================
 
 #==============================
 # DASHBOARD MOBILE LEGEND START
@@ -499,45 +507,6 @@ VIEW ADMIN END
 '''
 VIEW USER START
 '''
-
-'''
-#===================
-#URL FOR AJAX START
-#===================
-@app.route('/get_turnament/<int:turnament>', methods=['GET'])
-def getTurnament(turnament):
-    conn    = mysql.connection
-    cur     = conn.cursor()
-    cur.execute("SELECT * FROM turnament WHERE Status=%s;" %(turnament))
-    result_turnament = cur.fetchall()
-    return render_template('user/ajax_turnament.html', ajax_turnament=result_turnament)
-
-@app.route('/get_team/MLBB', methods=['GET'])
-def getTeamML():
-    conn = mysql.connection
-    cur  = conn.cursor()
-    cur.execute("SELECT Team,NamaKapten FROM daftar_ml;")
-    result_team_ML = cur.fetchall()
-    if len(result_team_ML) > 0:
-        return render_template('user/ajax_team.html', ajax_team=result_team_ML)
-    else:
-        return 'Cooming Soon'
-
-@app.route('/get_team/PUBG', methods=['GET'])
-def getTeamPubg():
-    conn = mysql.connection
-    cur  = conn.cursor()
-    cur.execute("SELECT Team,NamaKapten FROM daftar_pubg;")
-    result_team_PUBG = cur.fetchall()
-    if len(result_team_PUBG) > 0:
-        return render_template('user/ajax_team.html', ajax_team=result_team_PUBG)
-    else:
-        return 'Cooming Soon'
-#===================
-#URL FOR AJAX END
-#===================
-'''
-
 #===================
 #SECTION HOME START
 #===================
