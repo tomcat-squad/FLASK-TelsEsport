@@ -1,5 +1,5 @@
 {% include 'header.html' %}
-<div class="container animated slideInRight">
+<div class="container">
 	<h5 class="font-weight-bold" style="color: #6a6a6a;">DAFTAR PEMAIN</h5>
 	<hr style="margin-bottom: 20px; margin-top: -5px;">{% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
 	<p class="text-center">{{message}}</p>{% endfor %} {%endif%} {% endwith %}
