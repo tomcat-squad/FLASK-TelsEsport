@@ -285,7 +285,7 @@ def editML():
                                             get_Nama_Player_6, get_IGN_Player_6, get_Id_Player_6,\
                                             get_Email, get_Whatsapp, get_waktu, get_id))
             conn.commit()
-            flash('Berhasil Edit', 'Success')
+            flash('BERHASIL EDIT TEAM', 'Success')
             return redirect(url_for('dashboardML'))
         else:
             abort(405)
@@ -300,7 +300,7 @@ def deleteML(get_id):
         cur = conn.cursor()
         cur.execute("DELETE FROM daftar_ml WHERE id=%s" %(get_id))
         conn.commit()
-        flash('Berhasil Hapus Team', 'Success')
+        flash('BERHASIL HAPUS TEAM', 'Success')
         return redirect(url_for('dashboardML'))
     else:
         flash('Login Terlebih Dahulu', 'Failed')
@@ -355,7 +355,7 @@ def uploadTurnament():
                                                 (get_genre + str(date_time.strftime("-%d-%B-%Y")) +'.jpg', get_judul, 
                                                 get_genre, get_biaya, get_slot, get_hadiah, get_tanggal, get_status))
             conn.commit()
-            flash('Berhasil Buat Turnament', 'Success')
+            flash('BERHASIL BUAT TURNAMENT', 'Success')
             return redirect(url_for('dashboardTurnament'))
         else:
             abort(405)
@@ -385,7 +385,7 @@ def editTurnament():
                                                 (get_judul, get_genre, \
                                                 get_biaya, get_slot, get_hadiah, get_tanggal, get_status, get_id))
             conn.commit()
-            flash('Berhasil Edit', 'Success')
+            flash('BERHASIL EDIT TURNAMENT', 'Success')
             return redirect(url_for('dashboardTurnament'))  
         else:
             abort(405)                             
@@ -400,7 +400,7 @@ def deleteTurnament(get_id):
         cur = conn.cursor()
         cur.execute("DELETE FROM turnament WHERE id=%s" %(get_id))
         conn.commit()
-        flash('Berhasil Hapus Team', 'Success')
+        flash('BERHASIL HAPUS TURNAMENT', 'Success')
         return redirect(url_for('dashboardTurnament'))
     else:
         flash('Login Terlebih Dahulu', 'Failed')
@@ -456,7 +456,7 @@ def uploadJadwal():
             cur.execute("INSERT INTO turnament_jadwal (Team, Jam, Tanggal, Genre) VALUES (%s,%s,%s,%s)", 
                                                 (get_team, get_waktu, get_tanggal, get_genre))
             conn.commit()
-            flash('Berhasil Buat Jadwal Pertandingan', 'Success')
+            flash('BERHASIL BUAT JADWAL BERMAIN', 'Success')
             return redirect(url_for('dashboardJadwal'))
         else:
             abort(405)
@@ -477,7 +477,7 @@ def editJadwalMLBB():
             cur.execute("UPDATE turnament_jadwal SET Team=%s, Jam=%s, Tanggal=%s WHERE id=%s",
                                                     (get_team, get_waktu, get_tanggal, get_id))
             conn.commit()
-            flash('Berhasil Edit', 'Success')
+            flash('BERHASIL EDIT JADWAL BERMAIN', 'Success')
             return redirect(url_for('dashboardJadwal'))
     else:
         flash('Login Terlebih Dahulu', 'Failed')
@@ -490,7 +490,7 @@ def deleteJadwal(get_id):
         cur = conn.cursor()
         cur.execute("DELETE FROM turnament_jadwal WHERE id=%s" %(get_id))
         conn.commit()
-        flash('Berhasil Hapus Team', 'Success')
+        flash('BERHASIL HAPUS JADWAL BERMAIN', 'Success')
         return redirect(url_for('dashboardJadwal'))
     else:
         flash('Login Terlebih Dahulu', 'Failed')
@@ -516,22 +516,22 @@ def index():
 
     #GET Data Table Turnament MLBB Aktif
     cur_turnament_MLBB_Aktif   = conn.cursor()
-    cur_turnament_MLBB_Aktif.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=1;")
+    cur_turnament_MLBB_Aktif.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=1 ORDER BY Waktu DESC;")
     result_turnament_MLBB_Aktif = cur_turnament_MLBB_Aktif.fetchall()
 
     #GET Data Table Turnament MLBB Selesai
     cur_turnament_MLBB_Selesai   = conn.cursor()
-    cur_turnament_MLBB_Selesai.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=0;")
+    cur_turnament_MLBB_Selesai.execute("SELECT * FROM turnament WHERE Genre='MLBB'AND Status=0 ORDER BY Waktu DESC;")
     result_turnament_MLBB_Selesai = cur_turnament_MLBB_Selesai.fetchall()
 
     #GET Data Table Turnament PB Aktif
     cur_turnament_PB_Aktif   = conn.cursor()
-    cur_turnament_PB_Aktif.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=1;")
+    cur_turnament_PB_Aktif.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=1 ORDER BY Waktu DESC;")
     result_turnament_PB_Aktif = cur_turnament_PB_Aktif.fetchall()
 
     #GET Data Table Turnament PB Selesai
     cur_turnament_PB_Selesai   = conn.cursor()
-    cur_turnament_PB_Selesai.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=0;")
+    cur_turnament_PB_Selesai.execute("SELECT * FROM turnament WHERE Genre='PB'AND Status=0 ORDER BY Waktu DESC;")
     result_turnament_PB_Selesai = cur_turnament_PB_Selesai.fetchall()
 
     return render_template('user/home.html', 

@@ -1,6 +1,11 @@
 {% include 'header.html' %}
 <div class="container">
     <h5 class="font-weight-bold" style="color: #6a6a6a;">TURNAMENT</h5>
+    {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+     </div>
+    {% endfor %} {%endif%} {% endwith %}
     <hr style="margin-bottom: 20px; margin-top: -5px;" />
     <div class="row">
         <div class="col-sm-12">
@@ -55,24 +60,36 @@
                             </div>
                         </div>
                     </div>
-                    {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
-                    <p class="text-center">{{message}}</p>
-                    {% endfor %} {%endif%} {% endwith %}
                     <div class="card-columns">
                         {% for row in turnament %}
-                        <div class="card" style="width: 350px; margin-top: 10px;">
+                        <div class="card" style="width: 100%; margin-top: 10px;">
                             <a href="../static/assets/thumbnail/{{row[1]}}">
-                                <img class="card-img-top" src="../static/assets/thumbnail/{{row[1]}}" alt="Card image" width="350" height="350" />
+                                <img class="card-img-top" src="../static/assets/thumbnail/{{row[1]}}" alt="Thumbnail" height="250px" />
                             </a>
                             <div class="card-body">
                                 <h4 class="card-title">{{row[2]}}</h4>
-                                <p class="card-text">Genre : {{row[3]}}</p>
-                                <p class="card-text">Biaya : {{row[4]}}</p>
-                                <p class="card-text">Team : {{row[5]}}</p>
-                                <p class="card-text">Hadiah : {{row[6]}}</p>
-                                <p class="card-text">Tanggal : {{row[7]}}</p>
-                                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#edit{{row[0]}}">Edit</a>
-                                <a href="/delete_Turnament/{{row[0]}}" class="btn btn-danger" onclick="return confirm('Apakah Yakin Mau Hapus Team?')">Delete</a>
+                                <hr style="margin-bottom: 20px; margin-top: -5px;" />
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="card-text">Genre : {{row[3]}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="card-text">Biaya : {{row[4]}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="card-text">Team : {{row[5]}}</p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="card-text">Hadiah : {{row[6]}}</p>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <p class="card-text">Tanggal : {{row[7]}}</p>
+                                    </div>
+                                    <div class="col-sm-12" style="margin-top: 10px;">
+                                        <a href="#" class="btn btn-info fa fa-pencil-square-o" data-toggle="modal" data-target="#edit{{row[0]}}"></a>
+                                        <a href="/delete_Turnament/{{row[0]}}" class="btn btn-danger fa fa-trash" onclick="return confirm('Apakah Yakin Mau Hapus Turnament?')"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- The Modal -->

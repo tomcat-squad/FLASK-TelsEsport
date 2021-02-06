@@ -2,6 +2,11 @@
 <!--CONTENT-->
 <div class="container">
     <h5 class="font-weight-bold" style="color: #6a6a6a;">JADWAL PERTANDINGAN</h5>
+    {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+     </div>
+    {% endfor %} {%endif%} {% endwith %}
     <hr style="margin-bottom: 20px; margin-top: -5px;" />
     <div class="row">
         <div class="col-sm-12">
@@ -48,10 +53,6 @@
                             </div>
                         </div>
                     </div>
-                    {% with message = get_flashed_messages(category_filter=["Success","Failed"])%} {% if message %} {%for message in message %}
-                    <p class="text-center">{{message}}</p>
-                    {% endfor %} {%endif%} {% endwith %}
-
                     <table class="table table-striped table-bordered text-center">
                         <thead>
                             <tr>
