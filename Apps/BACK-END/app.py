@@ -48,39 +48,42 @@ def page_server_error(e):
     pesan_error = 'SERVER ERROR :('
     return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 500
 
-'''
-PROSES UPLOAD GAMBAR
-'''
-app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
-UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer'
-ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
-app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
 
-UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail'
-ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg'])
-app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
 
-'''
-ALLOWED EXTENSION
-'''
+#==============================
+# PROSES UPLOAD IMGAE START
+#==============================
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024 # SIZE MAX
+ALLOWED_EXTENSIONS = set(['png', 'jpeg', 'jpg']) # EKSTENSION ALLOWED
+UPLOAD_FOLDER_BUKTI = 'static/assets/bukti_transfer' # TEMPAT FOLDER
+app.config['UPLOAD_FOLDER_BUKTI'] = UPLOAD_FOLDER_BUKTI
+UPLOAD_FOLDER_THUMBNAIL = 'static/assets/thumbnail' # TEMPAT FOLDER
+app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
+#==============================
+# PROSES UPLOAD IMGAE END
+#==============================
 
-'''
-DATABASE MYSQL
-'''
+
+#==============================
+# KONEKSI DATABASE START
+#==============================
 app.config['MYSQL_HOST']        = 'localhost'
 app.config['MYSQL_USER']        = 'root'
 app.config['MYSQL_PASSWORD']    = ''
 app.config['MYSQL_DATABASE']    = 'tomcat_esport'
 mysql = MySQL(app)
+#==============================
+# KONEKSI DATABASE END
+#==============================
 
 '''
 VIEW ADMIN START
 '''
 #==============================
-# EXPORT DATA MOBILE LEGEND
+# EXPORT DATA MOBILE LEGEND START
 #==============================
 @app.route('/download/csv_mlbb')
 def download_mlbb():
@@ -113,6 +116,9 @@ def download_mlbb():
     else:
         flash('Login Terlebih Dahulu', 'Failed')
         return redirect(url_for('index_admin'))
+#==============================
+# EXPORT DATA MOBILE LEGEND END
+#==============================
 
 @app.route('/admin')
 def index_admin():
