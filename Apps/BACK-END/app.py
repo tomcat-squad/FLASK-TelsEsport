@@ -24,6 +24,12 @@ def handle_csrf_error(e):
     pesan_error = 'TOKEN EXPAIRED, REFRESH PAGE'
     return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 400
 
+@app.errorhandler(403)
+def page_forbiden(e):
+    code_error = '403'
+    pesan_error = 'FORBIDEN :)'
+    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 403
+
 @app.errorhandler(404)
 def page_not_found(e):
     code_error = '404'
@@ -36,11 +42,9 @@ def page_methods_allowed(e):
     pesan_error = 'METHOD NOT ALLOWED'
     return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 405
 
-@app.errorhandler(403)
-def page_forbiden(e):
-    code_error = '403'
-    pesan_error = 'FORBIDEN :)'
-    return render_template('error_page/error.html', code=code_error, pesan=pesan_error), 403
+@app.errorhandler(413)
+def page_failed_upload(e):
+    return render_template('error_page/upload_failed.html'), 413
 
 @app.errorhandler(500)
 def page_server_error(e):
