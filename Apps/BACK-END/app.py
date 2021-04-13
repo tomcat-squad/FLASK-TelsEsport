@@ -13,6 +13,7 @@ import csv
 csrf = CSRFProtect()
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(days=1) #Expaired Session 1 Hari
 csrf.init_app(app)
 
 #==============================
@@ -79,7 +80,7 @@ app.config['UPLOAD_FOLDER_THUMBNAIL'] = UPLOAD_FOLDER_THUMBNAIL
 app.config['MYSQL_HOST']        = 'localhost'
 app.config['MYSQL_USER']        = 'root'
 app.config['MYSQL_PASSWORD']    = ''
-app.config['MYSQL_DATABASE']    = 'tomcat_esport'
+app.config['MYSQL_DATABASE']    = 'tomcatsq_esport'
 mysql = MySQL(app)
 #==============================
 # KONEKSI DATABASE END
@@ -679,7 +680,7 @@ def indexPembayaran():
         form = Esport_Mobile_Legend()
         return render_template('user/pembayaran.html', form=form)
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('index_team'))
 
 @app.route('/upload_bukti', methods=['POST'])
 def uploadBukti():
