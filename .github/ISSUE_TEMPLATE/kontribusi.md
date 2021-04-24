@@ -10,7 +10,7 @@ Siapa saja boleh ikut berkontribusi untuk kembangkan projek ini.
 </table>
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Tentang
+## Catatan
 Kami membuat folder untuk front-end dan back-end, jika anda developer front-end tidak usah khawatir, karna kami menyediakannya 
 <a href="https://github.com/tomcat-squad/FLASK-TelsEsport/tree/main/Apps">disini</a> untuk anda ubah tampilanya.
 
