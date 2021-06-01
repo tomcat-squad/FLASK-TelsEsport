@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Feb 2021 pada 09.43
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.3.21
+-- Generation Time: Jun 01, 2021 at 10:51 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tomcat_esport`
+-- Database: `tomcatsq_esport`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `akun`
+-- Table structure for table `akun`
 --
 
 CREATE TABLE `akun` (
@@ -37,29 +37,29 @@ CREATE TABLE `akun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `akun`
+-- Dumping data for table `akun`
 --
 
 INSERT INTO `akun` (`id`, `username`, `password`, `level`, `waktu`, `Ip`) VALUES
-(1, 'tomcat', 'tomcat123', 'admin', '2021-02-05 15:36:51', '127.0.0.1');
+(1, 'tomcat', 'tomcat123', 'admin', '2021-06-02 03:48:27', '127.0.0.1');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bukti_pembayaran`
+-- Table structure for table `bukti_pembayaran`
 --
 
 CREATE TABLE `bukti_pembayaran` (
   `id` int(11) NOT NULL,
-  `Team` varchar(100) NOT NULL,
   `Foto` varchar(255) NOT NULL,
-  `Genre` varchar(10) NOT NULL
+  `Genre` varchar(10) NOT NULL,
+  `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `daftar_ml`
+-- Table structure for table `daftar_ml`
 --
 
 CREATE TABLE `daftar_ml` (
@@ -85,13 +85,14 @@ CREATE TABLE `daftar_ml` (
   `ID_Player6` bigint(4) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Whatsapp` varchar(20) NOT NULL,
-  `Waktu` timestamp NOT NULL DEFAULT current_timestamp()
+  `Waktu` timestamp NOT NULL DEFAULT current_timestamp(),
+  `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `daftar_pubg`
+-- Table structure for table `daftar_pubg`
 --
 
 CREATE TABLE `daftar_pubg` (
@@ -103,7 +104,7 @@ CREATE TABLE `daftar_pubg` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `turnament`
+-- Table structure for table `turnament`
 --
 
 CREATE TABLE `turnament` (
@@ -121,7 +122,7 @@ CREATE TABLE `turnament` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `turnament_jadwal`
+-- Table structure for table `turnament_jadwal`
 --
 
 CREATE TABLE `turnament_jadwal` (
@@ -137,77 +138,77 @@ CREATE TABLE `turnament_jadwal` (
 --
 
 --
--- Indeks untuk tabel `akun`
+-- Indexes for table `akun`
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `bukti_pembayaran`
+-- Indexes for table `bukti_pembayaran`
 --
 ALTER TABLE `bukti_pembayaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `daftar_ml`
+-- Indexes for table `daftar_ml`
 --
 ALTER TABLE `daftar_ml`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `daftar_pubg`
+-- Indexes for table `daftar_pubg`
 --
 ALTER TABLE `daftar_pubg`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `turnament`
+-- Indexes for table `turnament`
 --
 ALTER TABLE `turnament`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `turnament_jadwal`
+-- Indexes for table `turnament_jadwal`
 --
 ALTER TABLE `turnament_jadwal`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `akun`
+-- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `bukti_pembayaran`
+-- AUTO_INCREMENT for table `bukti_pembayaran`
 --
 ALTER TABLE `bukti_pembayaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `daftar_ml`
+-- AUTO_INCREMENT for table `daftar_ml`
 --
 ALTER TABLE `daftar_ml`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `daftar_pubg`
+-- AUTO_INCREMENT for table `daftar_pubg`
 --
 ALTER TABLE `daftar_pubg`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `turnament`
+-- AUTO_INCREMENT for table `turnament`
 --
 ALTER TABLE `turnament`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `turnament_jadwal`
+-- AUTO_INCREMENT for table `turnament_jadwal`
 --
 ALTER TABLE `turnament_jadwal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

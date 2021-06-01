@@ -109,14 +109,14 @@ def download_mlbb():
         'Player-4', 'IGN-Player4', 'ID-Player4',
         'Player-5', 'IGN-Player5', 'ID-Player5',
         'Player-6', 'IGN-Player6', 'ID-Player6',
-        'Email', 'Nomor-WA', 'Waktu']
+        'Email', 'Nomor-WA', 'Waktu', 'order_id']
         writer.writerow(line)
         for row in result:
             line = [row[0], row[1], row[2], row[3], 
             row[4], row[5], row[6], row[7], row[8], 
             row[9], row[10], row[11], row[12], row[13], 
             row[14], row[15], row[16], row[17], row[18] , 
-            row[19], row[20], row[21], row[22]]
+            row[19], row[20], row[21], row[22], row[23]]
             writer.writerow(line)
         output.seek(0)
         return Response(output, mimetype="text/csv", headers={"Content-Disposition":"attachment;filename=data_mlbb.csv"})
@@ -225,7 +225,7 @@ def dashboardML():
         #INNER JOIN 2 Table
         conn    = mysql.connection
         cur     = conn.cursor()
-        cur.execute("SELECT * FROM daftar_ml INNER JOIN bukti_pembayaran ON daftar_ml.Team=bukti_pembayaran.Team WHERE Genre='MLBB';")
+        cur.execute("SELECT * FROM daftar_ml INNER JOIN bukti_pembayaran ON daftar_ml.order_id=bukti_pembayaran.order_id WHERE Genre='MLBB';")
         result_online = cur.fetchall()
         #SELECT ALL 1 TABLE
         cur_cod = conn.cursor()
@@ -631,6 +631,7 @@ def uploadML():
             get_Id_Player_6     = request.form['IdPlayer6']
 
             get_waktu           = datetime.datetime.now()
+            order_id            = datetime.datetime.now().strftime("%H%M%S%d")
             '''
             Myqsl Configuration
             '''
@@ -647,22 +648,22 @@ def uploadML():
                                                     NamaPlayer4, IGN_Player4, ID_Player4,\
                                                     NamaPlayer5, IGN_Player5, ID_Player5,\
                                                     NamaPlayer6, IGN_Player6, ID_Player6,\
-                                                    Email, Whatsapp, Waktu)\
+                                                    Email, Whatsapp, Waktu, order_id)\
                             VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,\
-                                    %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
+                                    %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", 
                                     (get_Team, get_Nama_Kapten, get_IGN_Kapten, get_Id_Kapten,
                                     get_Nama_Player_2, get_IGN_Player_2, get_Id_Player_2,
                                     get_Nama_Player_3, get_IGN_Player_3, get_Id_Player_3,
                                     get_Nama_Player_4, get_IGN_Player_4, get_Id_Player_4,
                                     get_Nama_Player_5, get_IGN_Player_5, get_Id_Player_5,
                                     get_Nama_Player_6, get_IGN_Player_6, get_Id_Player_6,
-                                    get_Email, get_Whatsapp, get_waktu))
+                                    get_Email, get_Whatsapp, get_waktu, order_id))
                 conn.commit()
                 #Create Session
                 session['success'] = True
-                session['team'] = get_Team
                 session['genre'] = 'MLBB'
-                return redirect(url_for('indexPembayaran'))
+                session['order_id'] = order_id
+                return redirect(url_for('indexPembayaran', order_id=order_id, genre=session['genre']))
         else:
             abort(405)
     else:
@@ -674,47 +675,51 @@ def uploadML():
 #========================
 # UPLOAD BUKTI PEMBAYARAN START
 #========================
-@app.route('/pembayaran')
-def indexPembayaran():
-    if 'success' in session:
+@app.route('/pembayaran/<int:order_id>/<genre>/')
+def indexPembayaran(order_id, genre):
+    conn = mysql.connection
+    cur = conn.cursor()
+    cur.execute(f"SELECT Team FROM daftar_ml WHERE order_id='{order_id}'")
+    result_order_id = cur.fetchall()
+    if len(result_order_id) == 1:
         form = Esport_Mobile_Legend()
-        return render_template('user/pembayaran.html', form=form)
+        return render_template('user/pembayaran.html', form=form, order_id=order_id, get_genre=genre)
     else:
         return redirect(url_for('index_team'))
 
-@app.route('/upload_bukti', methods=['POST'])
+@app.route('/upload_bukti/', methods=['POST'])
 def uploadBukti():
     if request.method == 'POST':
-        get_team = session['team']
-        get_genre = session['genre']
-        get_BuktiPembayaran = request.files['bukti-tf']
-        get_waktu = datetime.datetime.now()
-        if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
-            try:
-                filename = get_BuktiPembayaran.filename
-                get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], get_team  + str(get_waktu.strftime("-%f-%d-%B")) +'.jpg'))
-            except:
-                abort(403)
-            '''
-            Myqsl Configuration
-            '''
-            conn = mysql.connection
-            cur = conn.cursor()
-            cur.execute(f"SELECT Team FROM bukti_pembayaran WHERE Team='{get_team}'")
-            result_team = cur.fetchall()
-            if len(result_team) == 1:
-                session.pop('success', None)
-                session.pop('team', None)
-                session.pop('genre', None)
-                abort(403)
-            else:
-                cur.execute("INSERT INTO bukti_pembayaran (Team, Foto, Genre) VALUES (%s,%s,%s)", (get_team, get_team + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', get_genre))
-                conn.commit()
-                session.pop('success', None)
-                session.pop('team', None)
-                session.pop('genre', None)
-                flash('Berhasil Terdaftar', 'Success')
-                return redirect(url_for('index_team'))
+        req_order_id = request.args['order_id']
+        req_genre= request.args['genre']
+        conn = mysql.connection
+        cur = conn.cursor()
+        cur.execute(f"SELECT Team FROM daftar_ml WHERE order_id='{req_order_id}'")
+        result_order_id = cur.fetchall()
+        if len(result_order_id) == 1:
+            get_BuktiPembayaran = request.files['bukti-tf']
+            get_waktu = datetime.datetime.now()
+            if get_BuktiPembayaran and allowed_file(get_BuktiPembayaran.filename):
+                try:
+                    get_BuktiPembayaran.save(os.path.join(app.config['UPLOAD_FOLDER_BUKTI'], req_order_id  + str(get_waktu.strftime("-%f-%d-%B")) +'.jpg'))
+                except:
+                    abort(403)
+                '''
+                Myqsl Configuration
+                '''
+                conn = mysql.connection
+                cur = conn.cursor()
+                cur.execute(f"SELECT order_id FROM bukti_pembayaran WHERE order_id='{req_order_id}'")
+                result_team = cur.fetchall()
+                if len(result_team) == 1:
+                    os.remove('static/assets/bukti_transfer/' + req_order_id + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg')
+                    flash('Anda Sudah Terdaftar', 'Success')
+                    return redirect(url_for('index_team'))
+                else:
+                    cur.execute("INSERT INTO bukti_pembayaran (Foto, Genre, order_id) VALUES (%s,%s,%s)", (req_order_id + str(get_waktu.strftime("-%f-%d-%B")) + '.jpg', req_genre, req_order_id))
+                    conn.commit()
+                    flash('Berhasil Terdaftar', 'Success')
+                    return redirect(url_for('index_team'))
         else:
             return render_template('error_page/upload_failed.html')
     else:
